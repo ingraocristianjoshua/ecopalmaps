@@ -28,7 +28,7 @@ export const sendVerificationEmail = (email: string, token: string) => {
                 transporter.sendMail({
                     from: "EcoPalMaps <info@ecopalmaps.com>",
                     to: email,
-                    subject: "Verify your account",
+                    subject: "Verifica il tuo account",
                     html: data,
                 });
             }

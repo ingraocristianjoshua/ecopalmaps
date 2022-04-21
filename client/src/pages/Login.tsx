@@ -82,7 +82,7 @@ function Login() {
                                         <InputField
                                             field="input"
                                             type="text"
-                                            placeholder="Username or email"
+                                            placeholder="Username o email"
                                             errors={errors}
                                         />
                                         <InputField

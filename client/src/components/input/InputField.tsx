@@ -1,6 +1,7 @@
 import { Field } from "formik";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import Eye from "../icons/Eye";
 
 export interface InputFieldProps {
     field: string;
@@ -58,8 +59,15 @@ const InputContainer = styled.div.attrs((props: { focus: boolean }) => props)`
 `;
 
 const InputContainerField = styled.div`
-    display: block;
+    display: flex;
+    align-items: center;
     width: 100%;
+    gap: 12px;
+`;
+
+const ShowPassword = styled.div`
+    display: block;
+    cursor: pointer;
 `;
 
 const InputField: FunctionComponent<InputFieldProps> = ({
@@ -68,6 +76,20 @@ const InputField: FunctionComponent<InputFieldProps> = ({
     placeholder,
     errors,
 }) => {
+    let isPassword = false;
+    const [switchedType, setSwitchedType] = useState(false);
+    let showType;
+
+    if (type === "password") {
+        isPassword = true;
+    }
+
+    if (!switchedType) {
+        showType = "password";
+    } else {
+        showType = "text";
+    }
+
     const [isFocused, setIsFocused] = useState(false);
 
     const inputField = useRef<HTMLInputElement>(null);
@@ -106,7 +128,7 @@ const InputField: FunctionComponent<InputFieldProps> = ({
                             autoComplete="off"
                             autoCorrect="off"
                             name={field}
-                            type={type}
+                            type={isPassword ? showType : type}
                             onFocus={() => {
                                 setIsFocused(true);
                             }}
@@ -115,6 +137,16 @@ const InputField: FunctionComponent<InputFieldProps> = ({
                             }}
                             innerRef={inputField}
                         />
+                        {isPassword ? (
+                            <ShowPassword
+                                role="button"
+                                onClick={() => {
+                                    setSwitchedType(!switchedType);
+                                }}
+                            >
+                                <Eye mode={switchedType} />
+                            </ShowPassword>
+                        ) : null}
                     </InputContainerField>
                 </InputContainer>
             </InputFieldContainer>
