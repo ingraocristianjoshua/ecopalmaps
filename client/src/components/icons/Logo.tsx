@@ -6,7 +6,7 @@ export interface LogoProps {
     type: string;
 }
 
-const IndexLogo = styled(SvgIcon)`
+export const IndexLogo = styled(SvgIcon)`
     width: 54px;
     height: 54px;
 `;

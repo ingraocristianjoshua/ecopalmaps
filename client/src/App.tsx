@@ -11,6 +11,22 @@ import RecoverPassword from "./pages/RecoverPassword";
 import Signup from "./pages/Signup";
 import VerifyAccount from "./pages/VerifyAccount";
 import { setAccessToken } from "./utils/token";
+import styled from "styled-components";
+
+const PreloaderContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+`;
+
+const Preloader = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -34,11 +50,11 @@ function App() {
 
     if (loading) {
         return (
-            <div className="preloader-container">
-                <div className="preloader">
+            <PreloaderContainer>
+                <Preloader>
                     <Logo type="index-logo" />
-                </div>
-            </div>
+                </Preloader>
+            </PreloaderContainer>
         );
     }
 

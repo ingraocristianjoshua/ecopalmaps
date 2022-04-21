@@ -1,11 +1,14 @@
 import { FunctionComponent } from "react";
-import DatePicker from "react-datepicker";
+import DatePicker, { registerLocale } from "react-datepicker";
 import "./datepicker.css";
+import it from "date-fns/locale/it";
 
 export interface DatePickerProps {
     field: any;
     form: any;
 }
+
+registerLocale("it", it);
 
 const DatePickerComponent: FunctionComponent<DatePickerProps> = ({
     field,
@@ -19,6 +22,9 @@ const DatePickerComponent: FunctionComponent<DatePickerProps> = ({
             showMonthDropdown
             showYearDropdown
             dropdownMode="select"
+            calendarStartDay={1}
+            locale={"it"}
+            dateFormat={"dd/MM/yyyy"}
         />
     );
 };
