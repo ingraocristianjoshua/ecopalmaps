@@ -1,0 +1,21 @@
+mutation logIn($input: String!, $password: String!) {
+    login(input: $input, password: $password) {
+        user {
+            id
+            username
+            firstName
+            lastName
+            email
+            birthDate
+            gender
+            title
+            verified
+        }
+        errors {
+            field
+            message
+        }
+        accessToken
+        status
+    }
+}

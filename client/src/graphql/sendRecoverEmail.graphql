@@ -1,0 +1,9 @@
+mutation sendRecoverEmail($email: String!) {
+    sendRecoverEmail(email: $email) {
+        status
+        errors {
+            field
+            message
+        }
+    }
+}
