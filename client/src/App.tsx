@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import ModifyPassword from "./pages/ModifyPassword";
 import RecoverPassword from "./pages/RecoverPassword";
+import Signup from "./pages/Signup";
 import VerifyAccount from "./pages/VerifyAccount";
 import { setAccessToken } from "./utils/token";
 
@@ -59,6 +60,15 @@ function App() {
                         <IsNotAuthenticated
                             isAuth={isAuth}
                             children={<Login />}
+                        />
+                    }
+                />
+                <Route
+                    path="/signup"
+                    element={
+                        <IsNotAuthenticated
+                            isAuth={isAuth}
+                            children={<Signup />}
                         />
                     }
                 />
