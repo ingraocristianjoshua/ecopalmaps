@@ -86,7 +86,7 @@ export class UserResolver {
         if (!user) {
             errors.push({
                 field: "input",
-                message: "Sorry, but we can't find your account",
+                message: "Non esiste un account con queste credenziali",
             });
         } else {
             const valid = await argon2.verify(user.password, password);
@@ -94,16 +94,16 @@ export class UserResolver {
             if (!valid) {
                 errors.push({
                     field: "password",
-                    message: "Incorrect password",
+                    message: "Password errata",
                 });
             } else {
                 if (user.verified) {
                     sendRefreshToken(res, createRefreshToken(user));
                     accessToken = createAccessToken(user);
-                    status = "You are now logged in.";
+                    status = "Hai effettuato l'accesso.";
                 } else {
                     status =
-                        "Your email address is not verified. We just sent you an email containing the instructions for verification.";
+                        "Il tuo indirizzo email non è verificato. Ti abbiamo appena inviato una email contenente le istruzioni per la verifica.";
                     const verifyToken = createAccessToken(user);
                     sendVerificationEmail(user.email, verifyToken);
                 }
@@ -134,49 +134,49 @@ export class UserResolver {
         if (!email.includes("@")) {
             errors.push({
                 field: "email",
-                message: "Invalid email",
+                message: "Indirizzo email non valido",
             });
         }
         if (username.includes("@")) {
             errors.push({
                 field: "username",
-                message: "The username field cannot contain @",
+                message: "Lo username non può contenere @",
             });
         }
         if (username.length <= 2) {
             errors.push({
                 field: "username",
-                message: "The username lenght must be greater than 2",
+                message: "La lunghezza dello username deve essere maggiore di 2",
             });
         }
         if (password.length <= 2) {
             errors.push({
                 field: "password",
-                message: "The password lenght must be greater than 2",
+                message: "La lunghezza della password deve essere maggiore di 2",
             });
         }
         if (firstName == "" || firstName == null) {
             errors.push({
                 field: "firstName",
-                message: "The first name field cannot be empty",
+                message: "Il campo del nome non può essere vuoto",
             });
         }
         if (lastName == "" || lastName == null) {
             errors.push({
                 field: "lastName",
-                message: "The last name field cannot be empty",
+                message: "Il campo del cognome non può essere vuoto",
             });
         }
-        if (title == "Title" || title == "") {
+        if (title == "Titolo" || title == "") {
             errors.push({
                 field: "title",
-                message: "The title field cannot take this value",
+                message: "Il campo del titolo non può prendere questo valore",
             });
         }
         if (gender == "Gender" || gender == "") {
             errors.push({
                 field: "gender",
-                message: "The gender field cannot take this value",
+                message: "Il campo del genere non può prendere questo valore",
             });
         }
 
@@ -207,20 +207,20 @@ export class UserResolver {
                 const token = createAccessToken(user);
                 sendVerificationEmail(email, token);
                 status =
-                    "Check your inbox, we just sent you an email with the instructions to verify your account.";
+                    "Controlla la tua posta elettronica, ti abbiamo appena inviato una email contenente le istruzioni per la verifica del tuo indirizzo email.";
             } catch (error) {
                 console.log(error);
 
                 if (error.detail.includes("username")) {
                     errors.push({
                         field: "username",
-                        message: "Username already taken",
+                        message: "Questo username è stato già preso",
                     });
                 }
                 if (error.detail.includes("email")) {
                     errors.push({
                         field: "email",
-                        message: "A user using this email already exists",
+                        message: "Esiste già un utente che utilizza questo indirizzo email",
                     });
                 }
             }
@@ -268,11 +268,11 @@ export class UserResolver {
                     verified: true,
                 }
             );
-            status = "Your email address is now verified, so you can log in.";
+            status = "Il tuo indirizzo email è stato verificato. Adesso puoi effettuare l'accesso.";
         } catch (error) {
             console.error(error);
             status =
-                "An error has occurred. Please repeat the email address verification.";
+                "C'è stato un errore. Per favore, effettua di nuovo l'operazione per la verifica dell'indirizzo email.";
         }
 
         return { status };
@@ -309,7 +309,7 @@ export class UserResolver {
                 errors.push({
                     field: "email",
                     message:
-                        "This email address is not associated with any account",
+                        "Questo indirizzo email non è associato ad alcun account",
                 });
             } else {
                 const token = createAccessToken(user);
@@ -329,11 +329,11 @@ export class UserResolver {
                                 transporter.sendMail({
                                     from: "EcoPalMaps <support@ecopalmaps.com>",
                                     to: email,
-                                    subject: "Recover your password",
+                                    subject: "Recupera la tua password",
                                     html: data,
                                 });
                                 status =
-                                    "Check your inbox, we just sent you an email with the instructions to recover your account password.";
+                                    "Controlla la tua posta elettronica, ti abbiamo appena inviato una email contenente le istruzioni per il recupero della tua password.";
                             }
                         }
                     );
@@ -342,7 +342,7 @@ export class UserResolver {
                     errors.push({
                         field: "email",
                         message:
-                            "Could not send the email, check your internet connection",
+                            "Non è stato possibile inviare l'email, controlla la tua connessione ad internet",
                     });
                 }
             }
@@ -365,7 +365,7 @@ export class UserResolver {
         if (password.length <= 2) {
             errors.push({
                 field: "password",
-                message: "The password lenght must be greater than 2",
+                message: "La lunghezza della password deve essere maggiore di 2",
             });
         }
 
@@ -373,7 +373,7 @@ export class UserResolver {
             errors.push({
                 field: "confirmPassword",
                 message:
-                    "The confirmation password lenght must be greater than 2",
+                    "La lunghezza della password di conferma deve essere maggiore di 2",
             });
         }
 
@@ -381,11 +381,11 @@ export class UserResolver {
             errors.push(
                 {
                     field: "password",
-                    message: "The two passwords do not match",
+                    message: "Le due password non coincidono",
                 },
                 {
                     field: "confirmPassword",
-                    message: "The two passwords do not match",
+                    message: "Le due password non coincidono",
                 }
             );
         }
@@ -407,10 +407,10 @@ export class UserResolver {
                     }
                 );
 
-                status = "The password has been changed, now you can login.";
+                status = "La password è stata cambiata. Adesso puoi effettuare l'accesso.";
             } catch (error) {
                 status =
-                    "An error has occurred. Please repeat the password recovery operation.";
+                    "C'è stato un errore. Per favore, effettua di nuovo l'operazione per il recupero della password.";
             }
         }
 

@@ -1,5 +1,6 @@
 import { Form, Formik } from "formik";
 import Head from "../components/Head";
+import DatePickerField from "../components/input/datepicker/DatePickerField";
 import InputField from "../components/input/InputField";
 import SelectField from "../components/input/select/SelectField";
 import AuthLayout from "../components/layouts/AuthLayout";
@@ -16,17 +17,17 @@ function Signup() {
     const [signup] = useSignUpMutation();
 
     const titleOptions = [
-        { value: "Title", label: "Title" },
+        { value: "Titolo", label: "Titolo" },
         { value: "Ms.", label: "Ms." },
         { value: "Mr.", label: "Mr." },
         { value: "Dr.", label: "Dr." },
     ];
 
     const genderOptions = [
-        { value: "Gender", label: "Gender" },
-        { value: "Female", label: "Female" },
-        { value: "Male", label: "Male" },
-        { value: "Other", label: "Other" },
+        { value: "Genere", label: "Genere" },
+        { value: "Donna", label: "Donna" },
+        { value: "Uomo", label: "Uomo" },
+        { value: "Non binario", label: "Non binario" },
     ];
 
     return (
@@ -87,6 +88,10 @@ function Signup() {
                                         <Status>{status}</Status>
                                     ) : null}
                                     <AuthFormContent>
+                                        <DatePickerField
+                                            field="birthDate"
+                                            placeholder="Data di nascita"
+                                        />
                                         <AuthHalfInput>
                                             <SelectField
                                                 field="title"

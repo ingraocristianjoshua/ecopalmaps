@@ -114,3 +114,48 @@ export const AuthButton = styled(Button)`
     background-color: #EDD035;
     color: #ffffff;
 `;
+
+export const CustomFieldWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+`;
+
+export const CustomFieldError = styled.div`
+    display: block;
+    font-size: 14px;
+`;
+
+export const CustomFieldContainer = styled.div`
+    display: block;
+    background-color: #C7C5BC;
+    height: 72px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-radius: 18px;
+`;
+
+export const CustomInfoContainer = styled.div`
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: flex-start;
+    height: 22px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+`;
+
+export const CustomInfo = styled.div`
+    display: block;
+    font-size: 14px;
+    cursor: pointer;
+`;
+
+export const CustomInnerFieldContainer = styled.div`
+    display: flex;
+    align-items: center;
+    height: 26px;
+    width: 100%;
+    margin-top: 38px;
+`;

@@ -42,3 +42,83 @@ input[type="email"], input[type="password"] {
 input::-ms-reveal {
     display: none;
 }
+
+div.select-container {
+    display: block;
+    background-color: #C7C5BC;
+    border-radius: 18px;
+    width: 100%;
+}
+
+div.select__control {
+    background-color: #C7C5BC;
+    border: none;
+    box-shadow: none;
+    min-height: auto;
+}
+
+div.select__value-container {
+    padding: 0;
+}
+
+div.select__single-value,
+div.select__input-container {
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+span.select__indicator-separator {
+    display: none;
+}
+
+div.select__indicator.select__dropdown-indicator {
+    padding: 0;
+    color: #000000;
+}
+
+div.select__indicator.select__dropdown-indicator svg {
+    fill: #000000;
+}
+
+div.select__menu {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    background-color: #C7C5BC;
+    border-radius: 18px;
+    box-sizing: border-box;
+}
+
+div.select__menu-list {
+    margin: 0;
+    padding: 0;
+}
+
+div.select__option {
+    padding-top: 8px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 8px;
+}
+
+div.select__option.select__option--is-focused {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+div.select__option.select__option--is-selected {
+    background-color: #EDD035;
+    color: #000000;
+}
+
+div.select__option:first-child {
+    border-radius: 18px 18px 0px 0px;
+}
+
+div.select__option:last-child {
+    border-radius: 0px 0px 18px 18px;
+}
+
+div.select__option:only-child {
+    border-radius: 18px;
+}
