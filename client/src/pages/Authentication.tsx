@@ -21,6 +21,10 @@ const PageContainer = styled.div`
     }
 `;
 
+const FlexContainer = styled.div`
+    display: flex;
+`;
+
 const PageContent = styled.div`
     display: flex;
     flex-direction: column;
@@ -88,6 +92,25 @@ const SiteTitle = styled.div`
     @media ${devices.desktop} {
         font-size: 64px;
     }
+`;
+
+const BrandLink = styled(Link)`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    text-decoration: none;
+
+    @media ${devices.mobileS} {
+        gap: 24px;
+    }
+`;
+
+const BrandText = styled.div`
+    display: block;
+    font-weight: 700;
+    font-size: 28px;
+    color: #000000;
 `;
 
 const PageFlex = styled(PageBlock)`
@@ -189,11 +212,14 @@ function Authentication() {
             />
             <PageContainer>
                 <PageContent>
-                    <PageFlex>
-                        <Link to="/" title="EcoPalMaps">
+                    <FlexContainer>
+                        <BrandLink to="/" title="EcoPalMaps">
                             <Logo type="index-logo" />
-                        </Link>
-                    </PageFlex>
+                            <BrandText>
+                                EcoPalMaps
+                            </BrandText>
+                        </BrandLink>
+                    </FlexContainer>
                     <SiteTitle>Scopri la cultura di Palma di Montechiaro</SiteTitle>
                     <PageText>
                         Questa è la prima piattaforma per valorizzare i luoghi culturali del territorio di Palma di Montechiaro in maniera ecologica.
