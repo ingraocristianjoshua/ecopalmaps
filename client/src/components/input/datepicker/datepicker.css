@@ -193,6 +193,7 @@
     color: #000000;
     font-weight: bold;
     font-size: 0.944rem;
+    text-transform: capitalize;
 }
 
 .react-datepicker-time__header {
@@ -460,6 +461,7 @@
 
 .react-datepicker__day-names {
     margin-bottom: -8px;
+    text-transform: capitalize;
 }
 
 .react-datepicker__day-name,
@@ -838,6 +840,7 @@ select {
     padding: 10px 18px;
     cursor: pointer;
 }
+
 select option {
     background-color: #C7C5BC;
     color: #000000;
