@@ -13,8 +13,13 @@ const NavContainer = styled.div`
     background-color: #ffffff;
     align-items: center;
     justify-content: space-between;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    @media ${devices.mobileM} {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
 `;
 
 const NavBrandContainer = styled.div`
