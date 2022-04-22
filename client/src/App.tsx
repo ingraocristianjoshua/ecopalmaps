@@ -1,32 +1,17 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Logo from "./components/icons/Logo";
+import Preloader from "./components/Preloader";
 import IsAuthenticated from "./components/routes/IsAuthenticated";
 import IsNotAuthenticated from "./components/routes/IsNotAuthenticated";
 import Authentication from "./pages/Authentication";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
+import Logout from "./pages/Logout";
 import ModifyPassword from "./pages/ModifyPassword";
 import RecoverPassword from "./pages/RecoverPassword";
 import Signup from "./pages/Signup";
 import VerifyAccount from "./pages/VerifyAccount";
 import { setAccessToken } from "./utils/token";
-import styled from "styled-components";
-
-const PreloaderContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: #ffffff;
-`;
-
-const Preloader = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -49,13 +34,7 @@ function App() {
     }, []);
 
     if (loading) {
-        return (
-            <PreloaderContainer>
-                <Preloader>
-                    <Logo type="index-logo" />
-                </Preloader>
-            </PreloaderContainer>
-        );
+        return <Preloader />
     }
 
     return (
@@ -112,6 +91,15 @@ function App() {
                         <IsNotAuthenticated
                             isAuth={isAuth}
                             children={<ModifyPassword />}
+                        />
+                    }
+                />
+                <Route
+                    path="/logout"
+                    element={
+                        <IsAuthenticated
+                            isAuth={isAuth}
+                            children={<Logout />}
                         />
                     }
                 />

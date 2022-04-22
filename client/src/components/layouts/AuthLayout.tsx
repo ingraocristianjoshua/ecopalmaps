@@ -93,7 +93,7 @@ const AuthLayout: FunctionComponent<AuthLayoutProps> = ({ content }) => {
         <AuthPage>
             <AuthPageHeader>
                 <ExitAuthPage
-                    title="Go back"
+                    title="Vai indietro"
                     role="button"
                     onClick={() => {
                         if (navigationType === "POP") {
