@@ -1,5 +1,18 @@
 import Head from "../components/Head";
 import PageLayout from "../components/layouts/PageLayout";
+import styled from "styled-components";
+
+const PageContent = styled.div`
+    display: grid;
+    grid-template-columns: 50% auto;
+    column-gap: 48px;
+`;
+
+const MapContainer = styled.div`
+    display: block;
+    width: 100%;
+    height: calc(100vh - 80px);
+`;
 
 function HomePage() {
     return (
@@ -10,7 +23,9 @@ function HomePage() {
             />
             <PageLayout
                 content={
-                    <>Home.</>
+                    <PageContent>
+                        <MapContainer></MapContainer>
+                    </PageContent>
                 }
             />
         </>
