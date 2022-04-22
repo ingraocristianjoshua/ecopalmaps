@@ -1,4 +1,5 @@
 import Head from "../components/Head";
+import PageLayout from "../components/layouts/PageLayout";
 
 function HomePage() {
     return (
@@ -7,7 +8,11 @@ function HomePage() {
                 title="Home | EcoPalMaps"
                 description="La prima piattaforma per valorizzare i luoghi culturali del territorio di Palma di Montechiaro in maniera ecologica."
             />
-            Home.
+            <PageLayout
+                content={
+                    <>Home.</>
+                }
+            />
         </>
     );
 }
