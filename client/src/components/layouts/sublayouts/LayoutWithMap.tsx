@@ -5,11 +5,10 @@ import { Status, Wrapper } from "@googlemaps/react-wrapper";
 import { isLatLngLiteral } from "@googlemaps/typescript-guards";
 import { createCustomEqual } from "fast-equals";
 import { Children, cloneElement, EffectCallback, isValidElement, useEffect, useRef, useState } from "react";
-import { PageBlock } from "../../../styles/global";
 import brandMarker from "../../../images/marker.png";
 
 export interface LayoutWithMapProps {
-    latLng: google.maps.LatLngLiteral;
+    latLng: google.maps.LatLngLiteral[];
     content: JSX.Element;
 }
 
@@ -26,14 +25,10 @@ const render = (status: Status) => {
 const PageContent = styled.div`
     display: grid;
     grid-template-rows: 50% auto;
-    row-gap: 24px;
-    column-gap: 0px;
     min-height: calc(100vh - 80px);
 
     @media ${devices.tablet} {
         grid-template-columns: 50% auto;
-        row-gap: 0px;
-        column-gap: 48px;
     }
 `;
 
@@ -46,6 +41,19 @@ const MapContainer = styled.div`
 
     @media ${devices.tablet} {
         height: calc(100vh - 80px);
+    }
+`;
+
+const PageContentContainer = styled.div`
+    display: block;
+    padding-top: 24px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 24px;
+
+    @media ${devices.mobileM} {
+        padding-left: 24px;
+        padding-right: 24px;
     }
 `;
 
@@ -82,18 +90,20 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({ latLng, content 
                         zoom={zoom}
                         style={{ position: "unset", top: "unset", width: "auto", height: "100%" }}
                     >
-                        {clicks.map((latLng, i) => (
+                        {/*{clicks.map((latLng, i) => (
                             <Marker key={i} position={latLng} />
-                        ))}
-                        {latLng ? (
-                            <Marker key="latLng" position={latLng} />
+                        ))}*/}
+                        {latLng.length !==0 ? (
+                            latLng.map((latLng, i) => (
+                                <Marker key={i} position={latLng} />  
+                            ))
                         ) : null}
                     </Map>
                 </Wrapper>
             </MapContainer>
-            <PageBlock>
+            <PageContentContainer>
                 {content}
-            </PageBlock>
+            </PageContentContainer>
         </PageContent>
     );
 }

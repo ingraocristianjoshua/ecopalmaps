@@ -159,3 +159,27 @@ export const CustomInnerFieldContainer = styled.div`
     width: 100%;
     margin-top: 38px;
 `;
+
+export const PageContentContainer = styled.div`
+    display: grid;
+    grid-template-rows: auto auto;
+    row-gap: 24px;
+`;
+
+export const PageContentTitle = styled.div`
+    display: block;
+    font-weight: 700;
+    font-size: 32px;
+    
+    @media ${devices.mobileM} {
+        font-size: 44px;
+    }
+
+    @media ${devices.mobileL} {
+        font-size: 50px;
+    }
+    
+    @media ${devices.tablet} {
+        font-size: 60px;
+    }
+`;

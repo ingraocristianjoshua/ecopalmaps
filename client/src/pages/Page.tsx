@@ -3,10 +3,16 @@ import PageLayout from "../components/layouts/PageLayout";
 import LayoutWithMap from "../components/layouts/sublayouts/LayoutWithMap";
 
 function Page() {
-    const latLng = {
-        lat: 37.1921729,
-        lng: 13.7606966,
-    };
+    const latLng = [
+        {
+            lat: 37.1921729,
+            lng: 13.7506966,
+        },
+        {
+            lat: 37.1821729,
+            lng: 13.7606966,
+        },
+    ];
 
     return (
         <>
