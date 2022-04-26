@@ -14,6 +14,7 @@ const PlacesContainer = styled.div`
 const PlaceContainer = styled.div`
     display: grid;
     grid-template-columns: 25% auto;
+    cursor: pointer;
 `;
 
 const PlaceImageContainer = styled.div`
