@@ -45,7 +45,7 @@ export const SvgIcon = styled.div`
     height: 32px;
     fill: inherit;
     stroke: inherit;
-    
+
     svg {
         width: inherit;
         height: inherit;
@@ -88,7 +88,7 @@ export const Status = styled.div`
     padding: 6px;
     border-radius: 6px;
     font-size: 14px;
-    background-color: #EDD035;
+    background-color: #edd035;
     color: #ffffff;
     margin-bottom: 24px;
 `;
@@ -111,7 +111,7 @@ export const AuthHalfInput = styled.div`
 `;
 
 export const AuthButton = styled(Button)`
-    background-color: #EDD035;
+    background-color: #edd035;
     color: #ffffff;
 `;
 
@@ -129,7 +129,7 @@ export const CustomFieldError = styled.div`
 
 export const CustomFieldContainer = styled.div`
     display: block;
-    background-color: #C7C5BC;
+    background-color: #c7c5bc;
     height: 72px;
     padding-left: 18px;
     padding-right: 18px;

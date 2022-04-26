@@ -133,7 +133,7 @@ const LinkButton = styled(Link)`
     }
 
     :last-child {
-        background-color: #EDD035;
+        background-color: #edd035;
     }
 `;
 
@@ -198,7 +198,8 @@ const FooterItem = styled(PageText)`
         text-decoration: none;
     }
 
-    a:hover, a:active {
+    a:hover,
+    a:active {
         text-decoration: underline;
     }
 `;
@@ -215,14 +216,16 @@ function Authentication() {
                     <FlexContainer>
                         <BrandLink to="/" title="EcoPalMaps">
                             <Logo type="index-logo" />
-                            <BrandText>
-                                EcoPalMaps
-                            </BrandText>
+                            <BrandText>EcoPalMaps</BrandText>
                         </BrandLink>
                     </FlexContainer>
-                    <SiteTitle>Scopri la cultura di Palma di Montechiaro</SiteTitle>
+                    <SiteTitle>
+                        Scopri la cultura di Palma di Montechiaro
+                    </SiteTitle>
                     <PageText>
-                        Questa è la prima piattaforma per valorizzare i luoghi culturali del territorio di Palma di Montechiaro in maniera ecologica.
+                        Questa è la prima piattaforma per valorizzare i luoghi
+                        culturali del territorio di Palma di Montechiaro in
+                        maniera ecologica.
                     </PageText>
                     <PageFlex>
                         <LinkButton to="/login" title="Accedi">

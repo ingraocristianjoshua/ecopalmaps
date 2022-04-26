@@ -5,7 +5,15 @@ import { useNavigate, useParams } from "react-router-dom";
 import Head from "../components/Head";
 import AuthLayout from "../components/layouts/AuthLayout";
 import { useVerifyEmailAddressMutation } from "../generated/graphql";
-import { AuthButton, AuthForm, AuthFormContent, AuthFormTitle, PageBlock, PageTextMB24, Status } from "../styles/global";
+import {
+    AuthButton,
+    AuthForm,
+    AuthFormContent,
+    AuthFormTitle,
+    PageBlock,
+    PageTextMB24,
+    Status,
+} from "../styles/global";
 
 function VerifyAccount() {
     const navigate = useNavigate();
@@ -38,7 +46,8 @@ function VerifyAccount() {
                             Verifica il tuo indirizzo email
                         </AuthFormTitle>
                         <PageTextMB24>
-                            Clicca il seguente pulsante per verificare l'indirizzo email associato al tuo account.
+                            Clicca il seguente pulsante per verificare
+                            l'indirizzo email associato al tuo account.
                         </PageTextMB24>
                         <Formik
                             initialValues={{ token: params.token! }}
@@ -64,9 +73,7 @@ function VerifyAccount() {
                         >
                             {({ status }) => (
                                 <Form>
-                                    {status ? (
-                                        <Status>{status}</Status>
-                                    ) : null}
+                                    {status ? <Status>{status}</Status> : null}
                                     <AuthFormContent>
                                         <PageBlock>
                                             <AuthButton type="submit">

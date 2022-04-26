@@ -10,7 +10,15 @@ import {
     useSignUpMutation,
     User,
 } from "../generated/graphql";
-import { AuthButton, AuthForm, AuthFormContent, AuthFormTitle, AuthHalfInput, PageBlock, Status } from "../styles/global";
+import {
+    AuthButton,
+    AuthForm,
+    AuthFormContent,
+    AuthFormTitle,
+    AuthHalfInput,
+    PageBlock,
+    Status,
+} from "../styles/global";
 import { toErrorMap } from "../utils/toErrorMap";
 
 function Signup() {
@@ -41,7 +49,7 @@ function Signup() {
                     <AuthForm>
                         <AuthFormTitle>Registrati</AuthFormTitle>
                         <Formik
-                            initialValues={{ 
+                            initialValues={{
                                 birthDate: Date(),
                                 title: "",
                                 gender: "",
@@ -84,9 +92,7 @@ function Signup() {
                         >
                             {({ errors, status }) => (
                                 <Form>
-                                    {status ? (
-                                        <Status>{status}</Status>
-                                    ) : null}
+                                    {status ? <Status>{status}</Status> : null}
                                     <AuthFormContent>
                                         <DatePickerField
                                             field="birthDate"

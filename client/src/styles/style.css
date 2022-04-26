@@ -25,12 +25,13 @@ body {
 a {
     font-weight: 700;
     font-size: inherit;
-    color: #EDD035;
+    color: #edd035;
     text-decoration: underline;
 }
 
 input[type="text"],
-input[type="email"], input[type="password"] {
+input[type="email"],
+input[type="password"] {
     display: block;
     background-color: transparent;
     color: #000000;
@@ -45,13 +46,13 @@ input::-ms-reveal {
 
 div.select-container {
     display: block;
-    background-color: #C7C5BC;
+    background-color: #c7c5bc;
     border-radius: 18px;
     width: 100%;
 }
 
 div.select__control {
-    background-color: #C7C5BC;
+    background-color: #c7c5bc;
     border: none;
     box-shadow: none;
     min-height: auto;
@@ -84,7 +85,7 @@ div.select__indicator.select__dropdown-indicator svg {
 div.select__menu {
     margin-top: 12px;
     margin-bottom: 12px;
-    background-color: #C7C5BC;
+    background-color: #c7c5bc;
     border-radius: 18px;
     box-sizing: border-box;
 }
@@ -107,7 +108,7 @@ div.select__option.select__option--is-focused {
 }
 
 div.select__option.select__option--is-selected {
-    background-color: #EDD035;
+    background-color: #edd035;
     color: #000000;
 }
 

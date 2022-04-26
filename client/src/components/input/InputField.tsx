@@ -24,27 +24,29 @@ const InputFieldError = styled.div`
 
 const InputFieldContainer = styled.div`
     display: block;
-    background-color: #C7C5BC;
+    background-color: #c7c5bc;
     height: 72px;
     padding-left: 18px;
     padding-right: 18px;
     border-radius: 18px;
 `;
 
-const InputInfoContainer = styled.div.attrs((props: { focus: boolean }) => props)`
+const InputInfoContainer = styled.div.attrs(
+    (props: { focus: boolean }) => props
+)`
     display: flex;
     position: absolute;
     align-items: center;
     justify-content: flex-start;
     height: 22px;
-    margin-top: ${(props) => props.focus ? "8px" : "25px"};
-    margin-bottom: ${props => props.focus ? "8px" : "0px"};
+    margin-top: ${(props) => (props.focus ? "8px" : "25px")};
+    margin-bottom: ${(props) => (props.focus ? "8px" : "0px")};
     transition: margin ease 0.4s;
 `;
 
 const LabelInputInfo = styled.label.attrs((props: { focus: boolean }) => props)`
     display: block;
-    font-size: ${(props) => props.focus ? "14px" : "18px"};
+    font-size: ${(props) => (props.focus ? "14px" : "18px")};
     cursor: pointer;
     transition: font-size ease 0.4s;
 `;
@@ -54,7 +56,7 @@ const InputContainer = styled.div.attrs((props: { focus: boolean }) => props)`
     align-items: center;
     height: 26px;
     width: 100%;
-    margin-top: ${(props) => props.focus ? "38px" : "23px"};
+    margin-top: ${(props) => (props.focus ? "38px" : "23px")};
     transition: margin ease 0.4s;
 `;
 

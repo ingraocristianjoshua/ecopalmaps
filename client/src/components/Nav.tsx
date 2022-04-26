@@ -53,7 +53,7 @@ const NavAccountButton = styled.div`
     width: 42px;
     height: 42px;
     border-radius: 21px;
-    background-color: #EDD035;
+    background-color: #edd035;
 `;
 
 function Nav() {
@@ -62,9 +62,7 @@ function Nav() {
             <NavBrandContainer>
                 <NavBrandLink to="/" title="EcoPalMaps">
                     <Logo type="index-logo" />
-                    <NavBrandText>
-                        EcoPalMaps
-                    </NavBrandText>
+                    <NavBrandText>EcoPalMaps</NavBrandText>
                 </NavBrandLink>
             </NavBrandContainer>
             <NavAccountButton role="button" title="Apri il menù">

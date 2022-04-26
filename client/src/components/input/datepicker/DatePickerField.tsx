@@ -1,6 +1,12 @@
 import { Field } from "formik";
 import { FunctionComponent } from "react";
-import { CustomFieldWrapper, CustomFieldContainer, CustomInfoContainer, CustomInfo, CustomInnerFieldContainer } from "../../../styles/global";
+import {
+    CustomFieldWrapper,
+    CustomFieldContainer,
+    CustomInfoContainer,
+    CustomInfo,
+    CustomInnerFieldContainer,
+} from "../../../styles/global";
 import DatePickerComponent from "./DatePickerComponent";
 
 export interface DatePickerFieldProps {

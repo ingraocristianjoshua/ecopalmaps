@@ -19,9 +19,7 @@ const PageLayout: FunctionComponent<PageLayoutProps> = ({ content }) => {
     return (
         <PageLayoutContainer>
             <Nav />
-            <PageContentContainer>
-                {content}
-            </PageContentContainer>
+            <PageContentContainer>{content}</PageContentContainer>
         </PageLayoutContainer>
     );
 };

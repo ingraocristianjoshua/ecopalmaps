@@ -2,6 +2,22 @@ import Head from "../components/Head";
 import PageLayout from "../components/layouts/PageLayout";
 import styled from "styled-components";
 import { devices } from "../styles/devices";
+import { Status, Wrapper } from "@googlemaps/react-wrapper";
+import { FunctionComponent } from "react";
+import { isLatLngLiteral } from "@googlemaps/typescript-guards";
+import { createCustomEqual } from "fast-equals";
+import { Children, cloneElement, EffectCallback, isValidElement, useEffect, useRef, useState } from "react";
+import { PageBlock } from "../styles/global";
+
+interface MapProps extends google.maps.MapOptions {
+    style: { [key: string]: string };
+    onClick?: (e: google.maps.MapMouseEvent) => void;
+    onIdle?: (map: google.maps.Map) => void;
+}
+
+const render = (status: Status) => {
+    return <div>{status}</div>;
+};
 
 const PageContent = styled.div`
     display: grid;
@@ -27,15 +43,26 @@ const MapContainer = styled.div`
     @media ${devices.tablet} {
         height: calc(100vh - 80px);
     }
-
-    iframe {
-        width: inherit;
-        height: inherit;
-        border: none;
-    }
 `;
 
 function HomePage() {
+    const [clicks, setClicks] = useState<google.maps.LatLng[]>([]);
+    const [zoom, setZoom] = useState(15);
+    const [center, setCenter] = useState<google.maps.LatLngLiteral>({
+        lat: 37.1921729,
+        lng: 13.7606966,
+    });
+
+    const onClick = (e: google.maps.MapMouseEvent) => {
+        setClicks([...clicks, e.latLng!]);
+    };
+
+    const onIdle = (m: google.maps.Map) => {
+        console.log("onIdle");
+        setZoom(m.getZoom()!);
+        setCenter(m.getCenter()!.toJSON());
+    };
+
     return (
         <>
             <Head
@@ -46,13 +73,141 @@ function HomePage() {
                 content={
                     <PageContent>
                         <MapContainer>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12713.506306460187!2d13.757992934422878!3d37.191284077916045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13108837b60b3477%3A0xec56eeffb9aef5ae!2s92020%20Palma%20di%20Montechiaro%20AG!5e0!3m2!1sit!2sit!4v1650649585164!5m2!1sit!2sit" allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                            <Wrapper
+                                apiKey={process.env.REACT_APP_GOOGLE_MAPS_API!}
+                                render={render}
+                            >
+                                <Map
+                                    center={center}
+                                    onClick={onClick}
+                                    onIdle={onIdle}
+                                    zoom={zoom}
+                                    style={{ position: "unset", top: "unset", width: "auto", height: "100%" }}
+                                >
+                                    {clicks.map((latLng, i) => (
+                                        <Marker key={i} position={latLng} />
+                                    ))}
+                                </Map>
+                            </Wrapper>
                         </MapContainer>
+                        <PageBlock>
+                            {clicks.map((latLng, i) => (
+                                <pre key={i}>{JSON.stringify(latLng.toJSON(), null, 2)}</pre>
+                            ))}
+                        </PageBlock>
                     </PageContent>
                 }
             />
         </>
     );
+}
+
+const Map: FunctionComponent<MapProps> = ({
+    onClick,
+    onIdle,
+    style,
+    children,
+    ...options
+}) => {
+    const ref = useRef<HTMLDivElement>(null);
+    const [map, setMap] = useState<google.maps.Map>();
+
+    useEffect(() => {
+        if (ref.current && !map) {
+            setMap(new window.google.maps.Map(ref.current, {}));
+        }
+    }, [ref, map]);
+
+    useDeepCompareEffectForMaps(() => {
+        if (map) {
+            map.setOptions(options);
+        }
+    }, [map, options]);
+
+    useEffect(() => {
+        if (map) {
+            ["click", "idle"].forEach((eventName) =>
+                google.maps.event.clearListeners(map, eventName)
+            );
+
+            if (onClick) {
+                map.addListener("click", onClick);
+            }
+
+            if (onIdle) {
+                map.addListener("idle", () => onIdle(map));
+            }
+        }
+    }, [map, onClick, onIdle]);
+
+    return (
+        <>
+            <div ref={ref} style={style} />
+            {Children.map(children, (child) => {
+                if (isValidElement(child)) {
+                    return cloneElement(child, { map });
+                } else {
+                    return;
+                }
+            })}
+        </>
+    );
+};
+
+const Marker: FunctionComponent<google.maps.MarkerOptions> = (options) => {
+    const [marker, setMarker] = useState<google.maps.Marker>();
+
+    useEffect(() => {
+        if (!marker) {
+            setMarker(new google.maps.Marker());
+        }
+
+        return () => {
+            if (marker) {
+                marker.setMap(null);
+            }
+        };
+    }, [marker]);
+
+    useEffect(() => {
+        if (marker) {
+            marker.setOptions(options);
+        }
+    }, [marker, options]);
+
+    return null;
+};
+
+const deepCompareEqualsForMaps = createCustomEqual(
+    (deepEqual) => (a: any, b: any) => {
+        if (
+            isLatLngLiteral(a) ||
+            a instanceof google.maps.LatLng ||
+            isLatLngLiteral(b) ||
+            b instanceof google.maps.LatLng
+        ) {
+            return new google.maps.LatLng(a).equals(new google.maps.LatLng(b));
+        }
+
+        return deepEqual(a, b);
+    }
+);
+
+function useDeepCompareMemoize(value: any) {
+    const ref = useRef();
+
+    if (!deepCompareEqualsForMaps(value, ref.current)) {
+        ref.current = value;
+    }
+
+    return ref.current;
+}
+
+function useDeepCompareEffectForMaps(
+    callback: EffectCallback,
+    dependencies: any[]
+) {
+    useEffect(callback, dependencies.map(useDeepCompareMemoize));
 }
 
 export default HomePage;

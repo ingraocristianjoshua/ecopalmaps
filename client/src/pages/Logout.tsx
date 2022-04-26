@@ -19,7 +19,7 @@ const LogoutPage = styled.div`
 const LogoutContainer = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: #C7C5BC;
+    background-color: #c7c5bc;
     border-radius: 24px;
     max-width: 90vw;
 
@@ -34,23 +34,23 @@ const LogoutContainer = styled.div`
     @media ${devices.mobileL} {
         max-width: 57.5vw;
     }
-    
+
     @media ${devices.tablet} {
         max-width: 40vw;
     }
-    
+
     @media ${devices.laptopS} {
         max-width: 32vw;
     }
-    
+
     @media ${devices.laptopM} {
         max-width: 28vw;
     }
-    
+
     @media ${devices.laptopL} {
         max-width: 26vw;
     }
-    
+
     @media ${devices.desktop} {
         max-width: 25vw;
     }

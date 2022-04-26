@@ -3,7 +3,15 @@ import Head from "../components/Head";
 import InputField from "../components/input/InputField";
 import AuthLayout from "../components/layouts/AuthLayout";
 import { useSendRecoverEmailMutation } from "../generated/graphql";
-import { AuthButton, AuthForm, AuthFormContent, AuthFormTitle, PageBlock, PageTextMB24, Status } from "../styles/global";
+import {
+    AuthButton,
+    AuthForm,
+    AuthFormContent,
+    AuthFormTitle,
+    PageBlock,
+    PageTextMB24,
+    Status,
+} from "../styles/global";
 import { toErrorMap } from "../utils/toErrorMap";
 
 function RecoverPassword() {
@@ -18,11 +26,11 @@ function RecoverPassword() {
             <AuthLayout
                 content={
                     <AuthForm>
-                        <AuthFormTitle>
-                            Recupera la tua password
-                        </AuthFormTitle>
+                        <AuthFormTitle>Recupera la tua password</AuthFormTitle>
                         <PageTextMB24>
-                            In questa pagina puoi recuperare la tua password utilizzando l'indirizzo email associato al tuo account.
+                            In questa pagina puoi recuperare la tua password
+                            utilizzando l'indirizzo email associato al tuo
+                            account.
                         </PageTextMB24>
                         <Formik
                             initialValues={{ email: "" }}
@@ -54,9 +62,7 @@ function RecoverPassword() {
                         >
                             {({ errors, status }) => (
                                 <Form>
-                                    {status ? (
-                                        <Status>{status}</Status>
-                                    ) : null}
+                                    {status ? <Status>{status}</Status> : null}
                                     <AuthFormContent>
                                         <InputField
                                             field="email"

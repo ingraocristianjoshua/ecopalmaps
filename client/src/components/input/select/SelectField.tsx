@@ -1,7 +1,14 @@
 import { Field } from "formik";
 import { FunctionComponent } from "react";
 import SelectComponent from "./SelectComponent";
-import { CustomFieldWrapper, CustomFieldError, CustomFieldContainer, CustomInfoContainer, CustomInfo, CustomInnerFieldContainer } from "../../../styles/global";
+import {
+    CustomFieldWrapper,
+    CustomFieldError,
+    CustomFieldContainer,
+    CustomInfoContainer,
+    CustomInfo,
+    CustomInnerFieldContainer,
+} from "../../../styles/global";
 
 export interface SelectFieldProps {
     field: string;

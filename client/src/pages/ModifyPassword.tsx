@@ -6,7 +6,15 @@ import Head from "../components/Head";
 import InputField from "../components/input/InputField";
 import AuthLayout from "../components/layouts/AuthLayout";
 import { useNotAuthModifyPasswordMutation } from "../generated/graphql";
-import { AuthButton, AuthForm, AuthFormContent, AuthFormTitle, PageBlock, PageTextMB24, Status } from "../styles/global";
+import {
+    AuthButton,
+    AuthForm,
+    AuthFormContent,
+    AuthFormTitle,
+    PageBlock,
+    PageTextMB24,
+    Status,
+} from "../styles/global";
 import { toErrorMap } from "../utils/toErrorMap";
 
 function ModifyPassword() {
@@ -36,9 +44,7 @@ function ModifyPassword() {
             <AuthLayout
                 content={
                     <AuthForm>
-                        <AuthFormTitle>
-                            Modifica la tua password
-                        </AuthFormTitle>
+                        <AuthFormTitle>Modifica la tua password</AuthFormTitle>
                         <PageTextMB24>
                             In questa pagina puoi modificare la tua password.
                         </PageTextMB24>
@@ -88,9 +94,7 @@ function ModifyPassword() {
                         >
                             {({ status, errors }) => (
                                 <Form>
-                                    {status ? (
-                                        <Status>{status}</Status>
-                                    ) : null}
+                                    {status ? <Status>{status}</Status> : null}
                                     <AuthFormContent>
                                         <InputField
                                             field="password"
@@ -105,9 +109,7 @@ function ModifyPassword() {
                                             errors={errors}
                                         />
                                         <PageBlock>
-                                            <AuthButton
-                                                type="submit"
-                                            >
+                                            <AuthButton type="submit">
                                                 Modifica la tua password
                                             </AuthButton>
                                         </PageBlock>

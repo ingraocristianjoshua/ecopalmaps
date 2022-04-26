@@ -9,7 +9,14 @@ import {
     useLogInMutation,
     User,
 } from "../generated/graphql";
-import { AuthButton, AuthForm, AuthFormContent, AuthFormTitle, PageBlock, Status } from "../styles/global";
+import {
+    AuthButton,
+    AuthForm,
+    AuthFormContent,
+    AuthFormTitle,
+    PageBlock,
+    Status,
+} from "../styles/global";
 import { toErrorMap } from "../utils/toErrorMap";
 import { setAccessToken } from "../utils/token";
 
@@ -75,9 +82,7 @@ function Login() {
                         >
                             {({ errors, status, isSubmitting }) => (
                                 <Form>
-                                    {status ? (
-                                        <Status>{status}</Status>
-                                    ) : null}
+                                    {status ? <Status>{status}</Status> : null}
                                     <AuthFormContent>
                                         <InputField
                                             field="input"
