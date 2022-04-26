@@ -24,22 +24,22 @@ export const PageContent = styled.div`
         margin-left: 48px;
         margin-right: 48px;
     }
-    
+
     @media ${devices.tablet} {
         margin-left: 16%;
         margin-right: 16%;
     }
-    
+
     @media ${devices.laptopS} {
         margin-left: 22%;
         margin-right: 22%;
     }
-    
+
     @media ${devices.laptopM} {
         margin-left: 28%;
         margin-right: 28%;
     }
-    
+
     @media ${devices.desktop} {
         margin-left: 30%;
         margin-right: 30%;
@@ -50,15 +50,15 @@ export const PageTitle = styled.div`
     display: block;
     font-weight: 700;
     font-size: 32px;
-    
+
     @media ${devices.mobileS} {
         font-size: 44px;
     }
-    
+
     @media ${devices.mobileL} {
         font-size: 50px;
     }
-    
+
     @media ${devices.tablet} {
         font-size: 60px;
     }
@@ -76,7 +76,7 @@ const AccountInfoLine = styled.div`
     gap: 12px;
     align-items: unset;
     justify-content: flex-start;
-    
+
     @media ${devices.tablet} {
         flex-direction: row;
         align-items: flex-start;
@@ -92,18 +92,20 @@ const LogoutButton = styled(Button)`
 
 function Profile() {
     const { data } = useMeQuery({ fetchPolicy: "cache-and-network" });
-    let birthDay = new Date(parseInt(data?.me?.birthDate!)).toLocaleString("it-IT", { dateStyle: "long" });
+    let birthDay = new Date(parseInt(data?.me?.birthDate!)).toLocaleString(
+        "it-IT",
+        { dateStyle: "long" }
+    );
     const navigate = useNavigate();
 
     return (
-        <PageLayout 
+        <PageLayout
             content={
                 <PageContent>
-                    <PageTitle>
-                        Salve, {data?.me?.firstName}
-                    </PageTitle>
+                    <PageTitle>Salve, {data?.me?.firstName}</PageTitle>
                     <PageText>
-                        Qui puoi trovare tutte le informazioni relative al tuo account.
+                        Qui puoi trovare tutte le informazioni relative al tuo
+                        account.
                     </PageText>
                     <AccountInfo>
                         <AccountInfoLine>
@@ -111,38 +113,35 @@ function Profile() {
                                 <b>Nome completo</b>
                             </PageText>
                             <PageText>
-                                {data?.me?.firstName}{" "}{data?.me?.lastName}
+                                {data?.me?.firstName} {data?.me?.lastName}
                             </PageText>
                         </AccountInfoLine>
                         <AccountInfoLine>
                             <PageText>
                                 <b>Indirizzo email</b>
                             </PageText>
-                            <PageText>
-                                {data?.me?.email}
-                            </PageText>
+                            <PageText>{data?.me?.email}</PageText>
                         </AccountInfoLine>
                         <AccountInfoLine>
                             <PageText>
                                 <b>Username</b>
                             </PageText>
-                            <PageText>
-                                {data?.me?.username}
-                            </PageText>
+                            <PageText>{data?.me?.username}</PageText>
                         </AccountInfoLine>
                         <AccountInfoLine>
                             <PageText>
                                 <b>Data di nascita</b>
                             </PageText>
-                            <PageText>
-                                {birthDay}
-                            </PageText>
+                            <PageText>{birthDay}</PageText>
                         </AccountInfoLine>
                     </AccountInfo>
                     <PageBlock>
-                        <LogoutButton title="Esci" onClick={() => {
-                            navigate("/logout");
-                        }}>
+                        <LogoutButton
+                            title="Esci"
+                            onClick={() => {
+                                navigate("/logout");
+                            }}
+                        >
                             Esci
                         </LogoutButton>
                     </PageBlock>

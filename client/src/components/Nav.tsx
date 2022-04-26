@@ -15,6 +15,7 @@ const NavContainer = styled.div`
     justify-content: space-between;
     padding-left: 12px;
     padding-right: 12px;
+    z-index: 10000;
 
     @media ${devices.mobileM} {
         padding-left: 24px;
@@ -67,9 +68,13 @@ function Nav() {
                     <NavBrandText>EcoPalMaps</NavBrandText>
                 </NavBrandLink>
             </NavBrandContainer>
-            <NavAccountButton role="link" title="Vai al profilo" onClick={() => {
-                navigate("/profile");
-            }}>
+            <NavAccountButton
+                role="link"
+                title="Vai al profilo"
+                onClick={() => {
+                    navigate("/profile");
+                }}
+            >
                 <Account />
             </NavAccountButton>
         </NavContainer>

@@ -1,7 +1,11 @@
 import Head from "../components/Head";
 import PageLayout from "../components/layouts/PageLayout";
 import LayoutWithMap from "../components/layouts/sublayouts/LayoutWithMap";
-import { PageContentContainer, PageContentTitle, PageText } from "../styles/global";
+import {
+    PageContentContainer,
+    PageContentTitle,
+    PageText,
+} from "../styles/global";
 import styled from "styled-components";
 import { places } from "../utils/data";
 
@@ -68,30 +72,36 @@ function HomePage() {
             />
             <PageLayout
                 content={
-                    <LayoutWithMap latLng={latLng} content={
-                        <PageContentContainer>
-                            <PageContentTitle>
-                                Luoghi da visitare
-                            </PageContentTitle>
-                            <PlacesContainer>
-                                {places.map((place, key) => (
-                                    <PlaceContainer key={key}>
-                                        <PlaceImageContainer>
-                                            <img src={place.cover_image} title={place.title} />
-                                        </PlaceImageContainer>
-                                        <PlaceInfoContainer>
-                                            <PlaceName>
-                                                {place.title}
-                                            </PlaceName>
-                                            <PlaceDescription>
-                                                {place.description}
-                                            </PlaceDescription>
-                                        </PlaceInfoContainer>
-                                    </PlaceContainer>
-                                ))}
-                            </PlacesContainer>
-                        </PageContentContainer>
-                    } />
+                    <LayoutWithMap
+                        latLng={latLng}
+                        content={
+                            <PageContentContainer>
+                                <PageContentTitle>
+                                    Luoghi da visitare
+                                </PageContentTitle>
+                                <PlacesContainer>
+                                    {places.map((place, key) => (
+                                        <PlaceContainer key={key}>
+                                            <PlaceImageContainer>
+                                                <img
+                                                    src={place.cover_image}
+                                                    title={place.title}
+                                                />
+                                            </PlaceImageContainer>
+                                            <PlaceInfoContainer>
+                                                <PlaceName>
+                                                    {place.title}
+                                                </PlaceName>
+                                                <PlaceDescription>
+                                                    {place.description}
+                                                </PlaceDescription>
+                                            </PlaceInfoContainer>
+                                        </PlaceContainer>
+                                    ))}
+                                </PlacesContainer>
+                            </PageContentContainer>
+                        }
+                    />
                 }
             />
         </>

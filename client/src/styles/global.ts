@@ -170,7 +170,7 @@ export const PageContentTitle = styled.div`
     display: block;
     font-weight: 700;
     font-size: 32px;
-    
+
     @media ${devices.mobileM} {
         font-size: 44px;
     }
@@ -178,7 +178,7 @@ export const PageContentTitle = styled.div`
     @media ${devices.mobileL} {
         font-size: 50px;
     }
-    
+
     @media ${devices.tablet} {
         font-size: 60px;
     }

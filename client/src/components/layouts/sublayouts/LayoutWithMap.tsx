@@ -4,7 +4,15 @@ import { devices } from "../../../styles/devices";
 import { Status, Wrapper } from "@googlemaps/react-wrapper";
 import { isLatLngLiteral } from "@googlemaps/typescript-guards";
 import { createCustomEqual } from "fast-equals";
-import { Children, cloneElement, EffectCallback, isValidElement, useEffect, useRef, useState } from "react";
+import {
+    Children,
+    cloneElement,
+    EffectCallback,
+    isValidElement,
+    useEffect,
+    useRef,
+    useState,
+} from "react";
 import brandMarker from "../../../images/marker.png";
 
 export interface LayoutWithMapProps {
@@ -25,9 +33,11 @@ const render = (status: Status) => {
 const PageContent = styled.div`
     display: grid;
     grid-template-rows: 50% auto;
+    grid-template-columns: none;
     min-height: calc(100vh - 80px);
 
     @media ${devices.tablet} {
+        grid-template-rows: none;
         grid-template-columns: 50% auto;
     }
 `;
@@ -57,7 +67,10 @@ const PageContentContainer = styled.div`
     }
 `;
 
-const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({ latLng, content }) => {
+const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
+    latLng,
+    content,
+}) => {
     const [clicks, setClicks] = useState<google.maps.LatLng[]>([]);
     const [zoom, setZoom] = useState(15);
     const [center, setCenter] = useState<google.maps.LatLngLiteral>({
@@ -88,25 +101,28 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({ latLng, content 
                         onClick={onClick}
                         onIdle={onIdle}
                         zoom={zoom}
-                        style={{ position: "unset", top: "unset", width: "auto", height: "100%" }}
+                        style={{
+                            position: "unset",
+                            top: "unset",
+                            width: "auto",
+                            height: "100%",
+                        }}
                     >
                         {/*{clicks.map((latLng, i) => (
                             <Marker key={i} position={latLng} />
                         ))}*/}
-                        {latLng.length !==0 ? (
-                            latLng.map((latLng, i) => (
-                                <Marker key={i} position={latLng} />  
-                            ))
-                        ) : null}
+                        {latLng.length !== 0
+                            ? latLng.map((latLng, i) => (
+                                  <Marker key={i} position={latLng} />
+                              ))
+                            : null}
                     </Map>
                 </Wrapper>
             </MapContainer>
-            <PageContentContainer>
-                {content}
-            </PageContentContainer>
+            <PageContentContainer>{content}</PageContentContainer>
         </PageContent>
     );
-}
+};
 
 const Map: FunctionComponent<MapProps> = ({
     onClick,
@@ -120,7 +136,11 @@ const Map: FunctionComponent<MapProps> = ({
 
     useEffect(() => {
         if (ref.current && !map) {
-            setMap(new window.google.maps.Map(ref.current, { mapId: "5165859eabfa1694" }));
+            setMap(
+                new window.google.maps.Map(ref.current, {
+                    mapId: "5165859eabfa1694",
+                })
+            );
         }
     }, [ref, map]);
 
@@ -165,9 +185,11 @@ const Marker: FunctionComponent<google.maps.MarkerOptions> = (options) => {
 
     useEffect(() => {
         if (!marker) {
-            setMarker(new google.maps.Marker({
-                icon: brandMarker,
-            }));
+            setMarker(
+                new google.maps.Marker({
+                    icon: brandMarker,
+                })
+            );
         }
 
         return () => {

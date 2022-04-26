@@ -117,10 +117,7 @@ function App() {
                 <Route
                     path="/page"
                     element={
-                        <IsAuthenticated
-                            isAuth={isAuth}
-                            children={<Page />}
-                        />
+                        <IsAuthenticated isAuth={isAuth} children={<Page />} />
                     }
                 />
                 <Route
