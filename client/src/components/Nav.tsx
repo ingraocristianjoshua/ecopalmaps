@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { devices } from "../styles/devices";
 import Account from "./icons/Account";
@@ -57,6 +57,8 @@ const NavAccountButton = styled.div`
 `;
 
 function Nav() {
+    const navigate = useNavigate();
+
     return (
         <NavContainer>
             <NavBrandContainer>
@@ -65,7 +67,9 @@ function Nav() {
                     <NavBrandText>EcoPalMaps</NavBrandText>
                 </NavBrandLink>
             </NavBrandContainer>
-            <NavAccountButton role="button" title="Apri il menù">
+            <NavAccountButton role="link" title="Vai al profilo" onClick={() => {
+                navigate("/profile");
+            }}>
                 <Account />
             </NavAccountButton>
         </NavContainer>

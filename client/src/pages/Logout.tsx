@@ -60,8 +60,12 @@ const LogoutPageHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 24px;
+    gap: 12px;
     padding: 24px;
+
+    @media ${devices.tablet} {
+        gap: 24px;
+    }
 `;
 
 const ExitLogoutPage = styled.div`

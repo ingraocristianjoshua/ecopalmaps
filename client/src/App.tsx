@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
 import ModifyPassword from "./pages/ModifyPassword";
+import Profile from "./pages/Profile";
 import RecoverPassword from "./pages/RecoverPassword";
 import Signup from "./pages/Signup";
 import VerifyAccount from "./pages/VerifyAccount";
@@ -109,6 +110,15 @@ function App() {
                         <IsAuthenticated
                             isAuth={isAuth}
                             children={<HomePage />}
+                        />
+                    }
+                />
+                <Route
+                    path="/profile"
+                    element={
+                        <IsAuthenticated
+                            isAuth={isAuth}
+                            children={<Profile />}
                         />
                     }
                 />

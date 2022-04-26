@@ -8,6 +8,7 @@ import { isLatLngLiteral } from "@googlemaps/typescript-guards";
 import { createCustomEqual } from "fast-equals";
 import { Children, cloneElement, EffectCallback, isValidElement, useEffect, useRef, useState } from "react";
 import { PageBlock } from "../styles/global";
+import brandMarker from "../images/marker.png";
 
 interface MapProps extends google.maps.MapOptions {
     style: { [key: string]: string };
@@ -76,6 +77,7 @@ function HomePage() {
                             <Wrapper
                                 apiKey={process.env.REACT_APP_GOOGLE_MAPS_API!}
                                 render={render}
+                                language="it"
                             >
                                 <Map
                                     center={center}
@@ -114,7 +116,7 @@ const Map: FunctionComponent<MapProps> = ({
 
     useEffect(() => {
         if (ref.current && !map) {
-            setMap(new window.google.maps.Map(ref.current, {}));
+            setMap(new window.google.maps.Map(ref.current, { mapId: "5165859eabfa1694" }));
         }
     }, [ref, map]);
 
@@ -159,7 +161,9 @@ const Marker: FunctionComponent<google.maps.MarkerOptions> = (options) => {
 
     useEffect(() => {
         if (!marker) {
-            setMarker(new google.maps.Marker());
+            setMarker(new google.maps.Marker({
+                icon: brandMarker,
+            }));
         }
 
         return () => {
