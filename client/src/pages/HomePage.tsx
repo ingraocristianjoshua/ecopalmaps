@@ -8,6 +8,7 @@ import {
 } from "../styles/global";
 import styled from "styled-components";
 import { places } from "../utils/data";
+import { devices } from "../styles/devices";
 
 const PlacesContainer = styled.div`
     display: flex;
@@ -17,19 +18,25 @@ const PlacesContainer = styled.div`
 
 const PlaceContainer = styled.div`
     display: grid;
-    grid-template-columns: 25% auto;
+    grid-template-columns: 42% auto;
     cursor: pointer;
+
+    @media ${devices.laptopM} {
+        grid-template-columns: 25% auto;
+    }
 `;
 
 const PlaceImageContainer = styled.div`
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 18px 0px 0px 18px;
 
     img {
         width: inherit;
         height: inherit;
+        object-fit: cover;
+        object-position: center;
         aspect-ratio: 1 / 1;
         border-radius: inherit;
     }
@@ -44,6 +51,8 @@ const PlaceInfoContainer = styled.div`
     padding: 18px;
     background-color: #c7c5bc;
     border-radius: 0px 18px 18px 0px;
+    width: 100%;
+    overflow: hidden;
 `;
 
 const PlaceName = styled.div`
@@ -54,6 +63,18 @@ const PlaceName = styled.div`
 
 const PlaceDescription = styled(PageText)`
     font-size: 16px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+`;
+
+const ViewMore = styled.div`
+    display: block;
+    font-weight: 600;
+    font-size: 16px;
+    color: black;
+    text-decoration: underline;
 `;
 
 function HomePage() {
@@ -95,6 +116,9 @@ function HomePage() {
                                                 <PlaceDescription>
                                                     {place.description}
                                                 </PlaceDescription>
+                                                <ViewMore>
+                                                    Scopri di più
+                                                </ViewMore>
                                             </PlaceInfoContainer>
                                         </PlaceContainer>
                                     ))}

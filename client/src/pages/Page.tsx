@@ -21,7 +21,14 @@ function Page() {
                 description="La prima piattaforma per valorizzare i luoghi culturali del territorio di Palma di Montechiaro in maniera ecologica."
             />
             <PageLayout
-                content={<LayoutWithMap latLng={latLng} content={<>Page.</>} />}
+                content={
+                    <LayoutWithMap latLng={latLng} content={
+                            <>
+                                Page.
+                            </>
+                        } 
+                    />
+                }
             />
         </>
     );
