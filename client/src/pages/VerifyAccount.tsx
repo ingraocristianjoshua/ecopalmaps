@@ -31,7 +31,7 @@ function VerifyAccount() {
         } catch (error) {
             navigate("/");
         }
-    }, []);
+    }, [navigate, params.token]);
 
     return (
         <>

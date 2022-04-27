@@ -62,12 +62,10 @@ function PlacePage() {
     let placeItem = {
         slug: "",
         title: "",
-        latLng: [
-            {
-                lat: 0.0000,
-                lng: 0.0000,
-            }
-        ],
+        latLng: {
+            lat: 0.0000,
+            lng: 0.0000,
+        },
         cover_image: "",
         description: "",
     };
@@ -84,7 +82,7 @@ function PlacePage() {
         } catch (error) {
             navigate("/home");
         }
-    }, []);
+    }, [navigate, params.slug]);
 
     placeItem = places[index];
 
@@ -96,7 +94,7 @@ function PlacePage() {
             />
             <PageLayout
                 content={
-                    <LayoutWithMap givenCenter={placeItem.latLng[0]} givenZoom={18} latLng={placeItem.latLng} content={
+                    <LayoutWithMap givenCenter={placeItem.latLng} givenZoom={18} latLng={placeItem.latLng} content={
                             <PageContentContainer>
                                 <PlacePageHeader>
                                     <PlacePageGoBack title="Vai indietro" onClick={() => {

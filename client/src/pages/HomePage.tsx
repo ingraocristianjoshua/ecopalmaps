@@ -89,12 +89,6 @@ const ViewMore = styled.div`
 
 function HomePage() {
     const navigate = useNavigate();
-    let latLng: google.maps.LatLngLiteral[] = [];
-    places.map(place => (
-        place.latLng.map(item => (
-            latLng.push(item as unknown as google.maps.LatLngLiteral)
-        ))
-    ));
 
     return (
         <>
@@ -105,7 +99,6 @@ function HomePage() {
             <PageLayout
                 content={
                     <LayoutWithMap
-                        latLng={latLng}
                         content={
                             <PageContentContainer>
                                 <PageContentTitle>

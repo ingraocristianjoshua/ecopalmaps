@@ -33,7 +33,7 @@ function ModifyPassword() {
         } catch (error) {
             navigate("/");
         }
-    }, []);
+    }, [navigate, params.token]);
 
     return (
         <>

@@ -16,9 +16,10 @@ import {
 import brandMarker from "../../../images/marker.png";
 import { PageText } from "../../../styles/global";
 import { Link } from "react-router-dom";
+import { places } from "../../../utils/data";
 
 export interface LayoutWithMapProps {
-    latLng: google.maps.LatLngLiteral[];
+    latLng?: google.maps.LatLngLiteral;
     content: JSX.Element;
     givenCenter?: google.maps.LatLngLiteral;
     givenZoom?: number;
@@ -110,7 +111,7 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
     latLng,
     content,
     givenCenter,
-    givenZoom
+    givenZoom,
 }) => {
     const [clicks, setClicks] = useState<google.maps.LatLng[]>([]);
     const [zoom, setZoom] = useState(15);
@@ -152,11 +153,9 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                         {/*{clicks.map((latLng, i) => (
                             <Marker key={i} position={latLng} />
                         ))}*/}
-                        {latLng.length !== 0
-                            ? latLng.map((latLng, i) => (
-                                  <Marker key={i} position={latLng} />
-                              ))
-                            : null}
+                        {places.map((place, i) => (
+                            <Marker key={i} position={place.latLng} title={place.title} />
+                        ))}
                     </Map>
                 </Wrapper>
             </MapContainer>
@@ -254,6 +253,7 @@ const Marker: FunctionComponent<google.maps.MarkerOptions> = (options) => {
             setMarker(
                 new google.maps.Marker({
                     icon: brandMarker,
+                    clickable: true,
                 })
             );
         }
