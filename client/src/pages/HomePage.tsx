@@ -9,6 +9,7 @@ import {
 import styled from "styled-components";
 import { places } from "../utils/data";
 import { devices } from "../styles/devices";
+import { useNavigate } from "react-router-dom";
 
 const PlacesContainer = styled.div`
     display: flex;
@@ -67,6 +68,15 @@ const PlaceDescription = styled(PageText)`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    @supports (-webkit-line-clamp: 2) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: initial;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
 `;
 
 const ViewMore = styled.div`
@@ -78,6 +88,7 @@ const ViewMore = styled.div`
 `;
 
 function HomePage() {
+    const navigate = useNavigate();
     const latLng = [
         {
             lat: 37.1821729,
@@ -102,7 +113,9 @@ function HomePage() {
                                 </PageContentTitle>
                                 <PlacesContainer>
                                     {places.map((place, key) => (
-                                        <PlaceContainer key={key}>
+                                        <PlaceContainer key={key} onClick={() => {
+                                            navigate("/go-to/" + place.slug);
+                                        }}>
                                             <PlaceImageContainer>
                                                 <img
                                                     src={place.cover_image}

@@ -8,7 +8,7 @@ import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
 import ModifyPassword from "./pages/ModifyPassword";
-import Page from "./pages/Page";
+import PlacePage from "./pages/PlacePage";
 import Profile from "./pages/Profile";
 import RecoverPassword from "./pages/RecoverPassword";
 import Signup from "./pages/Signup";
@@ -115,9 +115,9 @@ function App() {
                     }
                 />
                 <Route
-                    path="/page"
+                    path="/go-to/:slug"
                     element={
-                        <IsAuthenticated isAuth={isAuth} children={<Page />} />
+                        <IsAuthenticated isAuth={isAuth} children={<PlacePage />} />
                     }
                 />
                 <Route

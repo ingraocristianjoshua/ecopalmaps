@@ -2,6 +2,12 @@ export const places = [
     {
         slug: "chiesa-madre",
         title: "Chiesa Madre",
+        latLng: [
+            {
+                lat: 37.19280855005534, 
+                lng: 13.76008537466836,
+            }
+        ],
         cover_image:
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1650977626/ecopalmaps/chiesa-madre.jpg",
         description:
@@ -10,6 +16,12 @@ export const places = [
     {
         slug: "palazzo-ducale",
         title: "Palazzo Ducale",
+        latLng: [
+            {
+                lat: 37.191743703009855,
+                lng: 13.759123340829087,
+            }
+        ],
         cover_image:
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1650978592/ecopalmaps/palazzo-ducale.jpg",
         description:
