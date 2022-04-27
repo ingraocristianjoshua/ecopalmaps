@@ -15,7 +15,7 @@ import {
 } from "react";
 import brandMarker from "../../../images/marker.png";
 import { PageText } from "../../../styles/global";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { places } from "../../../utils/data";
 
 export interface LayoutWithMapProps {
@@ -29,6 +29,10 @@ interface MapProps extends google.maps.MapOptions {
     style: { [key: string]: string };
     onClick?: (e: google.maps.MapMouseEvent) => void;
     onIdle?: (map: google.maps.Map) => void;
+}
+
+interface MarkerProps extends google.maps.MarkerOptions {
+    onClick?: (e: google.maps.MapMouseEvent) => void;
 }
 
 const PageContent = styled.div`
@@ -115,6 +119,8 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
         lat: 37.1921729,
         lng: 13.7606966,
     });
+
+    const navigate = useNavigate();
     
     const onClick = (e: google.maps.MapMouseEvent) => {
         setClicks([...clicks, e.latLng!]);
@@ -152,7 +158,9 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                             <Marker position={latLng} />
                          : 
                             places.map((place, i) => (
-                                <Marker key={i} position={place.latLng} title={place.title} />
+                                <Marker key={i} position={place.latLng} title={place.title} onClick={() => {
+                                    navigate("/go-to/" + place.slug);
+                                }} />
                             ))
                         }
                     </Map>
@@ -244,7 +252,7 @@ const Map: FunctionComponent<MapProps> = ({
     );
 };
 
-const Marker: FunctionComponent<google.maps.MarkerOptions> = (options) => {
+const Marker: FunctionComponent<MarkerProps> = (options) => {
     const [marker, setMarker] = useState<google.maps.Marker>();
 
     useEffect(() => {
@@ -252,6 +260,7 @@ const Marker: FunctionComponent<google.maps.MarkerOptions> = (options) => {
             setMarker(
                 new google.maps.Marker({
                     icon: brandMarker,
+                    clickable: true,
                 })
             );
         }
