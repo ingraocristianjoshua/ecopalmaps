@@ -183,3 +183,62 @@ export const PageContentTitle = styled.div`
         font-size: 60px;
     }
 `;
+
+export const PageContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding-top: 24px;
+    padding-bottom: 48px;
+    min-height: calc(100vh - 80px);
+    margin-left: 12px;
+    margin-right: 12px;
+
+    @media ${devices.mobileS} {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    @media ${devices.mobileL} {
+        margin-left: 48px;
+        margin-right: 48px;
+    }
+
+    @media ${devices.tablet} {
+        margin-left: 16%;
+        margin-right: 16%;
+    }
+
+    @media ${devices.laptopS} {
+        margin-left: 22%;
+        margin-right: 22%;
+    }
+
+    @media ${devices.laptopM} {
+        margin-left: 28%;
+        margin-right: 28%;
+    }
+
+    @media ${devices.desktop} {
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+`;
+
+export const PageTitle = styled.div`
+    display: block;
+    font-weight: 700;
+    font-size: 32px;
+
+    @media ${devices.mobileS} {
+        font-size: 44px;
+    }
+
+    @media ${devices.mobileL} {
+        font-size: 50px;
+    }
+
+    @media ${devices.tablet} {
+        font-size: 60px;
+    }
+`;

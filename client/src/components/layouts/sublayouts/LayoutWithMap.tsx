@@ -14,6 +14,8 @@ import {
     useState,
 } from "react";
 import brandMarker from "../../../images/marker.png";
+import { PageText } from "../../../styles/global";
+import { Link } from "react-router-dom";
 
 export interface LayoutWithMapProps {
     latLng: google.maps.LatLngLiteral[];
@@ -64,6 +66,41 @@ const PageContentContainer = styled.div`
     @media ${devices.mobileM} {
         padding-left: 24px;
         padding-right: 24px;
+    }
+`;
+
+const MainContainer = styled.main`
+    display: grid;
+    grid-template-rows: auto 60px;
+`;
+
+const MainFooter = styled.footer`
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    height: 60px;
+    font-size: 14px;
+    column-gap: 12px;
+    row-gap: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    @media ${devices.mobileM} {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+`;
+
+const MainFooterItem = styled(PageText)`
+    a {
+        text-decoration: none;
+    }
+
+    a:hover,
+    a:active {
+        text-decoration: underline;
     }
 `;
 
@@ -119,7 +156,32 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                     </Map>
                 </Wrapper>
             </MapContainer>
-            <PageContentContainer>{content}</PageContentContainer>
+            <MainContainer>
+                <PageContentContainer>{content}</PageContentContainer>
+                <MainFooter>
+                    <MainFooterItem>
+                        &copy; {new Date().getFullYear()} EcoPalMaps
+                    </MainFooterItem>
+                    <MainFooterItem>
+                        <Link
+                            to="/support"
+                            title="Contatta il supporto"
+                        >
+                            Supporto
+                        </Link>
+                    </MainFooterItem>
+                    <MainFooterItem>
+                        <a
+                            href="https://iisodierna.edu.it"
+                            target="_blank"
+                            title="I. I. S. 'G. B. Odierna'"
+                            rel="noreferrer"
+                        >
+                            I. I. S. Odierna
+                        </a>
+                    </MainFooterItem>
+                </MainFooter>
+            </MainContainer>
         </PageContent>
     );
 };

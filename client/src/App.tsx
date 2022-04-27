@@ -12,6 +12,7 @@ import PlacePage from "./pages/PlacePage";
 import Profile from "./pages/Profile";
 import RecoverPassword from "./pages/RecoverPassword";
 import Signup from "./pages/Signup";
+import Support from "./pages/Support";
 import VerifyAccount from "./pages/VerifyAccount";
 import { setAccessToken } from "./utils/token";
 
@@ -126,6 +127,15 @@ function App() {
                         <IsAuthenticated
                             isAuth={isAuth}
                             children={<Profile />}
+                        />
+                    }
+                />
+                <Route
+                    path="/support"
+                    element={
+                        <IsAuthenticated
+                            isAuth={isAuth}
+                            children={<Support />}
                         />
                     }
                 />

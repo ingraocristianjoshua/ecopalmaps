@@ -89,12 +89,12 @@ const ViewMore = styled.div`
 
 function HomePage() {
     const navigate = useNavigate();
-    const latLng = [
-        {
-            lat: 37.1821729,
-            lng: 13.7606966,
-        },
-    ];
+    let latLng: google.maps.LatLngLiteral[] = [];
+    places.map(place => (
+        place.latLng.map(item => (
+            latLng.push(item as unknown as google.maps.LatLngLiteral)
+        ))
+    ));
 
     return (
         <>
