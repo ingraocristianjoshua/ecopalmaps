@@ -96,7 +96,7 @@ function PlacePage() {
             />
             <PageLayout
                 content={
-                    <LayoutWithMap latLng={placeItem.latLng} content={
+                    <LayoutWithMap givenCenter={placeItem.latLng[0]} givenZoom={18} latLng={placeItem.latLng} content={
                             <PageContentContainer>
                                 <PlacePageHeader>
                                     <PlacePageGoBack title="Vai indietro" onClick={() => {

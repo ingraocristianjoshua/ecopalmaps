@@ -20,6 +20,8 @@ import { Link } from "react-router-dom";
 export interface LayoutWithMapProps {
     latLng: google.maps.LatLngLiteral[];
     content: JSX.Element;
+    givenCenter?: google.maps.LatLngLiteral;
+    givenZoom?: number;
 }
 
 interface MapProps extends google.maps.MapOptions {
@@ -107,6 +109,8 @@ const MainFooterItem = styled(PageText)`
 const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
     latLng,
     content,
+    givenCenter,
+    givenZoom
 }) => {
     const [clicks, setClicks] = useState<google.maps.LatLng[]>([]);
     const [zoom, setZoom] = useState(15);
@@ -134,10 +138,10 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                     language="it"
                 >
                     <Map
-                        center={center}
+                        center={givenCenter ? givenCenter : center}
                         onClick={onClick}
                         onIdle={onIdle}
-                        zoom={zoom}
+                        zoom={givenZoom ? givenZoom : zoom}
                         style={{
                             position: "unset",
                             top: "unset",
