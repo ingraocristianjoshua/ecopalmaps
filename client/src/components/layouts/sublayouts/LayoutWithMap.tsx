@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
 import { devices } from "../../../styles/devices";
-import { Status, Wrapper } from "@googlemaps/react-wrapper";
+import { Wrapper } from "@googlemaps/react-wrapper";
 import { isLatLngLiteral } from "@googlemaps/typescript-guards";
 import { createCustomEqual } from "fast-equals";
 import {
@@ -30,10 +30,6 @@ interface MapProps extends google.maps.MapOptions {
     onClick?: (e: google.maps.MapMouseEvent) => void;
     onIdle?: (map: google.maps.Map) => void;
 }
-
-const render = (status: Status) => {
-    return <div>{status}</div>;
-};
 
 const PageContent = styled.div`
     display: grid;
@@ -119,7 +115,7 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
         lat: 37.1921729,
         lng: 13.7606966,
     });
-
+    
     const onClick = (e: google.maps.MapMouseEvent) => {
         setClicks([...clicks, e.latLng!]);
     };
@@ -135,7 +131,6 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
             <MapContainer>
                 <Wrapper
                     apiKey={process.env.REACT_APP_GOOGLE_MAPS_API!}
-                    render={render}
                     language="it"
                 >
                     <Map
@@ -153,9 +148,13 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                         {/*{clicks.map((latLng, i) => (
                             <Marker key={i} position={latLng} />
                         ))}*/}
-                        {places.map((place, i) => (
-                            <Marker key={i} position={place.latLng} title={place.title} />
-                        ))}
+                        {latLng ?
+                            <Marker position={latLng} />
+                         : 
+                            places.map((place, i) => (
+                                <Marker key={i} position={place.latLng} title={place.title} />
+                            ))
+                        }
                     </Map>
                 </Wrapper>
             </MapContainer>
@@ -253,7 +252,6 @@ const Marker: FunctionComponent<google.maps.MarkerOptions> = (options) => {
             setMarker(
                 new google.maps.Marker({
                     icon: brandMarker,
-                    clickable: true,
                 })
             );
         }
@@ -261,6 +259,7 @@ const Marker: FunctionComponent<google.maps.MarkerOptions> = (options) => {
         return () => {
             if (marker) {
                 marker.setMap(null);
+                marker.setClickable(true);
             }
         };
     }, [marker]);
