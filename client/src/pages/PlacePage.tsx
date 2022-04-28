@@ -54,6 +54,19 @@ const PlacePageTitle = styled.div`
     font-weight: 700;
 `;
 
+const PlacePageDescription = styled(PageText)`
+    font-size: 16px;
+    padding: 18px;
+    border-radius: 18px;
+    background-color: #c7c5bc;
+`;
+
+const PlaceContent = styled(PageText)`
+    h3:first-child {
+        margin-top: 0px;
+    }
+`;
+
 function PlacePage() {
     const navigate = useNavigate();
     const navigationType = useNavigationType();
@@ -68,6 +81,7 @@ function PlacePage() {
         },
         cover_image: "",
         description: "",
+        content: { __html: "" },
     };
 
     const [index, setIndex] = useState(0);
@@ -117,9 +131,10 @@ function PlacePage() {
                                     <PlacePageTitle>
                                         {placeItem.title}
                                     </PlacePageTitle>
-                                    <PageText>
+                                    <PlacePageDescription>
                                         {placeItem.description}
-                                    </PageText>
+                                    </PlacePageDescription>
+                                    <PlaceContent dangerouslySetInnerHTML={placeItem.content} />
                                 </PlacePageContent>
                             </PageContentContainer>
                         } 

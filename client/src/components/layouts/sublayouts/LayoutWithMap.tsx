@@ -37,7 +37,7 @@ interface MarkerProps extends google.maps.MarkerOptions {
 
 const PageContent = styled.div`
     display: grid;
-    grid-template-rows: 50% auto;
+    grid-template-rows: 40vh auto;
     grid-template-columns: none;
     min-height: calc(100vh - 80px);
 
