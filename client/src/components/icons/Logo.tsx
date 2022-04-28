@@ -7,8 +7,8 @@ export interface LogoProps {
 }
 
 const IndexLogo = styled(SvgIcon)`
-    width: 54px;
-    height: 54px;
+    width: 52px;
+    height: 52px;
 `;
 
 const InlineLogo = styled(SvgIcon)`
