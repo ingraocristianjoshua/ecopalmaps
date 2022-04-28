@@ -75,5 +75,37 @@ export const places = [
             Le suore custodiscono, inoltre, la Madonna della Colomba Rosata. Ancora oggi è uno dei pochi monasteri di clausura in Sicilia, il cui accesso è impedito quasi a chiunque.
             `,
         },
-    }
+    },
+    {
+        slug: "monte-calvario",
+        title: "Calvario: Chiesa Santa Maria della Luce",
+        latLng: {
+            lat: 37.19586937954778, 
+            lng: 13.751291909449838,
+        },
+        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651144633/ecopalmaps/calvario.jpg",
+        description: "La Chiesa Santa Maria della Luce sorge sulla collina nota come Calvario, rappresenta l'ultima chiesa-stazione di Palma di Montechiaro, in un percorso tra le chiese voluto da Giulio Tomasi che ripropone localmente quello di Gesù dal palazzo di Pilato al Golgota.",
+        content: {
+            __html: `Palma viene considerata la seconda Gerusalemme, infatti tutte le Chiese formano le stazioni tra cui l'ultima è la Chiesa del Calvario, che prende il nome dal monte Calvario, nel quale venne crocifisso Gesù.
+            All'ingresso del paese, dopo il parco archeologico della Zubbia, si scorge la collina "Calvario" con i ruderi dell'antica Chiesa di Santa Maria della Luce (1650), anch'essa dalle forme barocche.
+            Giulio Tomasi volle riproporre nella realtà locale il percorso di Gesù dal palazzo di Pilato al Golgota; collegando così, attraverso stazioni, il centro abitato con la solitudine della collina del Calvario. Il Santo Duca, come per i pellegrini della Terra Santa, otteneva l'indulgenza plenaria per quanti avessero percorso il tragitto sino alla collina del Calvario, dove nella Chiesa di Santa Maria della Luce era custodita una copia della Sacra Sindone donata a Carlo Tomasi, primo duca di Palma. Tale reliquia oggi viene conservata nella Chiesa del Collegio.
+            Inoltre, per la sua possente struttura, quasi di fortezza e per la sua posizione dominante, serviva per l'osservazione dell'ampia valle del fiume Palma e della costa.
+            Nel corso degli anni fu utilizzato come centro di raccolta per i pazzi e nel periodo della peste venivano gettati i corpi e le persone con la peste.
+            `,
+        },
+    },
+    {
+        slug: "torre-san-carlo",
+        title: "Torre San Carlo",
+        latLng: {
+            lat: 37.16603574164077,
+            lng: 13.731490467218448,
+        },
+        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651145152/ecopalmaps/torre-san-carlo.jpg",
+        description: "La Torre San Carlo è stata edificata nel 1639 ad opera di Carlo Tomasi, primo duca di Palma, che ottenne il permesso da Filippo IV di Spagna. La torre è stata costruita per scopi difensivi, date le continue incursioni dei pirati saraceni sul litorale palmese.",
+        content: {
+            __html: `L'edificazione della Torre San Carlo, appena oltre la foce del fiume Palma, risale al 1639 ad opera di Carlo Tomasi, primo duca di Palma, che ottenne il permesso da Filippo IV di Spagna ed ebbe scopi difensivi stante le continue incursioni dei pirati saraceni sul litorale palmese. La fortezza fu fornita di armi, attrezzi da guerra e di un adeguato numero di soldati. Essa s'innalza con un corpo quadrangolare su un basamento a forma di piramide tronca. Vi sono tracce che indicano la presenza di un ponte levatoio e mensoloni sui quali si dovevano poggiare i piombatoi. Inoltre, è realizzata in pietra calcarea bianca. Attualmente versa, come la maggior parte delle torri del circuito, in condizioni ruderali e purtroppo non risulta visitabile all'interno. Accanto alla torre sorgeva un chiesetta oggi non più esistente, avamposto della cristianità in zona di guerra, col titolo del Santissimo Rosario. Qui il cappellano faceva messa ai soldati cercando di galvanizzarli nella loro missione, vale a dire la lotta agli infedeli. Gli apparati difensivi furono mantenuti fino al 1820.`,
+        },
+    },
+    
 ];

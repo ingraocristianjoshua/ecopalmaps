@@ -65,6 +65,25 @@ const PlaceContent = styled(PageText)`
     h3:first-child {
         margin-top: 0px;
     }
+
+    border-bottom: 2px solid black;
+    padding-bottom: 24px;
+`;
+
+const DirectionBlock = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 24px;    
+`;
+
+const DirectionBlockTitle = styled.div`
+    display: block;
+    font-weight: 700;
+    font-size: 24px;
+`;
+
+const DirectionBlockContent = styled.div`
+    display: block;
 `;
 
 function PlacePage() {
@@ -135,6 +154,14 @@ function PlacePage() {
                                         {placeItem.description}
                                     </PlacePageDescription>
                                     <PlaceContent dangerouslySetInnerHTML={placeItem.content} />
+                                    <DirectionBlock>
+                                        <DirectionBlockTitle>
+                                            Raggiungi questo luogo
+                                        </DirectionBlockTitle>
+                                        <DirectionBlockContent>
+                                            Indicazioni
+                                        </DirectionBlockContent>
+                                    </DirectionBlock>
                                 </PlacePageContent>
                             </PageContentContainer>
                         } 
