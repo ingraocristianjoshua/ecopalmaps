@@ -15,7 +15,7 @@ import {
 } from "react";
 import brandMarker from "../../../images/marker.png";
 import { PageText } from "../../../styles/global";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { places } from "../../../utils/data";
 
 export interface LayoutWithMapProps {
@@ -31,9 +31,7 @@ interface MapProps extends google.maps.MapOptions {
     onIdle?: (map: google.maps.Map) => void;
 }
 
-interface MarkerProps extends google.maps.MarkerOptions {
-    onClick?: (e: google.maps.MapMouseEvent) => void;
-}
+interface MarkerProps extends google.maps.MarkerOptions {}
 
 const PageContent = styled.div`
     display: grid;
@@ -119,8 +117,6 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
         lat: 37.1921729,
         lng: 13.7606966,
     });
-
-    const navigate = useNavigate();
     
     const onClick = (e: google.maps.MapMouseEvent) => {
         setClicks([...clicks, e.latLng!]);
@@ -158,9 +154,7 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                             <Marker position={latLng} />
                          : 
                             places.map((place, i) => (
-                                <Marker key={i} position={place.latLng} title={place.title} onClick={() => {
-                                    navigate("/go-to/" + place.slug);
-                                }} />
+                                <Marker key={i} position={place.latLng} title={place.title} />
                             ))
                         }
                     </Map>
