@@ -300,7 +300,7 @@ export class UserResolver {
         if (!email.includes("@")) {
             errors.push({
                 field: "email",
-                message: "Invalid email",
+                message: "Indirizzo email non valido",
             });
         } else {
             user = await User.findOne({ where: { email } });
@@ -417,6 +417,101 @@ export class UserResolver {
         return {
             status,
             errors,
+        };
+    }
+
+    @Mutation(() => UserResponse)
+    async sendFormSupport(
+        @Arg("fullName") fullName: string,
+        @Arg("email") email: string,
+        @Arg("subject") subject: string,
+        @Arg("message") message: string,
+    ): Promise<UserResponse> {
+        let transporter = nodemailer.createTransport({
+            host: "authsmtp.securemail.pro",
+            port: 465,
+            secure: true,
+            auth: {
+                user: process.env.SUPPORT_EMAIL_USER,
+                pass: process.env.SUPPORT_EMAIL_PASSWORD,
+            },
+            tls: {
+                rejectUnauthorized: false,
+            },
+        });
+
+        let errors = [];
+        let status = "";
+
+        if (!email.includes("@")) {
+            errors.push({
+                field: "email",
+                message: "Indirizzo email non valido",
+            });
+        }
+        
+        if (fullName == "" || fullName == null) {
+            errors.push({
+                field: "fullName",
+                message: "Il campo del nome completo non può essere vuoto",
+            });
+        }
+        
+        if (subject == "" || subject == null) {
+            errors.push({
+                field: "subject",
+                message: "Il campo dell'oggetto non può essere vuoto",
+            });
+        }
+        
+        if (message == "" || message == null) {
+            errors.push({
+                field: "message",
+                message: "Il campo del messaggio non può essere vuoto",
+            });
+        } 
+        
+        if (errors.length === 0) {
+            try {
+                ejs.renderFile(
+                    path.join(
+                        __dirname,
+                        "../helpers/templates/FormEmail.ejs"
+                    ),
+                    { 
+                        fullName: fullName,
+                        email: email,
+                        subject: subject,
+                        message: message,
+                    },
+                    function (error, data) {
+                        if (error) {
+                            console.log(error);
+                        } else {
+                            transporter.sendMail({
+                                from: "EcoPalMaps <support@ecopalmaps.com>",
+                                to: process.env.SUPPORT_EMAIL_USER,
+                                subject: "Recupera la tua password",
+                                html: data,
+                            });
+                            status =
+                                "Il tuo messaggio è stato inviato.";
+                        }
+                    }
+                );
+            } catch (error) {
+                console.error(error);
+                errors.push({
+                    field: "email",
+                    message:
+                        "Non è stato possibile inviare l'email, controlla la tua connessione ad internet",
+                });
+            }
+        }
+
+        return {
+            errors,
+            status,
         };
     }
 }

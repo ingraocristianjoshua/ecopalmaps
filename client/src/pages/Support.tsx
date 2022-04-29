@@ -4,6 +4,8 @@ import InputField from "../components/input/InputField";
 import PageLayout from "../components/layouts/PageLayout";
 import styled from "styled-components";
 import { Button, PageBlock, PageContent, PageText, PageTitle, Status } from "../styles/global";
+import { useSendFormSupportMutation } from "../generated/graphql";
+import { toErrorMap } from "../utils/toErrorMap";
 
 const FormContent = styled.div`
     display: flex;
@@ -25,7 +27,8 @@ const FormTextAreaContainer = styled.div`
 `;
 
 const FormTextAreaLabel = styled.label`
-    display: block;
+    display: inline-block;
+    vertical-align: text-top;
     font-size: 14px;
     margin-top: 8px;
     margin-bottom: 8px;
@@ -37,7 +40,21 @@ const FormTextAreaInnerContainer = styled.div`
     margin-bottom: 8px;
 `;
 
+const FormObjectContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+`;
+
+const FormObjectError = styled.div`
+    display: block;
+    font-size: 14px;
+`;
+
 function Support() {
+    const [sendForm] = useSendFormSupportMutation();
+    
     return (
         <>
             <Head
@@ -58,7 +75,26 @@ function Support() {
                                     values,
                                     { setErrors, setStatus }
                                 ) => {
-
+                                    const response = await sendForm({
+                                        variables: values,
+                                    });
+    
+                                    if (
+                                        response.data?.sendFormSupport.errors
+                                            ?.length !== 0
+                                    ) {
+                                        setStatus(null);
+                                        setErrors(
+                                            toErrorMap(
+                                                response.data?.sendFormSupport
+                                                    .errors!
+                                            )
+                                        );
+                                    } else {
+                                        setStatus(
+                                            response.data.sendFormSupport.status
+                                        );
+                                    }
                                 }}
                             >
                                 {({ errors, status, isSubmitting }) => (
@@ -83,19 +119,24 @@ function Support() {
                                                 placeholder="Oggetto"
                                                 errors={errors}
                                             />
-                                            <FormTextAreaContainer>
-                                                <FormTextAreaLabel htmlFor="message">
-                                                    Messaggio
-                                                </FormTextAreaLabel>
-                                                <FormTextAreaInnerContainer>
-                                                    <Field 
-                                                        as="textarea"
-                                                        id={"message"}
-                                                        name={"message"}
-                                                        rows={3}
-                                                    />
-                                                </FormTextAreaInnerContainer>
-                                            </FormTextAreaContainer>
+                                            <FormObjectContainer>
+                                                {errors["message"] ? (
+                                                    <FormObjectError>{errors["message"]}</FormObjectError>
+                                                ) : null}
+                                                <FormTextAreaContainer>
+                                                    <FormTextAreaLabel htmlFor="message">
+                                                        Messaggio
+                                                    </FormTextAreaLabel>
+                                                    <FormTextAreaInnerContainer>
+                                                        <Field 
+                                                            as="textarea"
+                                                            id={"message"}
+                                                            name={"message"}
+                                                            rows={3}
+                                                        />
+                                                    </FormTextAreaInnerContainer>
+                                                </FormTextAreaContainer>
+                                            </FormObjectContainer>
                                             <PageBlock>
                                                 <FormButton type="submit">
                                                     {isSubmitting ? (
