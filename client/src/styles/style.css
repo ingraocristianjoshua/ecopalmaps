@@ -31,13 +31,17 @@ a {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"], textarea {
     display: block;
     background-color: transparent;
     color: #000000;
     padding: 0;
     width: 100%;
     border: none;
+}
+
+textarea {
+    resize: none;
 }
 
 input::-ms-reveal {

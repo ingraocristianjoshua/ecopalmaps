@@ -6,7 +6,7 @@ export const places = [
             lat: 37.19148675220757,
             lng: 13.763526245756793,
         },
-        cover_image: "",
+        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651262378/ecopalmaps/stemma.jpg",
         description: "Palma di Montechiaro è un comune italiano di 21 287 abitanti del libero consorzio comunale di Agrigento in Sicilia. Il paese sorge su un'altura rocciosa da cui domina la vallata sottostante che si protende fino al mare. Spiccano in primo piano, ben visibili dallo scorrimento veloce che attraversa la vallata, i monumenti storici del secondo palazzo ducale, (1659), la chiesa madre, (1666), in cima ad una larga scalinata e il monastero delle Benedettine, (1637) primo edificio della città.",
         content: {
             __html: `
@@ -65,19 +65,21 @@ export const places = [
         content: {
             __html: `
             <h3>Storia</h3>
-            Il Palazzo Ducale fu edificato tra il 1653 ed il 1659, poderoso sulla collina che fu prescelta per evidenti ragioni di cautela difensiva, oltre che per salubrità. E’ uno dei primi edifici dopo la fondazione di Palma di Montechiaro (3 maggio 1637), ed è caratterizzato dall'uso dei soffitti lignei dipinti (ciò avveniva sia nelle chiese che nei palazzi nobiliari), e risale al tardo medioevo ma, naturalmente quelli della città di Palma, possono essere ascritti (attribuiti) alla seconda metà del XVII secolo, anche se è molto probabile che molti di questi siano stati completati agli inizi del '700. I soffitti del Palazzo Ducale possono essere considerati come la celebrazione della città e dei suoi fondatori, testimoniata dalla presenza di stemmi araldici e di numerose raffigurazioni di armi che simboleggiano il ruolo di difesa della terra di Palma di Montechiaro, e della Cristianità, che i Tomasi assunsero contro le incursioni dei pirati turchi.
+            Il Palazzo Ducale fu edificato tra il 1653 ed il 1659, poderoso sulla collina che fu prescelta per evidenti ragioni di cautela difensiva, oltre che per salubrità. E' uno dei primi edifici dopo la fondazione di Palma di Montechiaro (3 maggio 1637), ed è caratterizzato dall'uso dei soffitti lignei dipinti (ciò avveniva sia nelle chiese che nei palazzi nobiliari), e risale al tardo medioevo ma, naturalmente quelli della città di Palma, possono essere ascritti (attribuiti) alla seconda metà del XVII secolo, anche se è molto probabile che molti di questi siano stati completati agli inizi del '700. I soffitti del Palazzo Ducale possono essere considerati come la celebrazione della città e dei suoi fondatori, testimoniata dalla presenza di stemmi araldici e di numerose raffigurazioni di armi che simboleggiano il ruolo di difesa della terra di Palma di Montechiaro, e della Cristianità, che i Tomasi assunsero contro le incursioni dei pirati turchi.
             <h4>Architettura</h4>
-            Il Palazzo Ducale è composto da due elevazioni, oltre a quella del sottotetto. Al piano terra c’erano i magazzini e le celle per i prigionieri. Il piano superiore è composto da 8 sale:
-            - Sala di ingresso al piano nobile;
-            - Sala del Gattopardo rampante;
-            - Sala della Croce dell’ordine di San Giacomo della Spada;
-            - Sala delle Croci Militari Cavalleresche;
-            - Sala della Palma (Stemma della Famiglia Caro);
-            - Sala degli Ottagoni e Rombi;
-            - Sala dello Stemma Ducale dei Tomasi inquartato;
-            - Sala delle due Croci.
+            Il Palazzo Ducale è composto da due elevazioni, oltre a quella del sottotetto. Al piano terra c'erano i magazzini e le celle per i prigionieri. Il piano superiore è composto da 8 sale:
+            <ul>
+            <li>Sala di ingresso al piano nobile;</li>
+            <li>Sala del Gattopardo rampante;</li>
+            <li>Sala della Croce dell'ordine di San Giacomo della Spada;</li>
+            <li>Sala delle Croci Militari Cavalleresche;</li>
+            <li>Sala della Palma (Stemma della Famiglia Caro);</li>
+            <li>Sala degli Ottagoni e Rombi;</li>
+            <li>Sala dello Stemma Ducale dei Tomasi inquartato;</li>
+            <li>Sala delle due Croci.</li>
+            </ul>
             <h4>Interni</h4>
-            Nel pianerottolo, tra la prima e la seconda rampa, c’è un affresco con la Crocifissione, anticamente imponeva una riflessione e una sosta con preghiera durante la salita. Ciò che caratterizza lo sfarzoso edificio, dominato da una essenziale sobrietà, sono i sontuosi soffitti lignei a lacunari dipinti e scolpiti. La superficie dei soffitti lignei è di circa di mq. 556,16, esclusa la parte delle cornici di raccordo con l'alto delle pareti. Un elemento che compare molte volte nel Palazzo Ducale è la croce, di diversa tipologia (greca, latina e commissa).  Tra le sale più significative vi sono quella, all'angolo dell'edificio, che reca al centro lo stemma dei Tomasi, ovvero il Gattopardo rampante sul profilo di monti; la Sala degli Ordini religiosi Cavallereschi e Militari, per varietà e gloria storica; la Sala con l'allegoria della palma quasi personificata; e infine la Sala con la trionfante spada di San Giacomo, tanto cara al fondatore di Palma di Montechiaro. La pavimentazione dei locali, oggi in gran parte rifatta, rievoca quella originale, della quale si conservano alcuni brani, in maiolica, nelle tonalità del bianco e dell'azzurro, riproducente il motivo geometrico della losanga.
+            Nel pianerottolo, tra la prima e la seconda rampa, c'è un affresco con la Crocifissione, anticamente imponeva una riflessione e una sosta con preghiera durante la salita. Ciò che caratterizza lo sfarzoso edificio, dominato da una essenziale sobrietà, sono i sontuosi soffitti lignei a lacunari dipinti e scolpiti. La superficie dei soffitti lignei è di circa di mq. 556,16, esclusa la parte delle cornici di raccordo con l'alto delle pareti. Un elemento che compare molte volte nel Palazzo Ducale è la croce, di diversa tipologia (greca, latina e commissa).  Tra le sale più significative vi sono quella, all'angolo dell'edificio, che reca al centro lo stemma dei Tomasi, ovvero il Gattopardo rampante sul profilo di monti; la Sala degli Ordini religiosi Cavallereschi e Militari, per varietà e gloria storica; la Sala con l'allegoria della palma quasi personificata; e infine la Sala con la trionfante spada di San Giacomo, tanto cara al fondatore di Palma di Montechiaro. La pavimentazione dei locali, oggi in gran parte rifatta, rievoca quella originale, della quale si conservano alcuni brani, in maiolica, nelle tonalità del bianco e dell'azzurro, riproducente il motivo geometrico della losanga.
             `,
         },
     },
@@ -89,15 +91,15 @@ export const places = [
             lng: 13.761487153531892,
         },
         cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651132341/ecopalmaps/monastero-delle-benedettine.jpg",
-        description: "Il Monastero del Santissimo Rosario costituisce il segno più emblematico della vicenda storica dei Tomasi a Palma di Montechiaro. Secondo quanto scritto nell’atto di Palma di Montechiaro, l’edificio fu iniziato nel 1637 e completato nel 1659. Il 3 maggio 1637, giorno della celebrazione dell’invenzione della Santa Croce, veniva benedetta la prima pietra di Palma che coincideva con l’inizio della costruzione della Chiesa dedicata alla Beata Vergine del Rosario, successivamente annessa alle fabbriche del complesso conventuale.",
+        description: "Il Monastero del Santissimo Rosario costituisce il segno più emblematico della vicenda storica dei Tomasi a Palma di Montechiaro. Secondo quanto scritto nell'atto di Palma di Montechiaro, l'edificio fu iniziato nel 1637 e completato nel 1659. Il 3 maggio 1637, giorno della celebrazione dell'invenzione della Santa Croce, veniva benedetta la prima pietra di Palma che coincideva con l'inizio della costruzione della Chiesa dedicata alla Beata Vergine del Rosario, successivamente annessa alle fabbriche del complesso conventuale.",
         content: {
             __html: `
             <h3>Storia</h3>
-            L’inaugurazione del Monastero del Santissimo avvenne il 12 giugno 1659 e la destinazione originaria era di tipo residenziale, in quanto costituiva la sede del primo palazzo di famiglia, in seguito trasformato in convento su richiesta delle figlie del Duca Don Giulio Tomasi. L’edificio fu subito dotato di una magnificente cappella, consacrata alla Vergine Santissima del Rosario. Il complesso conventuale fu dedicato all’ordine di San Benedetto e destinato ad una comunità di monache. Tra le prime suore a popolare il convento furono le componenti femminili della famiglia Tomasi, cominciando dalla Duchessa Donna Rosalia Trayna, che assunse il nuovo nome di Suor Maria Seppellita. Con lei anche quattro figlie: Francesca Giovanna Tommasa, che assunse il nome di Suor Maria Serafica; Isabella Domenica, divenuta Suor Maria Crocifissa della Concezione; Maria Antonia, che assunse il nome di Suor Maria Maddalena; Gaetana Alipia, divenuta Suor Maria Lanceata.
+            L'inaugurazione del Monastero del Santissimo avvenne il 12 giugno 1659 e la destinazione originaria era di tipo residenziale, in quanto costituiva la sede del primo palazzo di famiglia, in seguito trasformato in convento su richiesta delle figlie del Duca Don Giulio Tomasi. L'edificio fu subito dotato di una magnificente cappella, consacrata alla Vergine Santissima del Rosario. Il complesso conventuale fu dedicato all'ordine di San Benedetto e destinato ad una comunità di monache. Tra le prime suore a popolare il convento furono le componenti femminili della famiglia Tomasi, cominciando dalla Duchessa Donna Rosalia Trayna, che assunse il nuovo nome di Suor Maria Seppellita. Con lei anche quattro figlie: Francesca Giovanna Tommasa, che assunse il nome di Suor Maria Serafica; Isabella Domenica, divenuta Suor Maria Crocifissa della Concezione; Maria Antonia, che assunse il nome di Suor Maria Maddalena; Gaetana Alipia, divenuta Suor Maria Lanceata.
             <h4>Esterno</h4>
-            L’esterno, in maniera particolare la facciata principale, esibisce chiari riferimenti al gusto neoclassico. Della facciata l’unico elemento che nel corso del tempo non ha subito modificazioni è la torre con portico che ospita il coro e che sormonta l’accesso alla chiesa attuale. Attualmente la facciata principale del Monastero, presenta due portoni d'ingresso: uno al parlatorio che a sua volta consente l’accesso al giardino interno, e uno alla chiesa vera e propria. Il portone del Monastero in legno, impartito in piccole formelle, presenta due sculture raffiguranti San Benedetto e la Madonna del Rosario. L’originario piano di imposta dell’ingresso era più alto di circa 2 metri, si notano infatti i tagli della roccia dovuti alla risistemazione. La facciata principale del Monastero può essere suddivisa in due parti: quella del corpo turriforme con portico che immette nella chiesa e quella relativa al convento vero e proprio.
+            L'esterno, in maniera particolare la facciata principale, esibisce chiari riferimenti al gusto neoclassico. Della facciata l'unico elemento che nel corso del tempo non ha subito modificazioni è la torre con portico che ospita il coro e che sormonta l'accesso alla chiesa attuale. Attualmente la facciata principale del Monastero, presenta due portoni d'ingresso: uno al parlatorio che a sua volta consente l'accesso al giardino interno, e uno alla chiesa vera e propria. Il portone del Monastero in legno, impartito in piccole formelle, presenta due sculture raffiguranti San Benedetto e la Madonna del Rosario. L'originario piano di imposta dell'ingresso era più alto di circa 2 metri, si notano infatti i tagli della roccia dovuti alla risistemazione. La facciata principale del Monastero può essere suddivisa in due parti: quella del corpo turriforme con portico che immette nella chiesa e quella relativa al convento vero e proprio.
             <h4>Interno della Chiesa del Monastero</h4>
-            La chiesa del Monastero può essere considerata un autentico gioiello dell’architettura e dell’arte seicentesca. Il pavimento è quello originario e la navata unica è strutturata nel seguente modo: nel lato sinistro sono sistemati due altari lignei sormontati da due grandi tele attribuite al pittore Ottavio Volante. La prima rappresenta San Benedetto che abbatte gli idoli e l’altra l’Adorazione dei Pastori. Tra questi due altari è sistemato un monumento funebre in marmo dedicato alla Duchessa Donna Rosalia Trayna. Nel lato opposto della navata, quello destro, sono sistemati altri due altari: il primo è quello sormontato da una nicchia che contiene un gruppo statuario in legno della Madonna del Rosario con San Domenico. Il secondo altare, quello più vicino al presbiterio, contiene un grande crocifisso in legno sistemato su un reliquiario. Accanto all’altare c’è un quadro con l’elenco delle reliquie custodite nel reliquiario. Al centro di questi due altari , è ubicata la cappella di San Felice, chiusa da una grata in ferro battuto e contenente un’urna con le spoglie del Santo. Sopra l’ingresso alla cappella, è situato un dipinto che raffigura San Felice, mentre ai piedi del dipinto una lampada è appesa ad un sostegno a forma di braccio con il pugno chiuso che simboleggia il braccio del demonio che scagliò il sasso alla Venerabile. La cappella è arricchita da affreschi che raffigurano San Felice ed alcuni episodi della sua vita. Nella cappella è sepolto anche il Duca Don Giulio Tomasi come testimoniato da una lapide in marmo collocata a terra. All’interno della chiesa lungo i lati, in alto, si aprono delle finestrelle dalle quali le monache vedevano la messa senza venire a contatto con i laici. Uno degli elementi più significativi della chiesa è il soffitto ligneo a cassettoni dove risulta predominante il motivo decorativo della treccia o della catena, simbolo tanto presente nella vita dei Tomasi. Nel soffitto centrale della navata sono presenti tre quadri ad opera di Domenico Provenzani, che rappresentano San Benedetto, Santa Scolastica e Santa Matilde. L’arco trionfale che separa a navata vera e propria dal presbiterio, presenta in corrispondenza della chiave, un grande stemma   araldico con le insegne dei Tomasi e delle famiglie ad essi legate, simile a quella che si trova in una delle sale del Palazzo Ducale. L’altare maggiore è riccamente decorato e impreziosito da un tabernacolo in argento. Dal presbiterio, tramite una porticina nel lato sinistro si accede alla sagrestia e da qui al convento vero e proprio. A destra del presbiterio, una piccola finestra con grata in ferro, lascia intravedere una camera dove è sistemata l’urna con le spoglie della Venerabile. Qui si conserva anche una copia della famosa lettera che il demonio avrebbe scritto alla religiosa.
+            La chiesa del Monastero può essere considerata un autentico gioiello dell'architettura e dell'arte seicentesca. Il pavimento è quello originario e la navata unica è strutturata nel seguente modo: nel lato sinistro sono sistemati due altari lignei sormontati da due grandi tele attribuite al pittore Ottavio Volante. La prima rappresenta San Benedetto che abbatte gli idoli e l'altra l'Adorazione dei Pastori. Tra questi due altari è sistemato un monumento funebre in marmo dedicato alla Duchessa Donna Rosalia Trayna. Nel lato opposto della navata, quello destro, sono sistemati altri due altari: il primo è quello sormontato da una nicchia che contiene un gruppo statuario in legno della Madonna del Rosario con San Domenico. Il secondo altare, quello più vicino al presbiterio, contiene un grande crocifisso in legno sistemato su un reliquiario. Accanto all'altare c'è un quadro con l'elenco delle reliquie custodite nel reliquiario. Al centro di questi due altari , è ubicata la cappella di San Felice, chiusa da una grata in ferro battuto e contenente un'urna con le spoglie del Santo. Sopra l'ingresso alla cappella, è situato un dipinto che raffigura San Felice, mentre ai piedi del dipinto una lampada è appesa ad un sostegno a forma di braccio con il pugno chiuso che simboleggia il braccio del demonio che scagliò il sasso alla Venerabile. La cappella è arricchita da affreschi che raffigurano San Felice ed alcuni episodi della sua vita. Nella cappella è sepolto anche il Duca Don Giulio Tomasi come testimoniato da una lapide in marmo collocata a terra. All'interno della chiesa lungo i lati, in alto, si aprono delle finestrelle dalle quali le monache vedevano la messa senza venire a contatto con i laici. Uno degli elementi più significativi della chiesa è il soffitto ligneo a cassettoni dove risulta predominante il motivo decorativo della treccia o della catena, simbolo tanto presente nella vita dei Tomasi. Nel soffitto centrale della navata sono presenti tre quadri ad opera di Domenico Provenzani, che rappresentano San Benedetto, Santa Scolastica e Santa Matilde. L'arco trionfale che separa a navata vera e propria dal presbiterio, presenta in corrispondenza della chiave, un grande stemma   araldico con le insegne dei Tomasi e delle famiglie ad essi legate, simile a quella che si trova in una delle sale del Palazzo Ducale. L'altare maggiore è riccamente decorato e impreziosito da un tabernacolo in argento. Dal presbiterio, tramite una porticina nel lato sinistro si accede alla sagrestia e da qui al convento vero e proprio. A destra del presbiterio, una piccola finestra con grata in ferro, lascia intravedere una camera dove è sistemata l'urna con le spoglie della Venerabile. Qui si conserva anche una copia della famosa lettera che il demonio avrebbe scritto alla religiosa.
             `,
         },
     },
@@ -109,7 +111,7 @@ export const places = [
             lng: 13.75123428877471,
         },
         cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651144633/ecopalmaps/calvario.jpg",
-        description: "Palma viene considerata la seconda Gerusalemme, infatti tutte le Chiese formano le stazioni tra cui l’ultima è la Chiesa del Calvario, che prende il nome dal monte Calvario, nel quale venne crocifisso Gesù. All'ingresso del paese, dopo il parco archeologico della Zubbia, si scorge la collina Calvario con i ruderi dell'antica Chiesa di Santa Maria della Luce (1650), anch'essa dalle forme barocche.",
+        description: "Palma viene considerata la seconda Gerusalemme, infatti tutte le Chiese formano le stazioni tra cui l'ultima è la Chiesa del Calvario, che prende il nome dal monte Calvario, nel quale venne crocifisso Gesù. All'ingresso del paese, dopo il parco archeologico della Zubbia, si scorge la collina Calvario con i ruderi dell'antica Chiesa di Santa Maria della Luce (1650), anch'essa dalle forme barocche.",
         content: {
             __html: `
             <h3>Storia</h3>
@@ -124,7 +126,7 @@ export const places = [
             lat: 37.190673894294925,
             lng: 13.763626942167711,
         },
-        cover_image: "",
+        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260790/ecopalmaps/chiesa-sant-angelo.jpg",
         description: "La Chiesa di Sant'Angelo, detta della Batiella, fu costruita nel 1643 per volere di Vito Rizzo da Licata che la dedicò al protettore della sua città. Lì accanto, Giuseppe Maria Tomasi fece costruire un orfanotrofio per 12 orfanelle. Nel 1738 l'orfanotrofio venne trasferito presso il Collegio di Maria.",
         content: {
             __html: `
@@ -141,11 +143,11 @@ export const places = [
             lat: 37.19222394722474,
             lng: 13.75959157022896,
         },
-        cover_image: "",
+        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260871/ecopalmaps/chiesa-santa-rosalia.jpg",
         description: "Edificata nella metà del XVII secolo, secondo la tradizione fu la prima chiesa della città. Oggi priva di altari e degli arredi costituisce un interessante esempio di architettura religiosa. Particolare la cappella attigua alla navata, sede della confraternita della Carità.",
         content: {
             __html: `
-
+            L'edificio, a causa di lavori di manutenzione, è temporaneamente inagibile.
             `,
         },
     },
@@ -156,7 +158,7 @@ export const places = [
             lat: 37.19165871641864,
             lng: 13.763725240723419,
         },
-        cover_image: "",
+        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260924/ecopalmaps/palazzo-degli-scolopi.jpg",
         description: "L'edificio, oggi sede degli uffici comunali, è certamente uno dei più belli del patrimonio tardo-barocco. Addossata al palazzo è la chiesa della Sacra Famiglia con la quale costituisce un unico complesso architettonico.",
         content: {
             __html: `
@@ -172,11 +174,11 @@ export const places = [
             lat: 37.19307434794813,
             lng: 13.760986190406486,
         },
-        cover_image: "",
+        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260064/ecopalmaps/chiesa-del-collegio-di-maria.jpg",
         description: "La Chiesa del Collegio di Maria fu eretta da Suor Maria Antonina Lauricella da Girgenti, che raccolse la somma occorrente sollecitando il mecenatismo del ricco mercante napoletano D. Giovanni Battista Giuliana. La chiesa fu ultimata il 6 settembre 1788. Sul primo altare, entrando da destra, spicca il grande quadro, opera di Domenico Provenzani, della Madonna della Provvidenza mentre sull'altare maggiore il quadro della SS. Trinità opera di Fra Felice da Sambuca. Nella Chiesa è custodita una copia della Sacra Sindone. Conservato in un'urna di vetro il corpo di Santa Placida.",
         content: {
             __html: `
-
+            
             `,
         },
     }, 
@@ -203,7 +205,7 @@ export const places = [
             lat: 37.18366295812218,
             lng: 13.695856616888637,
         },
-        cover_image: "",
+        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651261620/ecopalmaps/castello-di-montechiaro.jpg",
         description: "Il castello di Montechiaro, l'unico dei manieri chiaramontani in Sicilia edificato su un costone roccioso a picco sul mare, sorge nei dintorni di Palma di Montechiaro, in prossimità di Marina di Palma. A poco più di 5 km dall'abitato e recentemente restaurato, il maniero fu costruito nel Trecento da Federico III Chiaramonte ed ebbe un ruolo di primaria importanza nella difesa dell'isola dalle incursioni piratesche",
         content: {
             __html: `
@@ -219,8 +221,8 @@ export const places = [
             lat: 37.15689785601085,
             lng: 13.79484566230079,
         },
-        cover_image: "",
-        description: "Il sito interessa la sommità di un’altura nella quale è attestata una frequentazione di epoca preistorica e greca. Si segnala la presenza di tombe a grotticella artificiale di epoca castellucciana sulle pendici della collina e sull’altura resti di un insediamento abitativo con capanne ed edifici cultuali risalenti al tardo bronzo tra cui una capanna-santuario con deposito votivo di rocchetti fittili e ciottoli. Resti di capanne ovali sono invece ascrivibili ad epoca eneolitica. La frequentazione di epoca greca è testimoniata dai resti di un santuario databile tra il VII e il IV sec. a.C. che ha restituito una ricca stipe votiva e dai resti di una cinta muraria databile nel VI sec. a.C. Verosimilmente il sito fu occupato dai greci nel corso del VII secolo a.C. durante la marcia di avvicinamento verso Agrigento prima della sua fondazione.",
+        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651261301/ecopalmaps/torre-del-castellazzo.jpg",
+        description: "Il sito interessa la sommità di un'altura nella quale è attestata una frequentazione di epoca preistorica e greca. Si segnala la presenza di tombe a grotticella artificiale di epoca castellucciana sulle pendici della collina e sull'altura resti di un insediamento abitativo con capanne ed edifici cultuali risalenti al tardo bronzo tra cui una capanna-santuario con deposito votivo di rocchetti fittili e ciottoli. Resti di capanne ovali sono invece ascrivibili ad epoca eneolitica. La frequentazione di epoca greca è testimoniata dai resti di un santuario databile tra il VII e il IV sec. a.C. che ha restituito una ricca stipe votiva e dai resti di una cinta muraria databile nel VI sec. a.C. Verosimilmente il sito fu occupato dai greci nel corso del VII secolo a.C. durante la marcia di avvicinamento verso Agrigento prima della sua fondazione.",
         content: {
             __html: `
             <h3>Posizione</h3>
@@ -235,7 +237,7 @@ export const places = [
             lat: 37.15371439725808,
             lng: 13.759738986996897,
         },
-        cover_image: "",
+        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651261047/ecopalmaps/fontana-spina.jpg",
         description: "La Fontana Spina collocata in un punto panoramico pazzesco nella zona in cui venne rinvenuta la Triscele, divenuta simbolo di Sicilia.",
         content: {
             __html: `

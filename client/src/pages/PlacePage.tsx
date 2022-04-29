@@ -43,7 +43,6 @@ const PlacePageImageContainer = styled.div`
         height: inherit;
         object-fit: cover;
         object-position: center;
-        aspect-ratio: 16 / 9;
         border-radius: inherit;
     }
 `;

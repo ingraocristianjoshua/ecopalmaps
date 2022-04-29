@@ -114,8 +114,8 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
     const [clicks, setClicks] = useState<google.maps.LatLng[]>([]);
     const [zoom, setZoom] = useState(15);
     const [center, setCenter] = useState<google.maps.LatLngLiteral>({
-        lat: 37.1921729,
-        lng: 13.7606966,
+        lat: 37.19148675220757,
+        lng: 13.763526245756793,
     });
     
     const onClick = (e: google.maps.MapMouseEvent) => {
