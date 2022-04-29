@@ -107,5 +107,19 @@ export const places = [
             __html: `L'edificazione della Torre San Carlo, appena oltre la foce del fiume Palma, risale al 1639 ad opera di Carlo Tomasi, primo duca di Palma, che ottenne il permesso da Filippo IV di Spagna ed ebbe scopi difensivi stante le continue incursioni dei pirati saraceni sul litorale palmese. La fortezza fu fornita di armi, attrezzi da guerra e di un adeguato numero di soldati. Essa s'innalza con un corpo quadrangolare su un basamento a forma di piramide tronca. Vi sono tracce che indicano la presenza di un ponte levatoio e mensoloni sui quali si dovevano poggiare i piombatoi. Inoltre, è realizzata in pietra calcarea bianca. Attualmente versa, come la maggior parte delle torri del circuito, in condizioni ruderali e purtroppo non risulta visitabile all'interno. Accanto alla torre sorgeva un chiesetta oggi non più esistente, avamposto della cristianità in zona di guerra, col titolo del Santissimo Rosario. Qui il cappellano faceva messa ai soldati cercando di galvanizzarli nella loro missione, vale a dire la lotta agli infedeli. Gli apparati difensivi furono mantenuti fino al 1820.`,
         },
     },
-    
+    {
+        slug: "",
+        title: "",
+        latLng: {
+            lat: 0,
+            lng: 0,
+        },
+        cover_image: "",
+        description: "",
+        content: {
+            __html: `
+
+            `,
+        },
+    }
 ];
