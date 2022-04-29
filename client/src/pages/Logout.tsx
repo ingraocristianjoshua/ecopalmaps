@@ -130,7 +130,7 @@ function Logout() {
                         <Link to="/" title="EcoPalMaps">
                             <Logo type="inline" />
                         </Link>
-                        <LogoText>Disconnettiti</LogoText>
+                        <LogoText>Esci</LogoText>
                     </LogoutPageHeader>
                     <LogoutPageContent>
                         <PageText>
