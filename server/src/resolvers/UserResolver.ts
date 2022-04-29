@@ -491,7 +491,7 @@ export class UserResolver {
                             transporter.sendMail({
                                 from: "EcoPalMaps <support@ecopalmaps.com>",
                                 to: process.env.SUPPORT_EMAIL_USER,
-                                subject: "Recupera la tua password",
+                                subject: `${fullName} ti ha inviato una richiesta di supporto`,
                                 html: data,
                             });
                             status =
