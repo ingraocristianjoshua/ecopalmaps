@@ -491,7 +491,7 @@ export class UserResolver {
                             transporter.sendMail({
                                 from: "EcoPalMaps <support@ecopalmaps.com>",
                                 to: process.env.SUPPORT_EMAIL_USER,
-                                subject: `${fullName} ti ha inviato una richiesta di supporto`,
+                                subject: `${subject}`,
                                 html: data,
                             });
                             status =
