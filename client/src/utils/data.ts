@@ -7,7 +7,7 @@ export const places = [
             lng: 13.763526245756793,
         },
         cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651262378/ecopalmaps/stemma.jpg",
-        description: "Palma di Montechiaro è un comune italiano di 21 287 abitanti del libero consorzio comunale di Agrigento in Sicilia. Il paese sorge su un'altura rocciosa da cui domina la vallata sottostante che si protende fino al mare. Spiccano in primo piano, ben visibili dallo scorrimento veloce che attraversa la vallata, i monumenti storici del secondo palazzo ducale, (1659), la chiesa madre, (1666), in cima ad una larga scalinata e il monastero delle Benedettine, (1637) primo edificio della città.",
+        description: "Il paese sorge su un'altura rocciosa da cui domina la vallata sottostante che si protende fino al mare. Spiccano in primo piano, ben visibili dallo scorrimento veloce che attraversa la vallata, i monumenti storici del secondo palazzo ducale, (1659), la chiesa madre, (1666), in cima ad una larga scalinata e il monastero delle Benedettine, (1637) primo edificio della città.",
         content: {
             __html: `
             <h3>Storia</h3>
@@ -61,7 +61,7 @@ export const places = [
         cover_image:
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1650978592/ecopalmaps/palazzo-ducale.jpg",
         description:
-            "Il Palazzo Ducale rappresenta una delle costruzioni più emblematiche di Palma di Montechiaro. Fu fatto edificare dal duca Giulio Tomasi, come seconda dimora della famiglia, dopo che la prima fu trasformata in convento dedicato al SS. Rosario. Il Palazzo Ducale si articola su due elevazioni, oltre a quella del sottotetto. Al piano terra, ove oggi è sistemata la biblioteca “Giovanni Falcone”, erano situati i magazzini ed i depositi.  Al piano nobile, quello di rappresentanza, invece, sono sistemate le sale, otto delle quali sono dotate di superbi soffitti lignei a lacunari dipinti.",
+            "Il Palazzo Ducale rappresenta una delle costruzioni più emblematiche di Palma di Montechiaro. Fu fatto edificare dal duca Giulio Tomasi, come seconda dimora della famiglia, dopo che la prima fu trasformata in convento dedicato al SS. Rosario.",
         content: {
             __html: `
             <h3>Storia</h3>
@@ -91,7 +91,7 @@ export const places = [
             lng: 13.761487153531892,
         },
         cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651132341/ecopalmaps/monastero-delle-benedettine.jpg",
-        description: "Il Monastero del Santissimo Rosario costituisce il segno più emblematico della vicenda storica dei Tomasi a Palma di Montechiaro. Secondo quanto scritto nell'atto di Palma di Montechiaro, l'edificio fu iniziato nel 1637 e completato nel 1659. Il 3 maggio 1637, giorno della celebrazione dell'invenzione della Santa Croce, veniva benedetta la prima pietra di Palma che coincideva con l'inizio della costruzione della Chiesa dedicata alla Beata Vergine del Rosario, successivamente annessa alle fabbriche del complesso conventuale.",
+        description: "Il Monastero del Santissimo Rosario costituisce il segno più emblematico della vicenda storica dei Tomasi a Palma di Montechiaro.",
         content: {
             __html: `
             <h3>Storia</h3>
@@ -111,7 +111,7 @@ export const places = [
             lng: 13.75123428877471,
         },
         cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651144633/ecopalmaps/calvario.jpg",
-        description: "Palma viene considerata la seconda Gerusalemme, infatti tutte le Chiese formano le stazioni tra cui l'ultima è la Chiesa del Calvario, che prende il nome dal monte Calvario, nel quale venne crocifisso Gesù. All'ingresso del paese, dopo il parco archeologico della Zubbia, si scorge la collina Calvario con i ruderi dell'antica Chiesa di Santa Maria della Luce (1650), anch'essa dalle forme barocche.",
+        description: "Palma viene considerata la seconda Gerusalemme, infatti tutte le Chiese formano le stazioni tra cui l'ultima è la Chiesa del Calvario, che prende il nome dal monte Calvario, nel quale venne crocifisso Gesù.",
         content: {
             __html: `
             <h3>Storia</h3>
@@ -135,7 +135,6 @@ export const places = [
             `,
         },
     }, 
-
     {
         slug: "chiesa-santa-rosalia",
         title: "Chiesa Santa Rosalia",
@@ -175,13 +174,39 @@ export const places = [
             lng: 13.760986190406486,
         },
         cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260064/ecopalmaps/chiesa-del-collegio-di-maria.jpg",
-        description: "La Chiesa del Collegio di Maria fu eretta da Suor Maria Antonina Lauricella da Girgenti, che raccolse la somma occorrente sollecitando il mecenatismo del ricco mercante napoletano D. Giovanni Battista Giuliana. La chiesa fu ultimata il 6 settembre 1788. Sul primo altare, entrando da destra, spicca il grande quadro, opera di Domenico Provenzani, della Madonna della Provvidenza mentre sull'altare maggiore il quadro della SS. Trinità opera di Fra Felice da Sambuca. Nella Chiesa è custodita una copia della Sacra Sindone. Conservato in un'urna di vetro il corpo di Santa Placida.",
+        description: "La Chiesa del Collegio di Maria rappresenta uno dei monumenti più emblematici di Palma di Montechiaro, poichè custodisce una copia della Sacra Sindone.",
         content: {
             __html: `
-            
+            <h3>Storia</h3>
+            La Chiesa del Collegio di Maria fu eretta da Suor Maria Antonina Lauricella da Girgenti, che raccolse la somma occorrente sollecitando il mecenatismo del ricco mercante napoletano D. Giovanni Battista Giuliana. La chiesa fu ultimata il 6 settembre 1788.
+            <h4>Interno della Chiesa</h4>
+            Sul primo altare, entrando da destra, spicca il grande quadro, opera di Domenico Provenzani, della Madonna della Provvidenza mentre sull'altare maggiore il quadro della SS. Trinità opera di Fra Felice da Sambuca. Nella Chiesa è custodita una copia della Sacra Sindone. Conservato in un'urna di vetro il corpo di Santa Placida.
             `,
         },
     }, 
+    {
+        slug: "casa-di-giovan-battista-odierna",
+        title: "Casa di Giovan Battista Odierna",
+        latLng: {
+            lat: 37.191758677165645, 
+            lng: 13.760383947043012,
+        },
+        cover_image: "https://fai-platform.imgix.net/media/sicilia/ag/31764_casa-di-giovan-battista-odierna-odiernacia.jpg",
+        description: "L'edificio, oggi sede della Farmacia Miceli, era la casa dell'astronomo, presbitero e architetto Giovan Battista Odierna.",
+        content: {
+            __html: `
+            <h3>Giovan Battista Odierna</h3>
+            <h4>Biografia</h4>
+            Figlio di Vito Dierna, calzolaio e muratore, e di Serafina Rizo, la sua formazione iniziale fu economicamente possibile grazie all'aiuto di un suo ricco parente, don Giuseppe Orlandi, quindi impartita sia da un erudito locale, Mario Bocchieri, che dai frati del Convento francescano di Ragusa (che aveva, tra l'altro, rapporti con l'Università di Padova), mostrando subito una notevole inclinazione per l'astronomia. Infatti, già nel 1618, sulla base della lettura dell'opera Meteore di Agostino Nifo, dal campanile della Chiesa di San Nicola, sita nel punto più elevato di Ragusa, con un cannocchiale galileiano osservò tre comete che si resero visibili fra il 1618 e il 1619. Dopo una formazione teologica avvenuta fra Ragusa e Siracusa, nel 1622 fu ordinato sacerdote, quindi trascorse alcuni anni a Roma, dove venne in contatto con alcuni membri dell'Accademia dei Lincei, fondata nel 1603, fra cui il siracusano Vincenzo Mirabella, che lo introdusse alle nuove idee galileiane. Ritornato a Ragusa, amministrò regolarmente, dal 1625 al 1636, il sacerdozio nelle varie chiese della città, nonché presso l'aristocrazia locale, in particolare per la nobile famiglia Tomasi (ramo siciliano dei Lampedusa), che poi farà opere di mecenatismo nei suoi confronti.
+            Frutto delle sue letture e dei suoi studi sarà, nel 1628, l'opera Nunzio del secolo cristallino, in cui però, oltre a tener conto delle nuove idee galileiane, non abbandonerà del tutto la vecchia teoria geocentrica, esponendo quindi l'astronomia secondo prospettive metafisiche e teologiche. Sulla stessa scia, altre opere verranno pubblicate fra gli anni 1625 e 1631. Infine, nel 1637, assecondando i voleri e le aspirazioni della famiglia Tomasi, partecipò con questa alla fondazione e alla progettazione del ducato di Palma di Montechiaro, dove poi si trasferì e visse – come studioso, insegnante privato, parroco e arciprete – fino alla morte, avvenuta il 6 aprile 1660.
+            <h4>Il periodo trascorso a Palma di Montechiaro</h4>
+            Nel primo periodo trascorso a Palma di Montechiaro, all'incirca fino al 1645, Hodierna scrisse e pubblicò nel 1644, in volgare gli Opuscoli, una notevole serie di scritti che compendiano argomenti e tematiche di astronomia, meteorologia, ottica, nonché di struttura microscopica della materia (fu anche assertore dell'atomismo). Dal 1646 in poi, grazie ai contatti con biologi ed anatomisti napoletani e romani, si interessò di biologia animale e zoologia (riscuotendo, peraltro, l'approvazione di Francesco Redi), quindi di fisica – con ulteriori studi sull'opera di Galileo Galilei – e di matematica, diventando, nel 1656, matematico alla Corte dei Tomasi che, nel frattempo, avevano ottenuto la nobilitazione dall'aristocrazia spagnola. Gli ultimi studi e ricerche, distribuiti per l'appunto in innumerevoli opuscoli perlopiù inediti, riguardarono variamente la microanatomia, l'ottica, l'astronomia e l'astrologia, le scienze naturali. Tra queste, la ricerca su L'occhio della mosca, dedicata all'anatomia degli insetti e, appunto, alla struttura anatomica dell'occhio della mosca, lavoro che offrì magistralmente uno dei primi esempi di indagine naturalistica e scientifica condotta con l'ausilio di un microscopio. In contatto con diversi scienziati dell'epoca, fu in corrispondenza con Christiaan Huygens, mentre parte della sua opera sarà poi sotto l'attenzione anche della Royal Society di Londra.
+            <h4>Il successo e le scoperte</h4>
+            Hodierna divenne noto in Italia e in Europa soprattutto per i suoi studi astronomici, in particolare per le osservazioni astronomiche e le effemeridi dei "pianeti medicei" che gli furono richiesti da Ferdinando II de' Medici, granduca di Toscana. Molte delle sue scoperte di astronomia furono poi raccolte in De systemate orbis cometici, deque admirandis coeli characteribus (forse, la sua opera più importante, a sua volta suddivisa in due parti, la prima De systemate orbis cometici, la seconda De Admirandis Coeli Characteribus, e pubblicata a Palermo nel 1654), che costituì peraltro una delle prime catalogazioni sistematiche di oggetti celesti, fra cui comete, nebulose e ammassi stellari, in cui vennero pure esposte alcune sue teorie circa la loro natura, struttura e la relativa dinamica. Proprio in merito a questo lavoro, studi recenti hanno attribuito già a Hodierna la scoperta di numerosi oggetti stellari che sarebbero poi stati catalogati ufficialmente alcuni secoli dopo: risultò, in particolare, che l'ammasso M47, erroneamente attribuito a Charles Messier, era stato invece scoperto proprio da Hodierna nel 1654, anno in cui scoprì pure la Galassia del Triangolo, la quale venne inclusa nell'ammasso aperto NGC 752 e che fu poi scoperta indipendentemente anche da Charles Messier. Nell'altro opuscolo Medicaeorum Ephemerides (pubblicato a Palermo nel 1656), infine, Hodierna si dedicò allo studio dei satelliti di Giove, scoprì alcune nuove stelle fisse, nonché andò molto vicino nell'identificare pure gli anelli di Saturno, poi scoperti da Huygens.
+            `,
+        },
+    },
+
     {
         slug: "torre-san-carlo",
         title: "Torre San Carlo",
@@ -206,7 +231,7 @@ export const places = [
             lng: 13.695856616888637,
         },
         cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651261620/ecopalmaps/castello-di-montechiaro.jpg",
-        description: "Il castello di Montechiaro, l'unico dei manieri chiaramontani in Sicilia edificato su un costone roccioso a picco sul mare, sorge nei dintorni di Palma di Montechiaro, in prossimità di Marina di Palma. A poco più di 5 km dall'abitato e recentemente restaurato, il maniero fu costruito nel Trecento da Federico III Chiaramonte ed ebbe un ruolo di primaria importanza nella difesa dell'isola dalle incursioni piratesche",
+        description: "Il castello di Montechiaro, l'unico dei manieri chiaramontani in Sicilia edificato su un costone roccioso a picco sul mare, sorge nei dintorni di Palma di Montechiaro, in prossimità di Marina di Palma.",
         content: {
             __html: `
             <h3>Storia</h3>
@@ -222,7 +247,7 @@ export const places = [
             lng: 13.79484566230079,
         },
         cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651261301/ecopalmaps/torre-del-castellazzo.jpg",
-        description: "Il sito interessa la sommità di un'altura nella quale è attestata una frequentazione di epoca preistorica e greca. Si segnala la presenza di tombe a grotticella artificiale di epoca castellucciana sulle pendici della collina e sull'altura resti di un insediamento abitativo con capanne ed edifici cultuali risalenti al tardo bronzo tra cui una capanna-santuario con deposito votivo di rocchetti fittili e ciottoli. Resti di capanne ovali sono invece ascrivibili ad epoca eneolitica. La frequentazione di epoca greca è testimoniata dai resti di un santuario databile tra il VII e il IV sec. a.C. che ha restituito una ricca stipe votiva e dai resti di una cinta muraria databile nel VI sec. a.C. Verosimilmente il sito fu occupato dai greci nel corso del VII secolo a.C. durante la marcia di avvicinamento verso Agrigento prima della sua fondazione.",
+        description: "Il sito interessa la sommità di un'altura nella quale è attestata una frequentazione di epoca preistorica e greca.",
         content: {
             __html: `
             <h3>Posizione</h3>
