@@ -37,7 +37,7 @@ export const places = [
             Il titolo di chiesa madre era appartenuto per breve tempo alla cappella palatina del primitivo palazzo ducale - poi divenuto monastero - in seguito fu trasferito presso la chiesa di Santa Rosalia. L'attuale edificio fu voluto e finanziato da Giulio Tomasi come si evince dall'atto notarile stipulato il 2 ottobre 1666 presso il notaio Giuseppe Cappello da Licata. Per testamento il nobile lasciò un legato di mille onze perché se ne portasse a termine il perfezionamento. 
             La realizzazione della chiesa fu affidata al palmese Francesco Scicolone e all'ingegnere che sovraintendeva ai lavori tale Pennica di Agrigento. La facciata fu successivamente progettata da Angelo Italia, uno dei primi architetti barocchi operanti in Sicilia.
             <h3>Architettura</h3>
-            Posta sulla sommità di un'ampia scalinata, è caratterizzata da una facciata, realizzata con conci di pietra delle cave del Casserino, chiusa tra due campanili, presenta due ordini soprapposti di colonne che rilevano dalla muratura e frontoni spezzati con un portale centrale e da due portali minori. La chiesa è a pianta longitudinale con tre navate, transetto e cupola.
+            Posta sulla sommità di un'ampia scalinata, è caratterizzata da una facciata, realizzata con conci di pietra delle cave del Casserino, chiusa tra due campanili, presenta due ordini sovrapposti di colonne che rilevano dalla muratura e frontoni spezzati con un portale centrale e da due portali minori. La chiesa è a pianta longitudinale con tre navate, transetto e cupola.
             <h4>Interno</h4>
             L'interno del duomo rivela un movimentato scenario decorativo in stucco di sapore neoclassico. In fondo alle navate è l'ampio presbiterio, cinto da splendide inferriate e due ricche cappelle intitolate al SS. Sacramento e alla Madonna del Rosario. Nella prima cappella a sinistra è l'urna contenente le reliquie di san Traspadano donate a Carlo Tomasi, nel 1666, dal cardinale Sforza Pallavicini. Numerose sono le reliquie conservate tra le quali quelle di santa Cecilia martire, san Luciano, san Bonifacio, san Pio, sant'Emiliano, sant'Elia, san Clemente, san Celso.
             L'altare maggiore è opera del palermitano Giuseppe Allegra; la cantoria dell'organo in legno scolpito è di Calogero Provenzani, padre di Domenico.
@@ -168,7 +168,7 @@ export const places = [
     },
     {
         slug: "chiesa-del-collegio-di-maria",
-        title: "Chiesa del collegio di Maria",
+        title: "Chiesa del Collegio di Maria",
         latLng: {
             lat: 37.19307434794813,
             lng: 13.760986190406486,
