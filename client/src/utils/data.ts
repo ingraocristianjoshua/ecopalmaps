@@ -183,7 +183,24 @@ export const places = [
             Sul primo altare, entrando da destra, spicca il grande quadro, opera di Domenico Provenzani, della Madonna della Provvidenza mentre sull'altare maggiore il quadro della SS. Trinità opera di Fra Felice da Sambuca. Nella Chiesa è custodita una copia della Sacra Sindone. Conservato in un'urna di vetro il corpo di Santa Placida.
             `,
         },
-    }, 
+    },
+    {
+        slug: "ecce-homo",
+        title: "Ecce Homo",
+        latLng: {
+            lat: 37.19229814413554, 
+            lng: 13.76324974088748,
+        },
+        cover_image: "https://res.cloudinary.com/cristianingrao/image/upload/v1651338663/ecopalmaps/ecce-homo.png",
+        description: "L'insegna posta sopra l'edicola , 'Ecce Homo', è la frase che secondo la Vulgata Ponzio Pilato, allora governatore romano della Giudea, pronunciò mostrando alla folla Gesù flagellato.",
+        content: {
+            __html: `
+            <h3>Riferimenti storici</h3>
+            Secondo quanto raccontato dai Vangeli, Gesù, al momento dell'arresto, venne ritenuto innocente dal Governatore. Questi, per calmare la plebe che voleva vedere Gesù giustiziato ugualmente, lo fece infine flagellare, pensando in questo modo di soddisfare la sete di sangue del pubblico.
+            Dopo la flagellazione Pilato mostrò alla folla il Cristo coperto di piaghe e ferite sanguinanti, con una corona di spine sul capo, un mantello purpureo da re sulle spalle e uno scettro di canna tra le mani e pronunciò la frase «Ecce homo» come per dire "Guardate l'uomo, vedete che l'ho punito?". Ciò non fu però giudicato sufficiente, e i sommi sacerdoti fecero pressione per far crocifiggere il prigioniero Questa frase indica per estensione anche la passione di Gesù come referenza a una persona malconcia, emaciata, sfigurata dal dolore.
+            `,
+        },
+    },      
     {
         slug: "casa-di-giovan-battista-odierna",
         title: "Casa di Giovan Battista Odierna",
@@ -191,7 +208,7 @@ export const places = [
             lat: 37.191758677165645, 
             lng: 13.760383947043012,
         },
-        cover_image: "https://fai-platform.imgix.net/media/sicilia/ag/31764_casa-di-giovan-battista-odierna-odiernacia.jpg",
+        cover_image: "https://res.cloudinary.com/cristianingrao/image/upload/v1651339218/ecopalmaps/casa-di-giovan-battista-odierna_pnwtb1.jpg",
         description: "L'edificio, oggi sede della Farmacia Miceli, era la casa dell'astronomo, presbitero e architetto Giovan Battista Odierna.",
         content: {
             __html: `
@@ -214,7 +231,7 @@ export const places = [
             lat: 37.16598793153955,
             lng: 13.731524808221971,
         },
-        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651145152/ecopalmaps/torre-san-carlo.jpg",
+        cover_image: "https://res.cloudinary.com/cristianingrao/image/upload/v1651339085/ecopalmaps/torre-san-carlo.jpg",
         description: "L'edificazione della Torre San Carlo, appena oltre la foce del fiume Palma, risale al 1639 ad opera di Carlo Tomasi, primo duca di Palma, che ottenne il permesso da Filippo IV di Spagna ed ebbe scopi difensivi stante le continue incursioni dei pirati saraceni sul litorale palmese.",
         content: {
             __html: `
@@ -263,7 +280,7 @@ export const places = [
             lng: 13.759738986996897,
         },
         cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651261047/ecopalmaps/fontana-spina.jpg",
-        description: "La Fontana Spina collocata in un punto panoramico pazzesco nella zona in cui venne rinvenuta la Triscele, divenuta simbolo di Sicilia.",
+        description: "La Fontana Spina è collocata in un punto panoramico pazzesco. Si trova nella zona in cui venne rinvenuta la Triscele, divenuta simbolo di Sicilia.",
         content: {
             __html: `
 
