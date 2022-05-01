@@ -4,6 +4,7 @@ import Preloader from "./components/Preloader";
 import IsAuthenticated from "./components/routes/IsAuthenticated";
 import IsNotAuthenticated from "./components/routes/IsNotAuthenticated";
 import Authentication from "./pages/Authentication";
+import City from "./pages/City";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
@@ -127,6 +128,15 @@ function App() {
                         <IsAuthenticated
                             isAuth={isAuth}
                             children={<Profile />}
+                        />
+                    }
+                />
+                <Route
+                    path="/palma-di-montechiaro"
+                    element={
+                        <IsAuthenticated
+                            isAuth={isAuth}
+                            children={<City />}
                         />
                     }
                 />
