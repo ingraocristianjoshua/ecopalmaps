@@ -285,7 +285,6 @@ const Marker: FunctionComponent<MarkerProps> = ({ slug, ...options }) => {
     useEffect(() => {
         if (marker) {
             marker.setOptions(options);
-            console.log(slug);
             marker.addListener("click", () => {
                 if (slug) {
                     navigate("/go-to/" + slug);
