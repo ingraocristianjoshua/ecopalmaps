@@ -259,7 +259,7 @@ const Map: FunctionComponent<MapProps> = ({
     );
 };
 
-const Marker: FunctionComponent<MarkerProps> = (options, slug) => {
+const Marker: FunctionComponent<MarkerProps> = ({ slug, ...options }) => {
     const [marker, setMarker] = useState<google.maps.Marker>();
     const infoWindow = new google.maps.InfoWindow();
     const navigate = useNavigate();
@@ -270,7 +270,6 @@ const Marker: FunctionComponent<MarkerProps> = (options, slug) => {
                 new google.maps.Marker({
                     icon: brandMarker,
                     clickable: true,
-                    label: "",
                 })
             );
         }
