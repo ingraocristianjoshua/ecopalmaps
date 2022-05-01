@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useNavigationType, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Head from "../components/Head";
 import PageLayout from "../components/layouts/PageLayout";
 import LayoutWithMap from "../components/layouts/sublayouts/LayoutWithMap";
 import { places } from "../utils/data";
 import styled from "styled-components";
-import { PageContentContainer, PageText } from "../styles/global";
+import { Button, PageContentContainer, PageText } from "../styles/global";
 import Back from "../components/icons/Back";
 
 const PlacePageHeader = styled.div`
@@ -85,9 +85,13 @@ const DirectionBlockContent = styled.div`
     display: block;
 `;
 
+const DirectionButton = styled(Button)`
+    background-color: #000000;
+    color: #ffffff;
+`;
+
 function PlacePage() {
     const navigate = useNavigate();
-    const navigationType = useNavigationType();
     const params = useParams();
 
     let placeItem = {
@@ -130,11 +134,7 @@ function PlacePage() {
                             <PageContentContainer>
                                 <PlacePageHeader>
                                     <PlacePageGoBack title="Vai indietro" onClick={() => {
-                                        if (navigationType === "POP") {
-                                            navigate("/");
-                                        } else {
-                                            navigate(-1);
-                                        }
+                                        navigate("/");
                                     }}>
                                         <Back />
                                     </PlacePageGoBack>
@@ -158,7 +158,7 @@ function PlacePage() {
                                             Raggiungi questo luogo
                                         </DirectionBlockTitle>
                                         <DirectionBlockContent>
-                                            Indicazioni
+                                            <DirectionButton>Indicazioni</DirectionButton>
                                         </DirectionBlockContent>
                                     </DirectionBlock>
                                 </PlacePageContent>

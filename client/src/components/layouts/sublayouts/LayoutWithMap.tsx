@@ -17,6 +17,7 @@ import brandMarker from "../../../images/marker.png";
 import { PageText } from "../../../styles/global";
 import { Link } from "react-router-dom";
 import { places } from "../../../utils/data";
+import { useNavigate } from "react-router-dom";
 
 export interface LayoutWithMapProps {
     latLng?: google.maps.LatLngLiteral;
@@ -31,7 +32,9 @@ interface MapProps extends google.maps.MapOptions {
     onIdle?: (map: google.maps.Map) => void;
 }
 
-interface MarkerProps extends google.maps.MarkerOptions {}
+interface MarkerProps extends google.maps.MarkerOptions {
+    slug?: string;
+}
 
 const PageContent = styled.div`
     display: grid;
@@ -128,6 +131,16 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
         setCenter(m.getCenter()!.toJSON());
     };
 
+    let index = 0;
+
+    if (latLng) {
+        places.forEach((place, i) => {
+            if (place.latLng === latLng) {
+                index = i;
+            }
+        });
+    }
+
     return (
         <PageContent>
             <MapContainer>
@@ -151,10 +164,10 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                             <Marker key={i} position={latLng} />
                         ))}*/}
                         {latLng ?
-                            <Marker position={latLng} />
+                            <Marker position={latLng} title={places[index].title} />
                          : 
                             places.map((place, i) => (
-                                <Marker key={i} position={place.latLng} title={place.title} />
+                                <Marker key={i} position={place.latLng} title={place.title} slug={place.slug} />
                             ))
                         }
                     </Map>
@@ -246,8 +259,10 @@ const Map: FunctionComponent<MapProps> = ({
     );
 };
 
-const Marker: FunctionComponent<MarkerProps> = (options) => {
+const Marker: FunctionComponent<MarkerProps> = (options, slug) => {
     const [marker, setMarker] = useState<google.maps.Marker>();
+    const infoWindow = new google.maps.InfoWindow();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!marker) {
@@ -255,6 +270,7 @@ const Marker: FunctionComponent<MarkerProps> = (options) => {
                 new google.maps.Marker({
                     icon: brandMarker,
                     clickable: true,
+                    label: "",
                 })
             );
         }
@@ -270,8 +286,18 @@ const Marker: FunctionComponent<MarkerProps> = (options) => {
     useEffect(() => {
         if (marker) {
             marker.setOptions(options);
+            console.log(slug);
+            marker.addListener("click", () => {
+                if (slug) {
+                    navigate("/go-to/" + slug);
+                } else {
+                    infoWindow.close();
+                    infoWindow.setContent(marker.getTitle());
+                    infoWindow.open(marker.getMap(), marker);
+                }
+            });
         }
-    }, [marker, options]);
+    }, [marker, options, infoWindow, navigate, slug]);
 
     return null;
 };

@@ -1,4 +1,4 @@
-import { Link, useNavigate, useNavigationType } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Head from "../components/Head";
 import Back from "../components/icons/Back";
@@ -96,7 +96,6 @@ const LogoutButton = styled(Button)`
 
 function Logout() {
     const navigate = useNavigate();
-    const navigationType = useNavigationType();
 
     const { data, loading } = useMeQuery({ fetchPolicy: "network-only" });
     const [logout, { client }] = useLogoutMutation();
@@ -118,11 +117,7 @@ function Logout() {
                             title="Vai indietro"
                             role="button"
                             onClick={() => {
-                                if (navigationType === "POP") {
-                                    navigate("/");
-                                } else {
-                                    navigate(-1);
-                                }
+                                navigate("/");
                             }}
                         >
                             <Back />
