@@ -5,7 +5,12 @@ import PageLayout from "../components/layouts/PageLayout";
 import LayoutWithMap from "../components/layouts/sublayouts/LayoutWithMap";
 import { places } from "../utils/data";
 import styled from "styled-components";
-import { Button, PageBlock, PageContentContainer, PageText } from "../styles/global";
+import {
+    Button,
+    PageBlock,
+    PageContentContainer,
+    PageText,
+} from "../styles/global";
 import Back from "../components/icons/Back";
 
 const PlacePageHeader = styled.div`
@@ -127,7 +132,7 @@ function PlacePage() {
 
     useEffect(() => {
         try {
-            setPlaceItem(places.find(place => place.slug === params.slug)!);
+            setPlaceItem(places.find((place) => place.slug === params.slug)!);
         } catch (error) {
             navigate("/home");
         }
@@ -145,16 +150,20 @@ function PlacePage() {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude,
                     };
-    
-                    geocoder.geocode({ location: userLocation }).then((response) => {
-                        setPlaceName(response.results[0].formatted_address);
-                    })
-                    .catch((error) => {
-                        console.error(error);
-                    });
+
+                    geocoder
+                        .geocode({ location: userLocation })
+                        .then((response) => {
+                            setPlaceName(response.results[0].formatted_address);
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
                 },
                 () => {
-                    setPlaceName("Non è possible ottenere la tua posizione attuale");
+                    setPlaceName(
+                        "Non è possible ottenere la tua posizione attuale"
+                    );
                 }
             );
         }
@@ -214,14 +223,20 @@ function PlacePage() {
                                         <DirectionBlockContent>
                                             <RouteInfo>
                                                 <RouteInfoBlock>
-                                                    <PageText><b>Punto di partenza</b></PageText>
+                                                    <PageText>
+                                                        <b>Punto di partenza</b>
+                                                    </PageText>
                                                     <PageText>
                                                         {placeName}
                                                     </PageText>
                                                 </RouteInfoBlock>
                                                 <RouteInfoBlock>
-                                                    <PageText><b>Destinazione</b></PageText>
-                                                    <PageText>{placeItem.title}</PageText>
+                                                    <PageText>
+                                                        <b>Destinazione</b>
+                                                    </PageText>
+                                                    <PageText>
+                                                        {placeItem.title}
+                                                    </PageText>
                                                 </RouteInfoBlock>
                                             </RouteInfo>
                                             <PageBlock>

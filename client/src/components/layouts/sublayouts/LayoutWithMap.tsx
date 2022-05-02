@@ -121,7 +121,7 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
     givenCenter,
     givenZoom,
     giveDirections,
-    type
+    type,
 }) => {
     const [clicks, setClicks] = useState<google.maps.LatLng[]>([]);
     const [zoom, setZoom] = useState(15);
@@ -214,6 +214,14 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                         </Link>
                     </MainFooterItem>
                     <MainFooterItem>
+                        <Link
+                            to="/privacy-policy"
+                            title="Privacy policy del sito"
+                        >
+                            Privacy policy
+                        </Link>
+                    </MainFooterItem>
+                    <MainFooterItem>
                         <a
                             href="https://iisodierna.edu.it"
                             target="_blank"
@@ -223,9 +231,7 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                             I. I. S. Odierna
                         </a>
                     </MainFooterItem>
-                    <MainFooterItem>
-                        Versione 0.1.0-beta
-                    </MainFooterItem>
+                    <MainFooterItem>Versione 0.1.0-beta</MainFooterItem>
                 </MainFooter>
             </MainContainer>
         </PageContent>
@@ -276,11 +282,12 @@ const Map: FunctionComponent<MapProps> = ({
         }
     }, [map, onClick, onIdle]);
 
-
     useEffect(() => {
         const infoWindow = new google.maps.InfoWindow();
         const directionsService = new google.maps.DirectionsService();
-        const directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
+        const directionsRenderer = new google.maps.DirectionsRenderer({
+            map: map,
+        });
 
         const handleLocationError = (
             browserHasGeolocation: boolean,
@@ -290,12 +297,12 @@ const Map: FunctionComponent<MapProps> = ({
             infoWindow.setPosition(pos);
             infoWindow.setContent(
                 browserHasGeolocation
-                ? "Error: The Geolocation service failed."
-                : "Error: Your browser doesn't support geolocation."
+                    ? "Error: The Geolocation service failed."
+                    : "Error: Your browser doesn't support geolocation."
             );
             infoWindow.open(map);
-        }
-        
+        };
+
         if (map && giveDirections !== undefined && latLng) {
             if (giveDirections) {
                 directionsRenderer.setMap(map);
@@ -306,39 +313,48 @@ const Map: FunctionComponent<MapProps> = ({
                                 lat: position.coords.latitude,
                                 lng: position.coords.longitude,
                             };
-            
-                                infoWindow.setPosition(userLocation);
-                                infoWindow.setContent("La mia posizione");
-                                infoWindow.open(map);
 
-                                directionsService
-                                    .route({
-                                        origin: {
-                                            location: userLocation,
+                            infoWindow.setPosition(userLocation);
+                            infoWindow.setContent("La mia posizione");
+                            infoWindow.open(map);
+
+                            directionsService
+                                .route({
+                                    origin: {
+                                        location: userLocation,
+                                    },
+                                    destination: {
+                                        location: latLng,
+                                    },
+                                    travelMode: google.maps.TravelMode.WALKING,
+                                    provideRouteAlternatives: true,
+                                    unitSystem: google.maps.UnitSystem.METRIC,
+                                })
+                                .then((response) => {
+                                    directionsRenderer.setOptions({
+                                        polylineOptions: {
+                                            strokeColor: "#edd035",
+                                            geodesic: true,
                                         },
-                                        destination: {
-                                            location: latLng,
-                                        },
-                                        travelMode: google.maps.TravelMode.WALKING,
-                                        provideRouteAlternatives: true,
-                                        unitSystem: google.maps.UnitSystem.METRIC,
-                                    })
-                                    .then((response) => {
-                                        directionsRenderer.setOptions({
-                                            polylineOptions: {
-                                                strokeColor: "#edd035",
-                                                geodesic: true,
-                                            },
-                                        });
-                                        /*directionsRenderer.setPanel(
+                                    });
+                                    /*directionsRenderer.setPanel(
                                             document.getElementById("sidebar") as HTMLElement
                                         );*/
-                                        directionsRenderer.setDirections(response);
-                                    })
-                                    .catch((e) => window.alert("La richiesta di indicazioni è fallita a causa di " + e));
+                                    directionsRenderer.setDirections(response);
+                                })
+                                .catch((e) =>
+                                    window.alert(
+                                        "La richiesta di indicazioni è fallita a causa di " +
+                                            e
+                                    )
+                                );
                         },
                         () => {
-                            handleLocationError(true, infoWindow, map.getCenter()!);
+                            handleLocationError(
+                                true,
+                                infoWindow,
+                                map.getCenter()!
+                            );
                         }
                     );
                 } else {
@@ -386,7 +402,7 @@ const Marker: FunctionComponent<MarkerProps> = ({ slug, type, ...options }) => {
                         icon: epMarker,
                         clickable: true,
                     })
-                )
+                );
             }
         }
 
@@ -406,7 +422,7 @@ const Marker: FunctionComponent<MarkerProps> = ({ slug, type, ...options }) => {
 
     useEffect(() => {
         const infoWindow = new google.maps.InfoWindow();
-        if(marker) {
+        if (marker) {
             marker.addListener("click", () => {
                 if (slug) {
                     if (type === "place") {

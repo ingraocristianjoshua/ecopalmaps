@@ -77,7 +77,9 @@ const NavOptionsContainer = styled.div`
     gap: 24px;
 `;
 
-const NavExtraOptions = styled.div.attrs((props: { isOpened: boolean }) => props)`
+const NavExtraOptions = styled.div.attrs(
+    (props: { isOpened: boolean }) => props
+)`
     display: ${(props) => (props.isOpened ? "flex" : "none")};
     align-items: left;
     flex-direction: column;
@@ -179,19 +181,34 @@ function Nav() {
             <NavOptionsContainer>
                 <NavExtraOptions isOpened={isOpened}>
                     <NavExtraOption>
-                        <NavLink className={(navData: any) => navData.isActive ? "active" : ""} to="/e-mobility" title="E-mobility">
+                        <NavLink
+                            className={(navData: any) =>
+                                navData.isActive ? "active" : ""
+                            }
+                            to="/e-mobility"
+                            title="E-mobility"
+                        >
                             E-mobility
                         </NavLink>
                     </NavExtraOption>
                     <NavExtraOption>
-                        <NavLink className={(navData: any) => navData.isActive ? "active" : ""} to="/palma-di-montechiaro" title="Palma di Montechiaro">
+                        <NavLink
+                            className={(navData: any) =>
+                                navData.isActive ? "active" : ""
+                            }
+                            to="/palma-di-montechiaro"
+                            title="Palma di Montechiaro"
+                        >
                             La città
                         </NavLink>
                     </NavExtraOption>
                 </NavExtraOptions>
-                <NavMenuButton role="button" onClick={() => {
-                    setIsOpened(!isOpened);
-                }}>
+                <NavMenuButton
+                    role="button"
+                    onClick={() => {
+                        setIsOpened(!isOpened);
+                    }}
+                >
                     <Menu />
                 </NavMenuButton>
                 <NavAccountButton

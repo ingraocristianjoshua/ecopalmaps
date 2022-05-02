@@ -18,6 +18,7 @@ import VerifyAccount from "./pages/VerifyAccount";
 import { setAccessToken } from "./utils/token";
 import Electric from "./pages/Electric";
 import ElectricPage from "./pages/ElectricPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -166,6 +167,15 @@ function App() {
                         <IsAuthenticated
                             isAuth={isAuth}
                             children={<Support />}
+                        />
+                    }
+                />
+                <Route
+                    path="/privacy-policy"
+                    element={
+                        <IsAuthenticated
+                            isAuth={isAuth}
+                            children={<PrivacyPolicy />}
                         />
                     }
                 />
