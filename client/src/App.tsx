@@ -16,6 +16,7 @@ import Signup from "./pages/Signup";
 import Support from "./pages/Support";
 import VerifyAccount from "./pages/VerifyAccount";
 import { setAccessToken } from "./utils/token";
+import Electric from "./pages/Electric";
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -113,6 +114,15 @@ function App() {
                         <IsAuthenticated
                             isAuth={isAuth}
                             children={<HomePage />}
+                        />
+                    }
+                />
+                <Route
+                    path="/e-mobility"
+                    element={
+                        <IsAuthenticated
+                            isAuth={isAuth}
+                            children={<Electric />}
                         />
                     }
                 />
