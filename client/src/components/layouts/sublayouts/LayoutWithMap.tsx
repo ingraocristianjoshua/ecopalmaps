@@ -303,6 +303,7 @@ const Map: FunctionComponent<MapProps> = ({
                                         },
                                         travelMode: google.maps.TravelMode.WALKING,
                                         provideRouteAlternatives: true,
+                                        unitSystem: google.maps.UnitSystem.METRIC,
                                     })
                                     .then((response) => {
                                         directionsRenderer.setOptions({

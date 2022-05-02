@@ -33,8 +33,12 @@ const NavBrandLink = styled(Link)`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 12px;
+    gap: 6px;
     text-decoration: none;
+
+    @media ${devices.mobileM} {
+        gap: 12px;
+    }
 
     @media ${devices.mobileL} {
         gap: 24px;
@@ -44,11 +48,15 @@ const NavBrandLink = styled(Link)`
 const NavBrandText = styled.div`
     display: none;
 
-    @media ${devices.mobileM} {
+    @media ${devices.mobileS} {
         display: block;
         font-weight: 700;
-        font-size: 26px;
+        font-size: 22px;
         color: #000000;
+    }
+
+    @media ${devices.mobileM} {
+        font-size: 26px;
     }
 `;
 
