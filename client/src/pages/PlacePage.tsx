@@ -240,6 +240,7 @@ function PlacePage() {
                                                     )}
                                                 </DirectionButton>
                                             </PageBlock>
+                                            {/*<PageBlock id="sidebar"></PageBlock>*/}
                                         </DirectionBlockContent>
                                     </DirectionBlock>
                                 </PlacePageContent>

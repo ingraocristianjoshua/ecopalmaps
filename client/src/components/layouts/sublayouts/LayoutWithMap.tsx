@@ -309,8 +309,11 @@ const Map: FunctionComponent<MapProps> = ({
                                             polylineOptions: {
                                                 strokeColor: "#edd035",
                                                 geodesic: true,
-                                            }
+                                            },
                                         });
+                                        {/*directionsRenderer.setPanel(
+                                            document.getElementById("sidebar") as HTMLElement
+                                        );*/}
                                         directionsRenderer.setDirections(response);
                                     })
                                     .catch((e) => window.alert("La richiesta di indicazioni è fallita a causa di " + e));
@@ -325,6 +328,9 @@ const Map: FunctionComponent<MapProps> = ({
             } else {
                 map.setCenter(latLng);
                 map.setZoom(18);
+                {/*directionsRenderer.setPanel(null);
+                document.getElementById("sidebar")!.innerHTML = "";*/}
+                directionsRenderer.setDirections({ routes: [] });
             }
         }
     }, [map, latLng, giveDirections]);
