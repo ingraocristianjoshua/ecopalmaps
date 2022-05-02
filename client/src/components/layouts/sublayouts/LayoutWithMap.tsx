@@ -225,8 +225,6 @@ const Map: FunctionComponent<MapProps> = ({
 }) => {
     const ref = useRef<HTMLDivElement>(null);
     const [map, setMap] = useState<google.maps.Map>();
-    const directionsService = new google.maps.DirectionsService();
-    const directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
 
     useEffect(() => {
         if (ref.current && !map) {
@@ -257,15 +255,71 @@ const Map: FunctionComponent<MapProps> = ({
             if (onIdle) {
                 map.addListener("idle", () => onIdle(map));
             }
+        }
+    }, [map, onClick, onIdle]);
 
-            if (giveDirections !== undefined && latLng) {
-                if (giveDirections) {
-                    directionsRenderer.setMap(map);
-                    calculateAndDisplayRoute(directionsService, directionsRenderer, map, latLng);
+
+    useEffect(() => {
+        const infoWindow = new google.maps.InfoWindow();
+        const directionsService = new google.maps.DirectionsService();
+        const directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
+
+        const handleLocationError = (
+            browserHasGeolocation: boolean,
+            infoWindow: google.maps.InfoWindow,
+            pos: google.maps.LatLng
+        ) => {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(
+                browserHasGeolocation
+                ? "Error: The Geolocation service failed."
+                : "Error: Your browser doesn't support geolocation."
+            );
+            infoWindow.open(map);
+        }
+        
+        if (map && giveDirections !== undefined && latLng) {
+            if (giveDirections) {
+                directionsRenderer.setMap(map);
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position: GeolocationPosition) => {
+                            const userLocation = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude,
+                            };
+            
+                                infoWindow.setPosition(userLocation);
+                                infoWindow.setContent("La mia posizione");
+                                infoWindow.open(map);
+
+                                directionsService
+                                    .route({
+                                        origin: {
+                                            location: userLocation,
+                                        },
+                                        destination: {
+                                            location: latLng
+                                        },
+                                        travelMode: google.maps.TravelMode.WALKING,
+                                    })
+                                    .then((response) => {
+                                        directionsRenderer.setDirections(response);
+                                    })
+                                    .catch((e) => window.alert("La richiesta di indicazioni è fallita a causa di " + e));
+                            },
+                        () => {
+                            handleLocationError(true, infoWindow, map.getCenter()!);
+                        }
+                    );
+                } else {
+                    handleLocationError(false, infoWindow, map.getCenter()!);
                 }
+            } else {
+                directionsRenderer.setMap(null);
             }
         }
-    }, [map, onClick, onIdle, directionsRenderer, directionsService, latLng]);
+    }, [map, latLng, giveDirections]);
 
     return (
         <>
@@ -283,7 +337,6 @@ const Map: FunctionComponent<MapProps> = ({
 
 const Marker: FunctionComponent<MarkerProps> = ({ slug, ...options }) => {
     const [marker, setMarker] = useState<google.maps.Marker>();
-    const infoWindow = new google.maps.InfoWindow();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -306,6 +359,7 @@ const Marker: FunctionComponent<MarkerProps> = ({ slug, ...options }) => {
 
     useEffect(() => {
         if (marker) {
+            const infoWindow = new google.maps.InfoWindow();
             marker.setOptions(options);
             marker.addListener("click", () => {
                 if (slug) {
@@ -317,7 +371,7 @@ const Marker: FunctionComponent<MarkerProps> = ({ slug, ...options }) => {
                 }
             });
         }
-    }, [marker, options, infoWindow, navigate, slug]);
+    }, [marker, options, navigate, slug]);
 
     return null;
 };
@@ -352,64 +406,6 @@ function useDeepCompareEffectForMaps(
     dependencies: any[]
 ) {
     useEffect(callback, dependencies.map(useDeepCompareMemoize));
-}
-
-function calculateAndDisplayRoute(
-    directionsService: google.maps.DirectionsService,
-    directionsRenderer: google.maps.DirectionsRenderer,
-    map: google.maps.Map,
-    latLng?: google.maps.LatLngLiteral,
-) {
-    const infoWindow = new google.maps.InfoWindow();
-    
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (position: GeolocationPosition) => {
-                const userLocation = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude,
-                };
-
-                    infoWindow.setPosition(userLocation);
-                    infoWindow.setContent("La mia posizione");
-                    infoWindow.open(map);
-                    map.setCenter(userLocation);
-                    directionsService
-                        .route({
-                            origin: {
-                                location: userLocation,
-                            },
-                            destination: {
-                                location: latLng
-                            },
-                            travelMode: google.maps.TravelMode.WALKING,
-                        })
-                        .then((response) => {
-                            directionsRenderer.setDirections(response);
-                        })
-                        .catch((e) => window.alert("Directions request failed due to " + e));
-                },
-                () => {
-                handleLocationError(true, infoWindow, map.getCenter()!);
-            }
-        );
-    } else {
-        handleLocationError(false, infoWindow, map.getCenter()!);
-    }
-
-    function handleLocationError(
-        browserHasGeolocation: boolean,
-        infoWindow: google.maps.InfoWindow,
-        pos: google.maps.LatLng
-    ) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(
-          browserHasGeolocation
-            ? "Error: The Geolocation service failed."
-            : "Error: Your browser doesn't support geolocation."
-        );
-        infoWindow.open(map);
-    }
 }
 
 export default LayoutWithMap;
