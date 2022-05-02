@@ -4,7 +4,7 @@ import Logo from "../components/icons/Logo";
 import styled from "styled-components";
 import { devices } from "../styles/devices";
 import { PageBlock, PageText } from "../styles/global";
-import image from "../images/palma-di-montechiaro.png";
+import image from "../images/palma-di-montechiaro.svg";
 
 const PageContainer = styled.div`
     display: grid;

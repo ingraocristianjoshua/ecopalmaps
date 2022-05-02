@@ -152,6 +152,9 @@ function PlacePage() {
                     .catch((error) => {
                         console.error(error);
                     });
+                },
+                () => {
+                    setPlaceName("Non è possible ottenere la tua posizione attuale");
                 }
             );
         }

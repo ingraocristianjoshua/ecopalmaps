@@ -1,8 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { devices } from "../styles/devices";
 import Account from "./icons/Account";
 import Logo from "./icons/Logo";
+import Menu from "./icons/Menu";
 
 const NavContainer = styled.div`
     display: flex;
@@ -34,16 +36,20 @@ const NavBrandLink = styled(Link)`
     gap: 12px;
     text-decoration: none;
 
-    @media ${devices.mobileS} {
+    @media ${devices.mobileL} {
         gap: 24px;
     }
 `;
 
 const NavBrandText = styled.div`
-    display: block;
-    font-weight: 700;
-    font-size: 26px;
-    color: #000000;
+    display: none;
+
+    @media ${devices.mobileM} {
+        display: block;
+        font-weight: 700;
+        font-size: 26px;
+        color: #000000;
+    }
 `;
 
 const NavAccountButton = styled.div`
@@ -60,10 +66,99 @@ const NavAccountButton = styled.div`
 const NavOptionsContainer = styled.div`
     display: flex;
     align-items: center;
+    gap: 24px;
+`;
+
+const NavExtraOptions = styled.div.attrs((props: { isOpened: boolean }) => props)`
+    display: ${(props) => (props.isOpened ? "flex" : "none")};
+    align-items: left;
+    flex-direction: column;
+    gap: 0px;
+    position: fixed;
+    top: 100px;
+    right: 12px;
+    background-color: #ffffff;
+    z-index: 10000;
+    border-radius: 18px;
+    box-shadow: 0px 0px 2px #0b0f10;
+
+    @media ${devices.mobileM} {
+        right: 24px;
+    }
+
+    @media (min-width: 550px) {
+        display: flex;
+        position: relative;
+        top: unset;
+        right: unset;
+        flex-direction: row;
+        gap: 24px;
+        align-items: center;
+        box-shadow: none;
+        border-radius: 0px;
+    }
+`;
+
+const NavExtraOption = styled.div`
+    display: flex;
+    align-items: center;
+
+    a {
+        width: 100%;
+        text-decoration: none;
+        background-color: transparent;
+        color: #edd035;
+        padding: 8px 20px;
+        border-radius: 0px;
+    }
+
+    a.active {
+        background-color: #edd035;
+        color: #ffffff;
+        border-radius: 0px;
+    }
+
+    a:first-child {
+        border-radius: 18px 18px 0px 0px;
+    }
+
+    a:last-child {
+        border-radius: 0px 0px 18px 18px;
+    }
+
+    @media (min-width: 550px) {
+        a {
+            text-decoration: none;
+            background-color: transparent;
+            color: #edd035;
+            padding: 0;
+            border-radius: 0px;
+            width: auto;
+        }
+
+        a.active {
+            background-color: #edd035;
+            color: #ffffff;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+    }
+`;
+
+const NavMenuButton = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    @media (min-width: 550px) {
+        display: none;
+    }
 `;
 
 function Nav() {
     const navigate = useNavigate();
+    const [isOpened, setIsOpened] = useState(false);
 
     return (
         <NavContainer>
@@ -74,6 +169,23 @@ function Nav() {
                 </NavBrandLink>
             </NavBrandContainer>
             <NavOptionsContainer>
+                <NavExtraOptions isOpened={isOpened}>
+                    <NavExtraOption>
+                        <NavLink className={(navData: any) => navData.isActive ? "active" : ""} to="/e-mobility" title="E-mobility">
+                            E-mobility
+                        </NavLink>
+                    </NavExtraOption>
+                    <NavExtraOption>
+                        <NavLink className={(navData: any) => navData.isActive ? "active" : ""} to="/palma-di-montechiaro" title="Palma di Montechiaro">
+                            La città
+                        </NavLink>
+                    </NavExtraOption>
+                </NavExtraOptions>
+                <NavMenuButton role="button" onClick={() => {
+                    setIsOpened(!isOpened);
+                }}>
+                    <Menu />
+                </NavMenuButton>
                 <NavAccountButton
                     role="link"
                     title="Vai al profilo"
