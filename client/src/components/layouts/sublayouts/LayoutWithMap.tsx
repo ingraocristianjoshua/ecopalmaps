@@ -305,6 +305,12 @@ const Map: FunctionComponent<MapProps> = ({
                                         provideRouteAlternatives: true,
                                     })
                                     .then((response) => {
+                                        directionsRenderer.setOptions({
+                                            polylineOptions: {
+                                                strokeColor: "#edd035",
+                                                geodesic: true,
+                                            }
+                                        });
                                         directionsRenderer.setDirections(response);
                                     })
                                     .catch((e) => window.alert("La richiesta di indicazioni è fallita a causa di " + e));
@@ -317,7 +323,8 @@ const Map: FunctionComponent<MapProps> = ({
                     handleLocationError(false, infoWindow, map.getCenter()!);
                 }
             } else {
-                infoWindow.setPosition(map.getCenter()!);
+                map.setCenter(latLng);
+                map.setZoom(18);
             }
         }
     }, [map, latLng, giveDirections]);

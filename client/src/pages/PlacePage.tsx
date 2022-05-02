@@ -111,8 +111,9 @@ const RouteInfoBlock = styled.div`
 function PlacePage() {
     const navigate = useNavigate();
     const params = useParams();
+    const [giveDirections, setGiveDirections] = useState(false);
 
-    let placeItem = {
+    const [placeItem, setPlaceItem] = useState({
         slug: "",
         title: "",
         latLng: {
@@ -122,24 +123,15 @@ function PlacePage() {
         cover_image: "",
         description: "",
         content: { __html: "" },
-    };
-
-    const [index, setIndex] = useState(0);
-    const [giveDirections, setGiveDirections] = useState(false);
+    });
 
     useEffect(() => {
         try {
-            places.forEach((place, i) => {
-                if (params.slug === place.slug) {
-                    setIndex(i);
-                }
-            });
+            setPlaceItem(places.find(place => place.slug === params.slug)!);
         } catch (error) {
             navigate("/home");
         }
     }, [navigate, params.slug]);
-
-    placeItem = places[index];
 
     const [placeName, setPlaceName] = useState("");
 
