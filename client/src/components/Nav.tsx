@@ -119,24 +119,32 @@ const NavExtraOption = styled.div`
         background-color: transparent;
         color: #edd035;
         padding: 8px 20px;
-        border-radius: 0px;
+        border-radius: inherit;
     }
 
     a.active {
         background-color: #edd035;
         color: #ffffff;
-        border-radius: 0px;
+        border-radius: inherit;
     }
 
-    a:first-child {
+    :first-child {
         border-radius: 18px 18px 0px 0px;
     }
 
-    a:last-child {
+    :last-child {
         border-radius: 0px 0px 18px 18px;
     }
 
     @media (min-width: 550px) {
+        :first-child {
+            border-radius: unset;
+        }
+
+        :last-child {
+            border-radius: unset;
+        }
+
         a {
             text-decoration: none;
             background-color: transparent;
