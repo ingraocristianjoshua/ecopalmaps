@@ -72,7 +72,7 @@ const PlaceContent = styled(PageText)`
 const DirectionBlock = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 24px;    
+    gap: 24px;
 `;
 
 const DirectionBlockTitle = styled.div`
@@ -98,8 +98,8 @@ function PlacePage() {
         slug: "",
         title: "",
         latLng: {
-            lat: 0.0000,
-            lng: 0.0000,
+            lat: 0.0,
+            lng: 0.0,
         },
         cover_image: "",
         description: "",
@@ -107,6 +107,7 @@ function PlacePage() {
     };
 
     const [index, setIndex] = useState(0);
+    const [giveDirections, setGiveDirections] = useState(false);
 
     useEffect(() => {
         try {
@@ -130,12 +131,20 @@ function PlacePage() {
             />
             <PageLayout
                 content={
-                    <LayoutWithMap givenCenter={placeItem.latLng} givenZoom={18} latLng={placeItem.latLng} content={
+                    <LayoutWithMap
+                        giveDirections={giveDirections}
+                        givenCenter={placeItem.latLng}
+                        givenZoom={18}
+                        latLng={placeItem.latLng}
+                        content={
                             <PageContentContainer>
                                 <PlacePageHeader>
-                                    <PlacePageGoBack title="Vai indietro" onClick={() => {
-                                        navigate("/");
-                                    }}>
+                                    <PlacePageGoBack
+                                        title="Vai indietro"
+                                        onClick={() => {
+                                            navigate("/");
+                                        }}
+                                    >
                                         <Back />
                                     </PlacePageGoBack>
                                     <PlacePageHeaderTitle>
@@ -144,7 +153,10 @@ function PlacePage() {
                                 </PlacePageHeader>
                                 <PlacePageContent>
                                     <PlacePageImageContainer>
-                                        <img src={placeItem.cover_image} title={placeItem.title} />
+                                        <img
+                                            src={placeItem.cover_image}
+                                            title={placeItem.title}
+                                        />
                                     </PlacePageImageContainer>
                                     <PlacePageTitle>
                                         {placeItem.title}
@@ -152,18 +164,39 @@ function PlacePage() {
                                     <PlacePageDescription>
                                         {placeItem.description}
                                     </PlacePageDescription>
-                                    <PlaceContent dangerouslySetInnerHTML={placeItem.content} />
+                                    <PlaceContent
+                                        dangerouslySetInnerHTML={
+                                            placeItem.content
+                                        }
+                                    />
                                     <DirectionBlock>
                                         <DirectionBlockTitle>
                                             Raggiungi questo luogo
                                         </DirectionBlockTitle>
                                         <DirectionBlockContent>
-                                            <DirectionButton>Indicazioni</DirectionButton>
+                                            <DirectionButton
+                                                role="button"
+                                                title={
+                                                    "Vai verso questo luogo: " +
+                                                    placeItem.title
+                                                }
+                                                onClick={() => {
+                                                    setGiveDirections(
+                                                        !giveDirections
+                                                    );
+                                                }}
+                                            >
+                                                {giveDirections ? (
+                                                    <>Annulla</>
+                                                ) : (
+                                                    <>Indicazioni</>
+                                                )}
+                                            </DirectionButton>
                                         </DirectionBlockContent>
                                     </DirectionBlock>
                                 </PlacePageContent>
                             </PageContentContainer>
-                        } 
+                        }
                     />
                 }
             />

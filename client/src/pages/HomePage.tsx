@@ -106,9 +106,14 @@ function HomePage() {
                                 </PageContentTitle>
                                 <PlacesContainer>
                                     {places.map((place, key) => (
-                                        <PlaceContainer key={key} onClick={() => {
-                                            navigate("/go-to/" + place.slug);
-                                        }}>
+                                        <PlaceContainer
+                                            key={key}
+                                            onClick={() => {
+                                                navigate(
+                                                    "/go-to/" + place.slug
+                                                );
+                                            }}
+                                        >
                                             <PlaceImageContainer>
                                                 <img
                                                     src={place.cover_image}

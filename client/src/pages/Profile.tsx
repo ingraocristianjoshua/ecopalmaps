@@ -4,7 +4,13 @@ import Head from "../components/Head";
 import PageLayout from "../components/layouts/PageLayout";
 import { useMeQuery } from "../generated/graphql";
 import { devices } from "../styles/devices";
-import { Button, PageBlock, PageContent, PageText, PageTitle } from "../styles/global";
+import {
+    Button,
+    PageBlock,
+    PageContent,
+    PageText,
+    PageTitle,
+} from "../styles/global";
 
 const AccountInfo = styled.div`
     display: flex;
@@ -51,8 +57,8 @@ function Profile() {
                     <PageContent>
                         <PageTitle>Salve, {data?.me?.firstName}</PageTitle>
                         <PageText>
-                            Qui puoi trovare tutte le informazioni relative al tuo
-                            account.
+                            Qui puoi trovare tutte le informazioni relative al
+                            tuo account.
                         </PageText>
                         <AccountInfo>
                             <AccountInfoLine>

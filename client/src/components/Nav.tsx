@@ -57,6 +57,11 @@ const NavAccountButton = styled.div`
     background-color: #edd035;
 `;
 
+const NavOptionsContainer = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
 function Nav() {
     const navigate = useNavigate();
 
@@ -68,15 +73,17 @@ function Nav() {
                     <NavBrandText>EcoPalMaps</NavBrandText>
                 </NavBrandLink>
             </NavBrandContainer>
-            <NavAccountButton
-                role="link"
-                title="Vai al profilo"
-                onClick={() => {
-                    navigate("/profile");
-                }}
-            >
-                <Account />
-            </NavAccountButton>
+            <NavOptionsContainer>
+                <NavAccountButton
+                    role="link"
+                    title="Vai al profilo"
+                    onClick={() => {
+                        navigate("/profile");
+                    }}
+                >
+                    <Account />
+                </NavAccountButton>
+            </NavOptionsContainer>
         </NavContainer>
     );
 }

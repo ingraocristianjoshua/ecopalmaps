@@ -70,8 +70,10 @@ export const places = [
             lat: 37.19153516823075,
             lng: 13.761487153531892,
         },
-        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651132341/ecopalmaps/monastero-delle-benedettine.jpg",
-        description: "Il Monastero del Santissimo Rosario costituisce il segno più emblematico della vicenda storica dei Tomasi a Palma di Montechiaro.",
+        cover_image:
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651132341/ecopalmaps/monastero-delle-benedettine.jpg",
+        description:
+            "Il Monastero del Santissimo Rosario costituisce il segno più emblematico della vicenda storica dei Tomasi a Palma di Montechiaro.",
         content: {
             __html: `
             <h3>Storia</h3>
@@ -87,11 +89,13 @@ export const places = [
         slug: "monte-calvario",
         title: "Calvario: Chiesa Santa Maria della Luce",
         latLng: {
-            lat: 37.1957178699075, 
+            lat: 37.1957178699075,
             lng: 13.75123428877471,
         },
-        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651144633/ecopalmaps/calvario.jpg",
-        description: "Palma viene considerata la seconda Gerusalemme, infatti tutte le Chiese formano le stazioni tra cui l'ultima è la Chiesa del Calvario, che prende il nome dal monte Calvario, nel quale venne crocifisso Gesù.",
+        cover_image:
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651144633/ecopalmaps/calvario.jpg",
+        description:
+            "Palma viene considerata la seconda Gerusalemme, infatti tutte le Chiese formano le stazioni tra cui l'ultima è la Chiesa del Calvario, che prende il nome dal monte Calvario, nel quale venne crocifisso Gesù.",
         content: {
             __html: `
             <h3>Storia</h3>
@@ -106,15 +110,17 @@ export const places = [
             lat: 37.190673894294925,
             lng: 13.763626942167711,
         },
-        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260790/ecopalmaps/chiesa-sant-angelo.jpg",
-        description: "La Chiesa di Sant'Angelo, detta della Batiella, fu costruita nel 1643 per volere di Vito Rizzo da Licata che la dedicò al protettore della sua città. Lì accanto, Giuseppe Maria Tomasi fece costruire un orfanotrofio per 12 orfanelle. Nel 1738 l'orfanotrofio venne trasferito presso il Collegio di Maria.",
+        cover_image:
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260790/ecopalmaps/chiesa-sant-angelo.jpg",
+        description:
+            "La Chiesa di Sant'Angelo, detta della Batiella, fu costruita nel 1643 per volere di Vito Rizzo da Licata che la dedicò al protettore della sua città. Lì accanto, Giuseppe Maria Tomasi fece costruire un orfanotrofio per 12 orfanelle. Nel 1738 l'orfanotrofio venne trasferito presso il Collegio di Maria.",
         content: {
             __html: `
             <h3>Architettura</h3>
             La chiesa presenta un impianto ad aula di  6 x 12 m, con tetto a capanna denunciato all'esterno da una cornice triangolare in pietra. Orientata ad ovest, la chiesa si affaccia su una piazza  pianta rettangolare.L'interno della chiesa, benché piccolo, è ben proporzionato e le lesene nelle pareti laterali con una piccola trabeazione sovrastante, scandiscono ritmicamente lo spazio evidenziando due cappelle per lato, dove sono inseriti degli altari.La facciata, in stile barocco, presenta un portale d'ingresso rettangolare in pietra da taglio,   una gradinata raccorda il sagrato ed il piano della piazza. Ai lati due cantonali in pietra da taglio delimitano l'ingombro della chiesa e nella parte sommitale sono evidenti due piccole logge dove un tempo erano collocate le campane.
             `,
         },
-    }, 
+    },
     {
         slug: "chiesa-santa-rosalia",
         title: "Chiesa Santa Rosalia",
@@ -122,8 +128,10 @@ export const places = [
             lat: 37.19222394722474,
             lng: 13.75959157022896,
         },
-        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260871/ecopalmaps/chiesa-santa-rosalia.jpg",
-        description: "Edificata nella metà del XVII secolo, secondo la tradizione fu la prima chiesa della città. Oggi priva di altari e degli arredi costituisce un interessante esempio di architettura religiosa. Particolare la cappella attigua alla navata, sede della confraternita della Carità.",
+        cover_image:
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260871/ecopalmaps/chiesa-santa-rosalia.jpg",
+        description:
+            "Edificata nella metà del XVII secolo, secondo la tradizione fu la prima chiesa della città. Oggi priva di altari e degli arredi costituisce un interessante esempio di architettura religiosa. Particolare la cappella attigua alla navata, sede della confraternita della Carità.",
         content: {
             __html: `
             L'edificio, a causa di lavori di manutenzione, è temporaneamente inagibile.
@@ -137,8 +145,10 @@ export const places = [
             lat: 37.19165871641864,
             lng: 13.763725240723419,
         },
-        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260924/ecopalmaps/palazzo-degli-scolopi.jpg",
-        description: "L'edificio, oggi sede degli uffici comunali, è certamente uno dei più belli del patrimonio tardo-barocco. Addossata al palazzo è la chiesa della Sacra Famiglia con la quale costituisce un unico complesso architettonico.",
+        cover_image:
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260924/ecopalmaps/palazzo-degli-scolopi.jpg",
+        description:
+            "L'edificio, oggi sede degli uffici comunali, è certamente uno dei più belli del patrimonio tardo-barocco. Addossata al palazzo è la chiesa della Sacra Famiglia con la quale costituisce un unico complesso architettonico.",
         content: {
             __html: `
             <h3>Storia</h3>
@@ -153,8 +163,10 @@ export const places = [
             lat: 37.19307434794813,
             lng: 13.760986190406486,
         },
-        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260064/ecopalmaps/chiesa-del-collegio-di-maria.jpg",
-        description: "La Chiesa del Collegio di Maria rappresenta uno dei monumenti più emblematici di Palma di Montechiaro, poichè custodisce una copia della Sacra Sindone.",
+        cover_image:
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260064/ecopalmaps/chiesa-del-collegio-di-maria.jpg",
+        description:
+            "La Chiesa del Collegio di Maria rappresenta uno dei monumenti più emblematici di Palma di Montechiaro, poichè custodisce una copia della Sacra Sindone.",
         content: {
             __html: `
             <h3>Storia</h3>
@@ -168,11 +180,13 @@ export const places = [
         slug: "ecce-homo",
         title: "Ecce Homo",
         latLng: {
-            lat: 37.19229814413554, 
+            lat: 37.19229814413554,
             lng: 13.76324974088748,
         },
-        cover_image: "https://res.cloudinary.com/cristianingrao/image/upload/v1651338663/ecopalmaps/ecce-homo.jpg",
-        description: "L'insegna posta sopra l'edicola , 'Ecce Homo', è la frase che secondo la Vulgata Ponzio Pilato, allora governatore romano della Giudea, pronunciò mostrando alla folla Gesù flagellato.",
+        cover_image:
+            "https://res.cloudinary.com/cristianingrao/image/upload/v1651338663/ecopalmaps/ecce-homo.jpg",
+        description:
+            "L'insegna posta sopra l'edicola , 'Ecce Homo', è la frase che secondo la Vulgata Ponzio Pilato, allora governatore romano della Giudea, pronunciò mostrando alla folla Gesù flagellato.",
         content: {
             __html: `
             <h3>Riferimenti storici</h3>
@@ -180,16 +194,18 @@ export const places = [
             Dopo la flagellazione Pilato mostrò alla folla il Cristo coperto di piaghe e ferite sanguinanti, con una corona di spine sul capo, un mantello purpureo da re sulle spalle e uno scettro di canna tra le mani e pronunciò la frase «Ecce homo» come per dire "Guardate l'uomo, vedete che l'ho punito?". Ciò non fu però giudicato sufficiente, e i sommi sacerdoti fecero pressione per far crocifiggere il prigioniero Questa frase indica per estensione anche la passione di Gesù come referenza a una persona malconcia, emaciata, sfigurata dal dolore.
             `,
         },
-    },      
+    },
     {
         slug: "casa-di-giovan-battista-odierna",
         title: "Casa di Giovan Battista Odierna",
         latLng: {
-            lat: 37.191758677165645, 
+            lat: 37.191758677165645,
             lng: 13.760383947043012,
         },
-        cover_image: "https://res.cloudinary.com/cristianingrao/image/upload/v1651339218/ecopalmaps/casa-di-giovan-battista-odierna.jpg",
-        description: "L'edificio, oggi sede della Farmacia Miceli, era la casa dell'astronomo, presbitero e architetto Giovan Battista Odierna.",
+        cover_image:
+            "https://res.cloudinary.com/cristianingrao/image/upload/v1651339218/ecopalmaps/casa-di-giovan-battista-odierna.jpg",
+        description:
+            "L'edificio, oggi sede della Farmacia Miceli, era la casa dell'astronomo, presbitero e architetto Giovan Battista Odierna.",
         content: {
             __html: `
             <h3>Giovan Battista Odierna</h3>
@@ -211,8 +227,10 @@ export const places = [
             lat: 37.16598793153955,
             lng: 13.731524808221971,
         },
-        cover_image: "https://res.cloudinary.com/cristianingrao/image/upload/v1651339085/ecopalmaps/torre-san-carlo.jpg",
-        description: "L'edificazione della Torre San Carlo, appena oltre la foce del fiume Palma, risale al 1639 ad opera di Carlo Tomasi, primo duca di Palma, che ottenne il permesso da Filippo IV di Spagna ed ebbe scopi difensivi stante le continue incursioni dei pirati saraceni sul litorale palmese.",
+        cover_image:
+            "https://res.cloudinary.com/cristianingrao/image/upload/v1651339085/ecopalmaps/torre-san-carlo.jpg",
+        description:
+            "L'edificazione della Torre San Carlo, appena oltre la foce del fiume Palma, risale al 1639 ad opera di Carlo Tomasi, primo duca di Palma, che ottenne il permesso da Filippo IV di Spagna ed ebbe scopi difensivi stante le continue incursioni dei pirati saraceni sul litorale palmese.",
         content: {
             __html: `
             <h3>Architettura</h3> 
@@ -227,15 +245,17 @@ export const places = [
             lat: 37.18366295812218,
             lng: 13.695856616888637,
         },
-        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651261620/ecopalmaps/castello-di-montechiaro.jpg",
-        description: "Il castello di Montechiaro, l'unico dei manieri chiaramontani in Sicilia edificato su un costone roccioso a picco sul mare, sorge nei dintorni di Palma di Montechiaro, in prossimità di Marina di Palma.",
+        cover_image:
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651261620/ecopalmaps/castello-di-montechiaro.jpg",
+        description:
+            "Il castello di Montechiaro, l'unico dei manieri chiaramontani in Sicilia edificato su un costone roccioso a picco sul mare, sorge nei dintorni di Palma di Montechiaro, in prossimità di Marina di Palma.",
         content: {
             __html: `
             <h3>Storia</h3>
             Realizzato nel 1353 su ordine di Federico III Chiaramonte fu, per la sua posizione strategica, di grande importanza nella storia della lotta contro i pirati. Dopo la morte di Andrea Chiaramonte e la confisca di tutti i suoi beni, il castello passò alla famiglia Moncada che ne cambiò il nome in Montechiaro con il chiaro intento di cancellare la memoria dei precedenti signori. Dopo vari passaggi la fortezza perviene nel XVII secolo, per linea femminile, alla famiglia Tomasi un componente della quale, Carlo Tomasi Caro, ricevette dal re Filippo IV di Spagna il titolo di duca di Palma. Questi, abbracciata la vita monastica, cedette tutti i suoi beni al fratello Giulio che fu 2º duca di Palma e 1º principe di Lampedusa: per un certo periodo soggiornarono nel castello i figli Isabella e il futuro cardinale e santo Giuseppe Maria. La rocca successivamente passò ai marchesi Bilotti Ruggi d'Aragona. Abbandonato al degrado per parecchio tempo, l'edificio ha subito dei lavori di restauro, con interventi inappropriati e discutibili, come la contornatura in mattoni di finestre, l'uso improprio di intonaci e di moderne pavimentazioni in cotto. È da ricordare che all'interno della cappella è custodita una statua della Madonna che il Caputo attribuisce ad Antonello Gagini. Assai interessante è la leggenda in cui si narra che la statua, sottratta dai vicini abitanti di Agrigento, fu riportata dai palmesi nel castello dopo una lunga e furibonda lotta. Ad avvalorare tale fatto è il nome dato ad un corso d'acqua che da allora fu indicato come il " vallone della battaglia".
             `,
         },
-    },   
+    },
     {
         slug: "torre-del-castellazzo",
         title: "Torre del Castellazzo",
@@ -243,15 +263,17 @@ export const places = [
             lat: 37.15689785601085,
             lng: 13.79484566230079,
         },
-        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651261301/ecopalmaps/torre-del-castellazzo.jpg",
-        description: "Il sito interessa la sommità di un'altura nella quale è attestata una frequentazione di epoca preistorica e greca.",
+        cover_image:
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651261301/ecopalmaps/torre-del-castellazzo.jpg",
+        description:
+            "Il sito interessa la sommità di un'altura nella quale è attestata una frequentazione di epoca preistorica e greca.",
         content: {
             __html: `
             <h3>Posizione</h3>
             A un miglio e mezzo dalla foce del fiume Ciotta, l'architetto Camilliani trovò una torre circolare, ancora armata e guardata da una guarnigione di soldati che ripetevano i segnali inviati dalle altre torri. Si tratta della Torre del Castellazzo di Palma che, seppure smozzicata, è ancora visibile sulla cresta delle colline percorrendo la Strada Statale Palma di Montechiaro-Licata. Questa torre, in gesso e pietrame, adibita a telegrafo dei Borboni nel 1854 durante la nuova epidemia colerica, probabilmente deve farsi risalire alla fase costruttiva iniziata sotto il vicereame di Giovanni De Vega.
             `,
         },
-    },   
+    },
     {
         slug: "fontana-spina",
         title: "Fontana Spina",
@@ -259,13 +281,15 @@ export const places = [
             lat: 37.15371439725808,
             lng: 13.759738986996897,
         },
-        cover_image: "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651261047/ecopalmaps/fontana-spina.jpg",
-        description: "La Fontana Spina è collocata in un punto panoramico pazzesco. Si trova nella zona in cui venne rinvenuta la Triscele, divenuta simbolo di Sicilia.",
+        cover_image:
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651261047/ecopalmaps/fontana-spina.jpg",
+        description:
+            "La Fontana Spina è collocata in un punto panoramico pazzesco. Si trova nella zona in cui venne rinvenuta la Triscele, divenuta simbolo di Sicilia.",
         content: {
             __html: `
             <h3>Posizione</h3>
             Rappresenta uno dei punti più storici del territorio, tanto da essere anche chiamata "Fonte Romana". Si trova nella Contrada Facciomare (Malerba).
             `,
         },
-    },     
+    },
 ];

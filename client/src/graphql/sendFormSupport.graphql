@@ -1,5 +1,15 @@
-mutation sendFormSupport($fullName: String!, $email: String!, $subject: String!, $message: String!) {
-    sendFormSupport(fullName: $fullName, email: $email, subject: $subject, message: $message) {
+mutation sendFormSupport(
+    $fullName: String!
+    $email: String!
+    $subject: String!
+    $message: String!
+) {
+    sendFormSupport(
+        fullName: $fullName
+        email: $email
+        subject: $subject
+        message: $message
+    ) {
         status
         errors {
             field

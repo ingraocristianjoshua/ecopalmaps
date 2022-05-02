@@ -3,7 +3,14 @@ import Head from "../components/Head";
 import InputField from "../components/input/InputField";
 import PageLayout from "../components/layouts/PageLayout";
 import styled from "styled-components";
-import { Button, PageBlock, PageContent, PageText, PageTitle, Status } from "../styles/global";
+import {
+    Button,
+    PageBlock,
+    PageContent,
+    PageText,
+    PageTitle,
+    Status,
+} from "../styles/global";
 import { useSendFormSupportMutation } from "../generated/graphql";
 import { toErrorMap } from "../utils/toErrorMap";
 
@@ -54,7 +61,7 @@ const FormObjectError = styled.div`
 
 function Support() {
     const [sendForm] = useSendFormSupportMutation();
-    
+
     return (
         <>
             <Head
@@ -66,11 +73,24 @@ function Support() {
                     <PageContent>
                         <PageTitle>Contatta il supporto</PageTitle>
                         <PageText>
-                            Per qualsiasi problema, puoi compilare il seguente modulo oppure contattarci tramite questa email: <a href="mailto:support@ecopalmaps.com" title="Email di supporto">support@ecopalmaps.com</a>.
+                            Per qualsiasi problema, puoi compilare il seguente
+                            modulo oppure contattarci tramite questa email:{" "}
+                            <a
+                                href="mailto:support@ecopalmaps.com"
+                                title="Email di supporto"
+                            >
+                                support@ecopalmaps.com
+                            </a>
+                            .
                         </PageText>
                         <PageBlock>
                             <Formik
-                                initialValues={{ fullName: "", email: "", subject: "", message: "" }}
+                                initialValues={{
+                                    fullName: "",
+                                    email: "",
+                                    subject: "",
+                                    message: "",
+                                }}
                                 onSubmit={async (
                                     values,
                                     { setErrors, setStatus }
@@ -78,7 +98,7 @@ function Support() {
                                     const response = await sendForm({
                                         variables: values,
                                     });
-    
+
                                     if (
                                         response.data?.sendFormSupport.errors
                                             ?.length !== 0
@@ -99,7 +119,9 @@ function Support() {
                             >
                                 {({ errors, status, isSubmitting }) => (
                                     <Form>
-                                        {status ? <Status>{status}</Status> : null}
+                                        {status ? (
+                                            <Status>{status}</Status>
+                                        ) : null}
                                         <FormContent>
                                             <InputField
                                                 field="fullName"
@@ -121,14 +143,16 @@ function Support() {
                                             />
                                             <FormObjectContainer>
                                                 {errors["message"] ? (
-                                                    <FormObjectError>{errors["message"]}</FormObjectError>
+                                                    <FormObjectError>
+                                                        {errors["message"]}
+                                                    </FormObjectError>
                                                 ) : null}
                                                 <FormTextAreaContainer>
                                                     <FormTextAreaLabel htmlFor="message">
                                                         Messaggio
                                                     </FormTextAreaLabel>
                                                     <FormTextAreaInnerContainer>
-                                                        <Field 
+                                                        <Field
                                                             as="textarea"
                                                             id={"message"}
                                                             name={"message"}

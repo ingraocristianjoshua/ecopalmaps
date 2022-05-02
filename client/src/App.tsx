@@ -119,7 +119,10 @@ function App() {
                 <Route
                     path="/go-to/:slug"
                     element={
-                        <IsAuthenticated isAuth={isAuth} children={<PlacePage />} />
+                        <IsAuthenticated
+                            isAuth={isAuth}
+                            children={<PlacePage />}
+                        />
                     }
                 />
                 <Route
@@ -134,10 +137,7 @@ function App() {
                 <Route
                     path="/palma-di-montechiaro"
                     element={
-                        <IsAuthenticated
-                            isAuth={isAuth}
-                            children={<City />}
-                        />
+                        <IsAuthenticated isAuth={isAuth} children={<City />} />
                     }
                 />
                 <Route

@@ -24,12 +24,15 @@ export interface LayoutWithMapProps {
     content: JSX.Element;
     givenCenter?: google.maps.LatLngLiteral;
     givenZoom?: number;
+    giveDirections?: boolean;
 }
 
 interface MapProps extends google.maps.MapOptions {
     style: { [key: string]: string };
     onClick?: (e: google.maps.MapMouseEvent) => void;
     onIdle?: (map: google.maps.Map) => void;
+    giveDirections?: boolean;
+    latLng?: google.maps.LatLngLiteral;
 }
 
 interface MarkerProps extends google.maps.MarkerOptions {
@@ -113,6 +116,7 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
     content,
     givenCenter,
     givenZoom,
+    giveDirections,
 }) => {
     const [clicks, setClicks] = useState<google.maps.LatLng[]>([]);
     const [zoom, setZoom] = useState(15);
@@ -120,7 +124,7 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
         lat: 37.19148675220757,
         lng: 13.763526245756793,
     });
-    
+
     const onClick = (e: google.maps.MapMouseEvent) => {
         setClicks([...clicks, e.latLng!]);
     };
@@ -159,17 +163,27 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                             width: "auto",
                             height: "100%",
                         }}
+                        giveDirections={giveDirections}
+                        latLng={latLng}
                     >
                         {/*{clicks.map((latLng, i) => (
                             <Marker key={i} position={latLng} />
                         ))}*/}
-                        {latLng ?
-                            <Marker position={latLng} title={places[index].title} />
-                         : 
+                        {latLng ? (
+                            <Marker
+                                position={latLng}
+                                title={places[index].title}
+                            />
+                        ) : (
                             places.map((place, i) => (
-                                <Marker key={i} position={place.latLng} title={place.title} slug={place.slug} />
+                                <Marker
+                                    key={i}
+                                    position={place.latLng}
+                                    title={place.title}
+                                    slug={place.slug}
+                                />
                             ))
-                        }
+                        )}
                     </Map>
                 </Wrapper>
             </MapContainer>
@@ -180,10 +194,7 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                         &copy; {new Date().getFullYear()} EcoPalMaps
                     </MainFooterItem>
                     <MainFooterItem>
-                        <Link
-                            to="/support"
-                            title="Contatta il supporto"
-                        >
+                        <Link to="/support" title="Contatta il supporto">
                             Supporto
                         </Link>
                     </MainFooterItem>
@@ -208,10 +219,14 @@ const Map: FunctionComponent<MapProps> = ({
     onIdle,
     style,
     children,
+    giveDirections,
+    latLng,
     ...options
 }) => {
     const ref = useRef<HTMLDivElement>(null);
     const [map, setMap] = useState<google.maps.Map>();
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
 
     useEffect(() => {
         if (ref.current && !map) {
@@ -242,8 +257,15 @@ const Map: FunctionComponent<MapProps> = ({
             if (onIdle) {
                 map.addListener("idle", () => onIdle(map));
             }
+
+            if (giveDirections !== undefined && latLng) {
+                if (giveDirections) {
+                    directionsRenderer.setMap(map);
+                    calculateAndDisplayRoute(directionsService, directionsRenderer, map, latLng);
+                }
+            }
         }
-    }, [map, onClick, onIdle]);
+    }, [map, onClick, onIdle, directionsRenderer, directionsService, latLng]);
 
     return (
         <>
@@ -330,6 +352,64 @@ function useDeepCompareEffectForMaps(
     dependencies: any[]
 ) {
     useEffect(callback, dependencies.map(useDeepCompareMemoize));
+}
+
+function calculateAndDisplayRoute(
+    directionsService: google.maps.DirectionsService,
+    directionsRenderer: google.maps.DirectionsRenderer,
+    map: google.maps.Map,
+    latLng?: google.maps.LatLngLiteral,
+) {
+    const infoWindow = new google.maps.InfoWindow();
+    
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position: GeolocationPosition) => {
+                const userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                };
+
+                    infoWindow.setPosition(userLocation);
+                    infoWindow.setContent("La mia posizione");
+                    infoWindow.open(map);
+                    map.setCenter(userLocation);
+                    directionsService
+                        .route({
+                            origin: {
+                                location: userLocation,
+                            },
+                            destination: {
+                                location: latLng
+                            },
+                            travelMode: google.maps.TravelMode.WALKING,
+                        })
+                        .then((response) => {
+                            directionsRenderer.setDirections(response);
+                        })
+                        .catch((e) => window.alert("Directions request failed due to " + e));
+                },
+                () => {
+                handleLocationError(true, infoWindow, map.getCenter()!);
+            }
+        );
+    } else {
+        handleLocationError(false, infoWindow, map.getCenter()!);
+    }
+
+    function handleLocationError(
+        browserHasGeolocation: boolean,
+        infoWindow: google.maps.InfoWindow,
+        pos: google.maps.LatLng
+    ) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(
+          browserHasGeolocation
+            ? "Error: The Geolocation service failed."
+            : "Error: Your browser doesn't support geolocation."
+        );
+        infoWindow.open(map);
+    }
 }
 
 export default LayoutWithMap;
