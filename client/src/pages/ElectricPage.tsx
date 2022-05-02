@@ -1,72 +1,48 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useNavigationType, useParams } from "react-router-dom";
 import Head from "../components/Head";
 import PageLayout from "../components/layouts/PageLayout";
 import LayoutWithMap from "../components/layouts/sublayouts/LayoutWithMap";
-import { places } from "../utils/data";
+import { ep } from "../utils/ep";
 import styled from "styled-components";
 import { Button, PageBlock, PageContentContainer, PageText } from "../styles/global";
 import Back from "../components/icons/Back";
 
-const PlacePageHeader = styled.div`
+const ElectricPageHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 24px;
 `;
 
-const PlacePageContent = styled.div`
+const ElectricPageContent = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
 `;
 
-const PlacePageGoBack = styled.div`
+const ElectricPageGoBack = styled.div`
     display: block;
     cursor: pointer;
 `;
 
-const PlacePageHeaderTitle = styled.div`
+const ElectricPageHeaderTitle = styled.div`
     display: block;
     font-weight: 700;
     font-size: 20px;
 `;
 
-const PlacePageImageContainer = styled.div`
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: 24px;
-
-    img {
-        width: inherit;
-        height: inherit;
-        object-fit: cover;
-        object-position: center;
-        border-radius: inherit;
-    }
-`;
-
-const PlacePageTitle = styled.div`
+const ElectricPageTitle = styled.div`
     display: block;
     font-size: 38px;
     font-weight: 700;
 `;
 
-const PlacePageDescription = styled(PageText)`
+const ElectricPageInfo = styled(PageText)`
     font-size: 16px;
     padding: 18px;
     border-radius: 18px;
     background-color: #c7c5bc;
-`;
-
-const PlaceContent = styled(PageText)`
-    h3:first-child {
-        margin-top: 0px;
-    }
-
-    border-bottom: 2px solid black;
-    padding-bottom: 24px;
 `;
 
 const DirectionBlock = styled.div`
@@ -108,26 +84,26 @@ const RouteInfoBlock = styled.div`
     row-gap: 4px;
 `;
 
-function PlacePage() {
+function ElectricPage() {
     const navigate = useNavigate();
+    const navigationType = useNavigationType();
     const params = useParams();
     const [giveDirections, setGiveDirections] = useState(false);
 
-    const [placeItem, setPlaceItem] = useState({
-        slug: "",
+    const [item, setItem] = useState({
+        slug: 0,
         title: "",
         latLng: {
             lat: 0.0,
             lng: 0.0,
         },
-        cover_image: "",
-        description: "",
-        content: { __html: "" },
+        type: "",
+        info: "",
     });
 
     useEffect(() => {
         try {
-            setPlaceItem(places.find(place => place.slug === params.slug)!);
+            setItem(ep.find(item => item.slug.toString() === params.slug)!);
         } catch (error) {
             navigate("/home");
         }
@@ -163,50 +139,43 @@ function PlacePage() {
     return (
         <>
             <Head
-                title={`${placeItem.title} | EcoPalMaps`}
+                title={`${item.title} | EcoPalMaps`}
                 description="La prima piattaforma per valorizzare i luoghi culturali del territorio di Palma di Montechiaro in maniera ecologica."
             />
             <PageLayout
                 content={
                     <LayoutWithMap
-                        type={"place"}
+                        type={"electric"}
                         giveDirections={giveDirections}
-                        givenCenter={placeItem.latLng}
+                        givenCenter={item.latLng}
                         givenZoom={18}
-                        latLng={placeItem.latLng}
+                        latLng={item.latLng}
                         content={
                             <PageContentContainer>
-                                <PlacePageHeader>
-                                    <PlacePageGoBack
+                                <ElectricPageHeader>
+                                    <ElectricPageGoBack
                                         title="Vai indietro"
                                         onClick={() => {
-                                            navigate("/");
+                                            if (navigationType === "POP") {
+                                                navigate("/");
+                                            } else {
+                                                navigate(-1);
+                                            }
                                         }}
                                     >
                                         <Back />
-                                    </PlacePageGoBack>
-                                    <PlacePageHeaderTitle>
-                                        {placeItem.title}
-                                    </PlacePageHeaderTitle>
-                                </PlacePageHeader>
-                                <PlacePageContent>
-                                    <PlacePageImageContainer>
-                                        <img
-                                            src={placeItem.cover_image}
-                                            title={placeItem.title}
-                                        />
-                                    </PlacePageImageContainer>
-                                    <PlacePageTitle>
-                                        {placeItem.title}
-                                    </PlacePageTitle>
-                                    <PlacePageDescription>
-                                        {placeItem.description}
-                                    </PlacePageDescription>
-                                    <PlaceContent
-                                        dangerouslySetInnerHTML={
-                                            placeItem.content
-                                        }
-                                    />
+                                    </ElectricPageGoBack>
+                                    <ElectricPageHeaderTitle>
+                                        {item.title}
+                                    </ElectricPageHeaderTitle>
+                                </ElectricPageHeader>
+                                <ElectricPageContent>
+                                    <ElectricPageTitle>
+                                        {item.title}
+                                    </ElectricPageTitle>
+                                    <ElectricPageInfo>
+                                        {item.info}
+                                    </ElectricPageInfo>
                                     <DirectionBlock>
                                         <DirectionBlockTitle>
                                             Raggiungi questo luogo
@@ -221,7 +190,7 @@ function PlacePage() {
                                                 </RouteInfoBlock>
                                                 <RouteInfoBlock>
                                                     <PageText><b>Destinazione</b></PageText>
-                                                    <PageText>{placeItem.title}</PageText>
+                                                    <PageText>{item.title}</PageText>
                                                 </RouteInfoBlock>
                                             </RouteInfo>
                                             <PageBlock>
@@ -229,7 +198,7 @@ function PlacePage() {
                                                     role="button"
                                                     title={
                                                         "Vai verso questo luogo: " +
-                                                        placeItem.title
+                                                        item.title
                                                     }
                                                     onClick={() => {
                                                         setGiveDirections(
@@ -247,7 +216,7 @@ function PlacePage() {
                                             {/*<PageBlock id="sidebar"></PageBlock>*/}
                                         </DirectionBlockContent>
                                     </DirectionBlock>
-                                </PlacePageContent>
+                                </ElectricPageContent>
                             </PageContentContainer>
                         }
                     />
@@ -257,4 +226,4 @@ function PlacePage() {
     );
 }
 
-export default PlacePage;
+export default ElectricPage;

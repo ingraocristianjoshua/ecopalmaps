@@ -17,6 +17,7 @@ import Support from "./pages/Support";
 import VerifyAccount from "./pages/VerifyAccount";
 import { setAccessToken } from "./utils/token";
 import Electric from "./pages/Electric";
+import ElectricPage from "./pages/ElectricPage";
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -132,6 +133,15 @@ function App() {
                         <IsAuthenticated
                             isAuth={isAuth}
                             children={<PlacePage />}
+                        />
+                    }
+                />
+                <Route
+                    path="/electric/:slug"
+                    element={
+                        <IsAuthenticated
+                            isAuth={isAuth}
+                            children={<ElectricPage />}
                         />
                     }
                 />

@@ -14,10 +14,12 @@ import {
     useState,
 } from "react";
 import brandMarker from "../../../images/marker.png";
+import epMarker from "../../../images/ep-marker.png";
 import { PageText } from "../../../styles/global";
 import { Link } from "react-router-dom";
 import { places } from "../../../utils/data";
 import { useNavigate } from "react-router-dom";
+import { ep } from "../../../utils/ep";
 
 export interface LayoutWithMapProps {
     latLng?: google.maps.LatLngLiteral;
@@ -25,6 +27,7 @@ export interface LayoutWithMapProps {
     givenCenter?: google.maps.LatLngLiteral;
     givenZoom?: number;
     giveDirections?: boolean;
+    type: string;
 }
 
 interface MapProps extends google.maps.MapOptions {
@@ -36,7 +39,8 @@ interface MapProps extends google.maps.MapOptions {
 }
 
 interface MarkerProps extends google.maps.MarkerOptions {
-    slug?: string;
+    slug?: string | number;
+    type: string;
 }
 
 const PageContent = styled.div`
@@ -117,6 +121,7 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
     givenCenter,
     givenZoom,
     giveDirections,
+    type
 }) => {
     const [clicks, setClicks] = useState<google.maps.LatLng[]>([]);
     const [zoom, setZoom] = useState(15);
@@ -135,11 +140,19 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
         setCenter(m.getCenter()!.toJSON());
     };
 
+    let items;
+
+    if (type === "place") {
+        items = places;
+    } else {
+        items = ep;
+    }
+
     let index = 0;
 
     if (latLng) {
-        places.forEach((place, i) => {
-            if (place.latLng === latLng) {
+        items.forEach((item, i) => {
+            if (item.latLng === latLng) {
                 index = i;
             }
         });
@@ -171,16 +184,18 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                         ))}*/}
                         {latLng ? (
                             <Marker
+                                type={type}
                                 position={latLng}
-                                title={places[index].title}
+                                title={items[index].title}
                             />
                         ) : (
-                            places.map((place, i) => (
+                            items.map((item, i) => (
                                 <Marker
                                     key={i}
-                                    position={place.latLng}
-                                    title={place.title}
-                                    slug={place.slug}
+                                    type={type}
+                                    position={item.latLng}
+                                    title={item.title}
+                                    slug={item.slug}
                                 />
                             ))
                         )}
@@ -207,6 +222,9 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                         >
                             I. I. S. Odierna
                         </a>
+                    </MainFooterItem>
+                    <MainFooterItem>
+                        Versione 0.1.0-beta
                     </MainFooterItem>
                 </MainFooter>
             </MainContainer>
@@ -349,18 +367,27 @@ const Map: FunctionComponent<MapProps> = ({
     );
 };
 
-const Marker: FunctionComponent<MarkerProps> = ({ slug, ...options }) => {
+const Marker: FunctionComponent<MarkerProps> = ({ slug, type, ...options }) => {
     const [marker, setMarker] = useState<google.maps.Marker>();
     const navigate = useNavigate();
 
     useEffect(() => {
         if (!marker) {
-            setMarker(
-                new google.maps.Marker({
-                    icon: brandMarker,
-                    clickable: true,
-                })
-            );
+            if (type === "place") {
+                setMarker(
+                    new google.maps.Marker({
+                        icon: brandMarker,
+                        clickable: true,
+                    })
+                );
+            } else {
+                setMarker(
+                    new google.maps.Marker({
+                        icon: epMarker,
+                        clickable: true,
+                    })
+                )
+            }
         }
 
         return () => {
@@ -369,7 +396,7 @@ const Marker: FunctionComponent<MarkerProps> = ({ slug, ...options }) => {
                 marker.setClickable(true);
             }
         };
-    }, [marker]);
+    }, [marker, type]);
 
     useEffect(() => {
         if (marker) {
@@ -382,7 +409,11 @@ const Marker: FunctionComponent<MarkerProps> = ({ slug, ...options }) => {
         if(marker) {
             marker.addListener("click", () => {
                 if (slug) {
-                    navigate("/go-to/" + slug);
+                    if (type === "place") {
+                        navigate("/go-to/" + slug);
+                    } else {
+                        navigate("/electric/" + slug);
+                    }
                 } else {
                     infoWindow.close();
                     infoWindow.setContent(marker.getTitle());
@@ -390,7 +421,7 @@ const Marker: FunctionComponent<MarkerProps> = ({ slug, ...options }) => {
                 }
             });
         }
-    }, [marker, navigate, slug]);
+    }, [marker, navigate, slug, type]);
 
     return null;
 };

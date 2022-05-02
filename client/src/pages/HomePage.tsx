@@ -99,6 +99,7 @@ function HomePage() {
             <PageLayout
                 content={
                     <LayoutWithMap
+                        type={"place"}
                         content={
                             <PageContentContainer>
                                 <PageContentTitle>

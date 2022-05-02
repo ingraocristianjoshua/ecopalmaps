@@ -69,6 +69,7 @@ function Electric() {
             <PageLayout
                 content={
                     <LayoutWithMap
+                        type={"electric"}
                         content={
                             <PageContentContainer>
                                 <PageContentTitle>
