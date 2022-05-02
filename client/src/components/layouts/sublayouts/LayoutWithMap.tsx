@@ -299,15 +299,16 @@ const Map: FunctionComponent<MapProps> = ({
                                             location: userLocation,
                                         },
                                         destination: {
-                                            location: latLng
+                                            location: latLng,
                                         },
                                         travelMode: google.maps.TravelMode.WALKING,
+                                        provideRouteAlternatives: true,
                                     })
                                     .then((response) => {
                                         directionsRenderer.setDirections(response);
                                     })
                                     .catch((e) => window.alert("La richiesta di indicazioni è fallita a causa di " + e));
-                            },
+                        },
                         () => {
                             handleLocationError(true, infoWindow, map.getCenter()!);
                         }
@@ -316,7 +317,7 @@ const Map: FunctionComponent<MapProps> = ({
                     handleLocationError(false, infoWindow, map.getCenter()!);
                 }
             } else {
-                directionsRenderer.setMap(null);
+                infoWindow.setPosition(map.getCenter()!);
             }
         }
     }, [map, latLng, giveDirections]);
@@ -359,8 +360,13 @@ const Marker: FunctionComponent<MarkerProps> = ({ slug, ...options }) => {
 
     useEffect(() => {
         if (marker) {
-            const infoWindow = new google.maps.InfoWindow();
             marker.setOptions(options);
+        }
+    }, [marker, options]);
+
+    useEffect(() => {
+        const infoWindow = new google.maps.InfoWindow();
+        if(marker) {
             marker.addListener("click", () => {
                 if (slug) {
                     navigate("/go-to/" + slug);
@@ -371,7 +377,7 @@ const Marker: FunctionComponent<MarkerProps> = ({ slug, ...options }) => {
                 }
             });
         }
-    }, [marker, options, navigate, slug]);
+    }, [marker, navigate, slug]);
 
     return null;
 };

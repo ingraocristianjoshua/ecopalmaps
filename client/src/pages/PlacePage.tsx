@@ -5,7 +5,7 @@ import PageLayout from "../components/layouts/PageLayout";
 import LayoutWithMap from "../components/layouts/sublayouts/LayoutWithMap";
 import { places } from "../utils/data";
 import styled from "styled-components";
-import { Button, PageContentContainer, PageText } from "../styles/global";
+import { Button, PageBlock, PageContentContainer, PageText } from "../styles/global";
 import Back from "../components/icons/Back";
 
 const PlacePageHeader = styled.div`
@@ -82,12 +82,30 @@ const DirectionBlockTitle = styled.div`
 `;
 
 const DirectionBlockContent = styled.div`
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 `;
 
 const DirectionButton = styled(Button)`
     background-color: #000000;
     color: #ffffff;
+`;
+
+const RouteInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+`;
+
+const RouteInfoBlock = styled.div`
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    column-gap: 12px;
+    row-gap: 4px;
 `;
 
 function PlacePage() {
@@ -122,6 +140,30 @@ function PlacePage() {
     }, [navigate, params.slug]);
 
     placeItem = places[index];
+
+    const [placeName, setPlaceName] = useState("");
+
+    useEffect(() => {
+        const geocoder = new google.maps.Geocoder();
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position: GeolocationPosition) => {
+                    const userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                    };
+    
+                    geocoder.geocode({ location: userLocation }).then((response) => {
+                        setPlaceName(response.results[0].formatted_address);
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    });
+                }
+            );
+        }
+    }, []);
 
     return (
         <>
@@ -174,24 +216,38 @@ function PlacePage() {
                                             Raggiungi questo luogo
                                         </DirectionBlockTitle>
                                         <DirectionBlockContent>
-                                            <DirectionButton
-                                                role="button"
-                                                title={
-                                                    "Vai verso questo luogo: " +
-                                                    placeItem.title
-                                                }
-                                                onClick={() => {
-                                                    setGiveDirections(
-                                                        !giveDirections
-                                                    );
-                                                }}
-                                            >
-                                                {giveDirections ? (
-                                                    <>Annulla</>
-                                                ) : (
-                                                    <>Indicazioni</>
-                                                )}
-                                            </DirectionButton>
+                                            <RouteInfo>
+                                                <RouteInfoBlock>
+                                                    <PageText><b>Punto di partenza</b></PageText>
+                                                    <PageText>
+                                                        {placeName}
+                                                    </PageText>
+                                                </RouteInfoBlock>
+                                                <RouteInfoBlock>
+                                                    <PageText><b>Destinazione</b></PageText>
+                                                    <PageText>{placeItem.title}</PageText>
+                                                </RouteInfoBlock>
+                                            </RouteInfo>
+                                            <PageBlock>
+                                                <DirectionButton
+                                                    role="button"
+                                                    title={
+                                                        "Vai verso questo luogo: " +
+                                                        placeItem.title
+                                                    }
+                                                    onClick={() => {
+                                                        setGiveDirections(
+                                                            !giveDirections
+                                                        );
+                                                    }}
+                                                >
+                                                    {giveDirections ? (
+                                                        <>Annulla</>
+                                                    ) : (
+                                                        <>Indicazioni</>
+                                                    )}
+                                                </DirectionButton>
+                                            </PageBlock>
                                         </DirectionBlockContent>
                                     </DirectionBlock>
                                 </PlacePageContent>
