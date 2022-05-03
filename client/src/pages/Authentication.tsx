@@ -4,7 +4,7 @@ import Logo from "../components/icons/Logo";
 import styled from "styled-components";
 import { devices } from "../styles/devices";
 import { PageBlock, PageText } from "../styles/global";
-import image from "../images/palma-di-montechiaro.svg";
+import image from "../images/palma-di-montechiaro.jpg";
 
 const PageContainer = styled.div`
     display: grid;
@@ -62,11 +62,11 @@ const PageContent = styled.div`
 
 const SiteTitle = styled.div`
     display: block;
-    font-size: 42px;
+    font-size: 38px;
     font-weight: 700;
 
     @media ${devices.mobileS} {
-        font-size: 52px;
+        font-size: 48px;
     }
 
     @media ${devices.mobileL} {
