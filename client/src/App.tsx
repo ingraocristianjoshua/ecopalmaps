@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Preloader from "./components/Preloader";
+import Preloader from "./components/utils/Preloader";
 import IsAuthenticated from "./components/routes/IsAuthenticated";
 import IsNotAuthenticated from "./components/routes/IsNotAuthenticated";
 import Authentication from "./pages/Authentication";
@@ -20,6 +20,7 @@ import ElectricPage from "./pages/ElectricPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import About from "./pages/About";
 import SupportAndFeedback from "./pages/SupportAndFeedback";
+import ProfileSettings from "./pages/ProfileSettings";
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -153,6 +154,15 @@ function App() {
                         <IsAuthenticated
                             isAuth={isAuth}
                             children={<Profile />}
+                        />
+                    }
+                />
+                <Route
+                    path="/profile/settings"
+                    element={
+                        <IsAuthenticated
+                            isAuth={isAuth}
+                            children={<ProfileSettings />}
                         />
                     }
                 />

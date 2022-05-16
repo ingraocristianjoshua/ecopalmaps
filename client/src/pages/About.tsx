@@ -1,6 +1,6 @@
 import Head from "../components/Head";
 import PageLayout from "../components/layouts/PageLayout";
-import { PageContent, PageText, PageTextMT24, PageTitle } from "../styles/global";
+import { PageContent, PageText, PageTitle } from "../styles/global";
 
 function About() {
     return (
@@ -66,9 +66,9 @@ function About() {
                             risolti tutti gli eventuali problemi riscontrati
                             dall'utente.
                         </PageText>
-                        <PageTextMT24>
-                            Versione 0.1.3-beta
-                        </PageTextMT24>
+                        <PageText>
+                            Versione 0.1.4-beta
+                        </PageText>
                     </PageContent>
                 }
             />

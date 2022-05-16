@@ -7,6 +7,7 @@ import {
     ObjectType,
     Query,
     Resolver,
+    UseMiddleware,
 } from "type-graphql";
 import { getConnection } from "typeorm";
 import argon2 from "argon2";
@@ -18,6 +19,7 @@ import { sendVerificationEmail } from "../helpers/sendVerificationEmail";
 import nodemailer from "nodemailer";
 import ejs from "ejs";
 import path from "path";
+import { isAuth } from "../middleware/isAuth";
 
 @ObjectType()
 class FieldError {
@@ -403,6 +405,121 @@ export class UserResolver {
             } catch (error) {
                 status =
                     "C'è stato un errore. Per favore, effettua di nuovo l'operazione per il recupero della password.";
+            }
+        }
+
+        return {
+            status,
+            errors,
+        };
+    }
+
+    @Mutation(() => UserResponse)
+    @UseMiddleware(isAuth)
+    async modifyPassword(
+        @Arg("password") password: string,
+        @Arg("confirmPassword") confirmPassword: string,
+        @Ctx() { payload }: MyContext
+    ): Promise<UserResponse> {
+        let errors = [];
+
+        if (password.length <= 2) {
+            errors.push({
+                field: "password",
+                message: "La lunghezza della password deve essere maggiore di 2",
+            });
+        }
+
+        if (confirmPassword.length <= 2) {
+            errors.push({
+                field: "confirmPassword",
+                message:
+                    "La lunghezza della password di conferma deve essere maggiore di 2",
+            });
+        }
+
+        if (password != confirmPassword) {
+            errors.push(
+                {
+                    field: "password",
+                    message: "Le due password non coincidono",
+                },
+                {
+                    field: "confirmPassword",
+                    message: "Le due password non coincidono",
+                }
+            );
+        }
+
+        let status = "";
+
+        if (errors.length === 0) {
+            try {
+                await User.update(
+                    {
+                        id: payload!.id,
+                    },
+                    {
+                        password: await argon2.hash(password),
+                    }
+                );
+
+                status = "La password è stata cambiata.";
+            } catch (error) {
+                status =
+                    "C'è stato un errore. Per favore, riprova a modificare la password.";
+            }
+        }
+
+        return {
+            status,
+            errors,
+        };
+    }
+
+    @Mutation(() => UserResponse)
+    @UseMiddleware(isAuth)
+    async deleteUser(
+        @Arg("password") password: string,
+        @Ctx() { payload }: MyContext
+    ): Promise<UserResponse> {
+        let errors = [];
+
+        const user = await User.findOne({ where: { id: payload!.id } });
+
+        if (password.length <= 2) {
+            errors.push({
+                field: "password",
+                message: "La lunghezza della password deve essere maggiore di 2",
+            });
+        }
+
+        let status = "";
+
+        if (!user) {
+            errors.push({
+                field: "password",
+                message: "Questo è strano: non esiste l'utente con il quale stai cercando di effettuare questa operazione",
+            });
+        } else {
+            const valid = await argon2.verify(user.password, password);
+
+            if (!valid) {
+                errors.push({
+                    field: "password",
+                    message: "Password errata",
+                });
+            }
+        }
+
+        if (errors.length === 0) {
+            try {
+                await User.delete({ id: payload!.id });
+
+                status = "I tuoi dati sono stati cancellati.";
+            } catch (error) {
+                status =
+                    "C'è stato un errore. Per favore, riprova più tardi ad effettuare questa operazione di eliminazione dei dati.";
             }
         }
 

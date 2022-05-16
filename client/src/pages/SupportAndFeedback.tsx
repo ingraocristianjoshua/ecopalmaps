@@ -5,6 +5,7 @@ import PageLayout from "../components/layouts/PageLayout";
 import styled from "styled-components";
 import {
     Button,
+    FormContent,
     PageBlock,
     PageContent,
     PageText,
@@ -13,12 +14,6 @@ import {
 } from "../styles/global";
 import { useSendFormSupportMutation } from "../generated/graphql";
 import { toErrorMap } from "../utils/toErrorMap";
-
-const FormContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-`;
 
 const FormButton = styled(Button)`
     background-color: #edd035;

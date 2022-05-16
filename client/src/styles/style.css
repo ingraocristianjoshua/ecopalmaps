@@ -11,6 +11,10 @@ body {
     overflow: auto;
 }
 
+.not-scrolling {
+    overflow: hidden;
+}
+
 * {
     box-sizing: border-box;
     -webkit-appearance: none;
@@ -127,4 +131,62 @@ div.select__option:last-child {
 
 div.select__option:only-child {
     border-radius: 18px;
+}
+
+.modal-overlay {
+    position: fixed;
+    display: grid;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0, 0.5);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 24px;
+    min-width: 20vw;
+    max-width: 40vw;
+    overflow: hidden;
+}
+
+@media (max-width: 520px) {
+    .modal {
+        min-width: 60vw;
+        max-width: 85vw;
+    }
+}
+
+@media (min-width: 520px) and (max-width: 675px) {
+    .modal {
+        min-width: 60vw;
+        max-width: 75vw;
+    }
+}
+
+@media (min-width: 675px) and (max-width: 885px) {
+    .modal {
+        min-width: 50vw;
+        max-width: 65vw;
+    }
+}
+
+@media (min-width: 885px) and (max-width: 1050px) {
+    .modal {
+        min-width: 40vw;
+        max-width: 55vw;
+    }
+}
+
+@media (min-width: 1050px) and (max-width: 1200px) {
+    .modal {
+        min-width: 30vw;
+        max-width: 45vw;
+    }
 }

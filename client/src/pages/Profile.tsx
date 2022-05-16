@@ -2,14 +2,13 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Head from "../components/Head";
 import PageLayout from "../components/layouts/PageLayout";
+import ProfileSubLayout from "../components/layouts/sublayouts/ProfileSubLayout";
 import { useMeQuery } from "../generated/graphql";
 import { devices } from "../styles/devices";
 import {
     Button,
     PageBlock,
-    PageContent,
     PageText,
-    PageTitle,
 } from "../styles/global";
 
 const AccountInfo = styled.div`
@@ -54,51 +53,48 @@ function Profile() {
             />
             <PageLayout
                 content={
-                    <PageContent>
-                        <PageTitle>Salve, {data?.me?.firstName}</PageTitle>
-                        <PageText>
-                            Qui puoi trovare tutte le informazioni relative al
-                            tuo account.
-                        </PageText>
-                        <AccountInfo>
-                            <AccountInfoLine>
-                                <PageText>
-                                    <b>Nome completo</b>
-                                </PageText>
-                                <PageText>
-                                    {data?.me?.firstName} {data?.me?.lastName}
-                                </PageText>
-                            </AccountInfoLine>
-                            <AccountInfoLine>
-                                <PageText>
-                                    <b>Indirizzo email</b>
-                                </PageText>
-                                <PageText>{data?.me?.email}</PageText>
-                            </AccountInfoLine>
-                            <AccountInfoLine>
-                                <PageText>
-                                    <b>Username</b>
-                                </PageText>
-                                <PageText>{data?.me?.username}</PageText>
-                            </AccountInfoLine>
-                            <AccountInfoLine>
-                                <PageText>
-                                    <b>Data di nascita</b>
-                                </PageText>
-                                <PageText>{birthDay}</PageText>
-                            </AccountInfoLine>
-                        </AccountInfo>
-                        <PageBlock>
-                            <LogoutButton
-                                title="Esci"
-                                onClick={() => {
-                                    navigate("/logout");
-                                }}
-                            >
-                                Esci
-                            </LogoutButton>
-                        </PageBlock>
-                    </PageContent>
+                    <ProfileSubLayout children={
+                        <>
+                            <AccountInfo>
+                                <AccountInfoLine>
+                                    <PageText>
+                                        <b>Nome completo</b>
+                                    </PageText>
+                                    <PageText>
+                                        {data?.me?.firstName} {data?.me?.lastName}
+                                    </PageText>
+                                </AccountInfoLine>
+                                <AccountInfoLine>
+                                    <PageText>
+                                        <b>Indirizzo email</b>
+                                    </PageText>
+                                    <PageText>{data?.me?.email}</PageText>
+                                </AccountInfoLine>
+                                <AccountInfoLine>
+                                    <PageText>
+                                        <b>Username</b>
+                                    </PageText>
+                                    <PageText>{data?.me?.username}</PageText>
+                                </AccountInfoLine>
+                                <AccountInfoLine>
+                                    <PageText>
+                                        <b>Data di nascita</b>
+                                    </PageText>
+                                    <PageText>{birthDay}</PageText>
+                                </AccountInfoLine>
+                            </AccountInfo>
+                            <PageBlock>
+                                <LogoutButton
+                                    title="Esci"
+                                    onClick={() => {
+                                        navigate("/logout");
+                                    }}
+                                >
+                                    Esci
+                                </LogoutButton>
+                            </PageBlock>
+                        </>
+                    } />
                 }
             />
         </>

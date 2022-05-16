@@ -1,0 +1,13 @@
+mutation deleteUser(
+    $password: String!
+) {
+    deleteUser(
+        password: $password
+    ) {
+        status
+        errors {
+            field
+            message
+        }
+    }
+}

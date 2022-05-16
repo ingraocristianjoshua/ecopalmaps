@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Head from "../components/Head";
 import Back from "../components/icons/Back";
 import Logo from "../components/icons/Logo";
-import Preloader from "../components/Preloader";
+import Preloader from "../components/utils/Preloader";
 import { useMeQuery, useLogoutMutation } from "../generated/graphql";
 import { devices } from "../styles/devices";
 import { Button, PageText } from "../styles/global";

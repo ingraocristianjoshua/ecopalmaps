@@ -279,3 +279,10 @@ export const RouteDirections = styled(PageBlock)`
         padding-left: 12px;
     }
 `;
+
+export const FormContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+`;
