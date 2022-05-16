@@ -122,6 +122,22 @@ export const places = [
         },
     },
     {
+        slug: "villa-comunale",
+        title: "Villa Comunale",
+        latLng: {
+            lat: 37.19170879622092,
+            lng: 13.75972073143236,
+        },
+        cover_image: "",
+        description: "La Villa Comunale si trova ai piedi della scalinata della Chiesa Madre e accanto al Palazzo Ducale: essa è uno dei punti di ritrovo più frequentati dai cittadini palmesi.",
+        content: {
+            __html: `
+                <h3>Posizione e storia</h3>
+                Situata ai piedi della scalinata della Chiesa Madre, e accanto al Palazzo Ducale, la Villa Comunale rappresenta uno dei punti più emblematici della vita cittadina di Palma di Montechiaro. Ai tempi della famiglia Tomasi, era un giardino privato, accessibile solo a quest'ultima, mentre oggigiorno è un luogo pubblico.
+            `,
+        }
+    },
+    {
         slug: "chiesa-santa-rosalia",
         title: "Chiesa Santa Rosalia",
         latLng: {
