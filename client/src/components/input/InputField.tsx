@@ -100,7 +100,7 @@ const InputField: FunctionComponent<InputFieldProps> = ({
         if (inputField !== null && inputField.current?.value !== "") {
             setIsFocused(true);
         }
-    }, [isFocused]);
+    }, [isFocused, inputField.current?.value]);
 
     return (
         <InputFieldWrapper>
