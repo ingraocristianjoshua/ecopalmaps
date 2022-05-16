@@ -232,7 +232,6 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                             I. I. S. Odierna
                         </a>
                     </MainFooterItem>
-                    <MainFooterItem>Versione 0.1.3-beta</MainFooterItem>
                 </MainFooter>
             </MainContainer>
         </PageContent>

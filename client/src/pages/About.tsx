@@ -65,6 +65,8 @@ function About() {
                             assistenza, cosicché possano essere individuati e
                             risolti tutti gli eventuali problemi riscontrati
                             dall'utente.
+                            <br />
+                            Versione 0.1.3-beta
                         </PageText>
                     </PageContent>
                 }
