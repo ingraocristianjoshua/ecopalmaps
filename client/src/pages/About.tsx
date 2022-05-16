@@ -66,7 +66,7 @@ function About() {
                             risolti tutti gli eventuali problemi riscontrati
                             dall'utente.
                         </PageText>
-                        <PageText>Versione 0.1.4-beta</PageText>
+                        <PageText>Versione 0.1.5</PageText>
                     </PageContent>
                 }
             />

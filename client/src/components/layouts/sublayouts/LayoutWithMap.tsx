@@ -208,7 +208,6 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                 <MainFooter>
                     <MainFooterItem>
                         &copy; {new Date().getFullYear()} EcoPalMaps
-                        (v0.1.4-beta)
                     </MainFooterItem>
                     <MainFooterItem>
                         <Link
