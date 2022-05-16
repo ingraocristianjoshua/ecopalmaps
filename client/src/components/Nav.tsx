@@ -96,7 +96,7 @@ const NavExtraOptions = styled.div.attrs(
         right: 24px;
     }
 
-    @media (min-width: 550px) {
+    @media ${devices.tablet} {
         display: flex;
         position: relative;
         top: unset;
@@ -136,7 +136,7 @@ const NavExtraOption = styled.div`
         border-radius: 0px 0px 18px 18px;
     }
 
-    @media (min-width: 550px) {
+    @media ${devices.tablet} {
         :first-child {
             border-radius: unset;
         }
@@ -169,7 +169,7 @@ const NavMenuButton = styled.div`
     justify-content: center;
     cursor: pointer;
 
-    @media (min-width: 550px) {
+    @media ${devices.tablet} {
         display: none;
     }
 `;
