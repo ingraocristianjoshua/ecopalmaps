@@ -207,7 +207,7 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                 <PageContentContainer>{content}</PageContentContainer>
                 <MainFooter>
                     <MainFooterItem>
-                        &copy; {new Date().getFullYear()} EcoPalMaps
+                        &copy; {new Date().getFullYear()} EcoPalMaps (v0.1.3-beta)
                     </MainFooterItem>
                     <MainFooterItem>
                         <Link to="/support-and-feedback" title="Contatta il supporto oppure invia un feedback">
