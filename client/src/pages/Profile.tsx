@@ -5,11 +5,7 @@ import PageLayout from "../components/layouts/PageLayout";
 import ProfileSubLayout from "../components/layouts/sublayouts/ProfileSubLayout";
 import { useMeQuery } from "../generated/graphql";
 import { devices } from "../styles/devices";
-import {
-    Button,
-    PageBlock,
-    PageText,
-} from "../styles/global";
+import { Button, PageBlock, PageText } from "../styles/global";
 
 const AccountInfo = styled.div`
     display: flex;
@@ -53,48 +49,53 @@ function Profile() {
             />
             <PageLayout
                 content={
-                    <ProfileSubLayout children={
-                        <>
-                            <AccountInfo>
-                                <AccountInfoLine>
-                                    <PageText>
-                                        <b>Nome completo</b>
-                                    </PageText>
-                                    <PageText>
-                                        {data?.me?.firstName} {data?.me?.lastName}
-                                    </PageText>
-                                </AccountInfoLine>
-                                <AccountInfoLine>
-                                    <PageText>
-                                        <b>Indirizzo email</b>
-                                    </PageText>
-                                    <PageText>{data?.me?.email}</PageText>
-                                </AccountInfoLine>
-                                <AccountInfoLine>
-                                    <PageText>
-                                        <b>Username</b>
-                                    </PageText>
-                                    <PageText>{data?.me?.username}</PageText>
-                                </AccountInfoLine>
-                                <AccountInfoLine>
-                                    <PageText>
-                                        <b>Data di nascita</b>
-                                    </PageText>
-                                    <PageText>{birthDay}</PageText>
-                                </AccountInfoLine>
-                            </AccountInfo>
-                            <PageBlock>
-                                <LogoutButton
-                                    title="Esci"
-                                    onClick={() => {
-                                        navigate("/logout");
-                                    }}
-                                >
-                                    Esci
-                                </LogoutButton>
-                            </PageBlock>
-                        </>
-                    } />
+                    <ProfileSubLayout
+                        children={
+                            <>
+                                <AccountInfo>
+                                    <AccountInfoLine>
+                                        <PageText>
+                                            <b>Nome completo</b>
+                                        </PageText>
+                                        <PageText>
+                                            {data?.me?.firstName}{" "}
+                                            {data?.me?.lastName}
+                                        </PageText>
+                                    </AccountInfoLine>
+                                    <AccountInfoLine>
+                                        <PageText>
+                                            <b>Indirizzo email</b>
+                                        </PageText>
+                                        <PageText>{data?.me?.email}</PageText>
+                                    </AccountInfoLine>
+                                    <AccountInfoLine>
+                                        <PageText>
+                                            <b>Username</b>
+                                        </PageText>
+                                        <PageText>
+                                            {data?.me?.username}
+                                        </PageText>
+                                    </AccountInfoLine>
+                                    <AccountInfoLine>
+                                        <PageText>
+                                            <b>Data di nascita</b>
+                                        </PageText>
+                                        <PageText>{birthDay}</PageText>
+                                    </AccountInfoLine>
+                                </AccountInfo>
+                                <PageBlock>
+                                    <LogoutButton
+                                        title="Esci"
+                                        onClick={() => {
+                                            navigate("/logout");
+                                        }}
+                                    >
+                                        Esci
+                                    </LogoutButton>
+                                </PageBlock>
+                            </>
+                        }
+                    />
                 }
             />
         </>

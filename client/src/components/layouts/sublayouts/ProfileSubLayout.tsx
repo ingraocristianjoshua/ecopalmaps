@@ -1,11 +1,7 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
 import { useMeQuery } from "../../../generated/graphql";
-import {
-    PageContent,
-    PageText,
-    PageTitle,
-} from "../../../styles/global";
+import { PageContent, PageText, PageTitle } from "../../../styles/global";
 import { NavLink } from "react-router-dom";
 
 interface ProfileSubLayoutProps {
@@ -45,15 +41,16 @@ const ProfilePageContent = styled.div`
     gap: 48px;
 `;
 
-const ProfileSubLayout: FunctionComponent<ProfileSubLayoutProps> = ({ children }) => {
+const ProfileSubLayout: FunctionComponent<ProfileSubLayoutProps> = ({
+    children,
+}) => {
     const { data } = useMeQuery({ fetchPolicy: "cache-and-network" });
 
     return (
         <PageContent>
             <PageTitle>Salve, {data?.me?.firstName}</PageTitle>
             <PageText>
-                Qui puoi trovare tutte le informazioni relative al
-                tuo account.
+                Qui puoi trovare tutte le informazioni relative al tuo account.
             </PageText>
             <ProfileNav>
                 <ProfileNavItem>
@@ -81,11 +78,9 @@ const ProfileSubLayout: FunctionComponent<ProfileSubLayoutProps> = ({ children }
                     </NavLink>
                 </ProfileNavItem>
             </ProfileNav>
-            <ProfilePageContent>
-                {children}
-            </ProfilePageContent>
+            <ProfilePageContent>{children}</ProfilePageContent>
         </PageContent>
     );
-}
+};
 
 export default ProfileSubLayout;

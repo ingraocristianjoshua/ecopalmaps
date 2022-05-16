@@ -1,217 +1,361 @@
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
+import { gql } from "@apollo/client";
+import * as Apollo from "@apollo/client";
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-const defaultOptions =  {}
+export type Exact<T extends { [key: string]: unknown }> = {
+    [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+    [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+    [SubKey in K]: Maybe<T[SubKey]>;
+};
+const defaultOptions = {};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: string;
-  String: string;
-  Boolean: boolean;
-  Int: number;
-  Float: number;
-  /** The javascript `Date` as string. Type represents date and time as the ISO Date string. */
-  DateTime: any;
+    ID: string;
+    String: string;
+    Boolean: boolean;
+    Int: number;
+    Float: number;
+    /** The javascript `Date` as string. Type represents date and time as the ISO Date string. */
+    DateTime: any;
 };
 
 export type FieldError = {
-  __typename?: 'FieldError';
-  field?: Maybe<Scalars['String']>;
-  message: Scalars['String'];
+    __typename?: "FieldError";
+    field?: Maybe<Scalars["String"]>;
+    message: Scalars["String"];
 };
 
 export type Mutation = {
-  __typename?: 'Mutation';
-  deleteUser: UserResponse;
-  login?: Maybe<UserResponse>;
-  logout: Scalars['Boolean'];
-  modifyPassword: UserResponse;
-  notAuthModifyPassword: UserResponse;
-  revokeRefreshTokensForUser: Scalars['Boolean'];
-  sendFormSupport: UserResponse;
-  sendRecoverEmail: UserResponse;
-  signup?: Maybe<UserResponse>;
-  verifyEmailAddress: UserResponse;
+    __typename?: "Mutation";
+    deleteUser: UserResponse;
+    login?: Maybe<UserResponse>;
+    logout: Scalars["Boolean"];
+    modifyPassword: UserResponse;
+    notAuthModifyPassword: UserResponse;
+    revokeRefreshTokensForUser: Scalars["Boolean"];
+    sendFormSupport: UserResponse;
+    sendRecoverEmail: UserResponse;
+    signup?: Maybe<UserResponse>;
+    verifyEmailAddress: UserResponse;
 };
-
 
 export type MutationDeleteUserArgs = {
-  password: Scalars['String'];
+    password: Scalars["String"];
 };
-
 
 export type MutationLoginArgs = {
-  input: Scalars['String'];
-  password: Scalars['String'];
+    input: Scalars["String"];
+    password: Scalars["String"];
 };
-
 
 export type MutationModifyPasswordArgs = {
-  confirmPassword: Scalars['String'];
-  password: Scalars['String'];
+    confirmPassword: Scalars["String"];
+    password: Scalars["String"];
 };
-
 
 export type MutationNotAuthModifyPasswordArgs = {
-  confirmPassword: Scalars['String'];
-  password: Scalars['String'];
-  token: Scalars['String'];
+    confirmPassword: Scalars["String"];
+    password: Scalars["String"];
+    token: Scalars["String"];
 };
-
 
 export type MutationRevokeRefreshTokensForUserArgs = {
-  id: Scalars['Float'];
+    id: Scalars["Float"];
 };
-
 
 export type MutationSendFormSupportArgs = {
-  email: Scalars['String'];
-  fullName: Scalars['String'];
-  message: Scalars['String'];
-  subject: Scalars['String'];
+    email: Scalars["String"];
+    fullName: Scalars["String"];
+    message: Scalars["String"];
+    subject: Scalars["String"];
 };
-
 
 export type MutationSendRecoverEmailArgs = {
-  email: Scalars['String'];
+    email: Scalars["String"];
 };
-
 
 export type MutationSignupArgs = {
-  birthDate: Scalars['DateTime'];
-  email: Scalars['String'];
-  firstName: Scalars['String'];
-  gender: Scalars['String'];
-  lastName: Scalars['String'];
-  password: Scalars['String'];
-  username: Scalars['String'];
+    birthDate: Scalars["DateTime"];
+    email: Scalars["String"];
+    firstName: Scalars["String"];
+    gender: Scalars["String"];
+    lastName: Scalars["String"];
+    password: Scalars["String"];
+    username: Scalars["String"];
 };
 
-
 export type MutationVerifyEmailAddressArgs = {
-  token: Scalars['String'];
+    token: Scalars["String"];
 };
 
 export type Query = {
-  __typename?: 'Query';
-  me?: Maybe<User>;
+    __typename?: "Query";
+    me?: Maybe<User>;
 };
 
 export type User = {
-  __typename?: 'User';
-  birthDate: Scalars['String'];
-  email: Scalars['String'];
-  firstName: Scalars['String'];
-  gender: Scalars['String'];
-  id: Scalars['Int'];
-  lastName: Scalars['String'];
-  username: Scalars['String'];
-  verified: Scalars['Boolean'];
+    __typename?: "User";
+    birthDate: Scalars["String"];
+    email: Scalars["String"];
+    firstName: Scalars["String"];
+    gender: Scalars["String"];
+    id: Scalars["Int"];
+    lastName: Scalars["String"];
+    username: Scalars["String"];
+    verified: Scalars["Boolean"];
 };
 
 export type UserResponse = {
-  __typename?: 'UserResponse';
-  accessToken?: Maybe<Scalars['String']>;
-  errors?: Maybe<Array<FieldError>>;
-  status?: Maybe<Scalars['String']>;
-  user?: Maybe<User>;
+    __typename?: "UserResponse";
+    accessToken?: Maybe<Scalars["String"]>;
+    errors?: Maybe<Array<FieldError>>;
+    status?: Maybe<Scalars["String"]>;
+    user?: Maybe<User>;
 };
 
 export type DeleteUserMutationVariables = Exact<{
-  password: Scalars['String'];
+    password: Scalars["String"];
 }>;
 
-
-export type DeleteUserMutation = { __typename?: 'Mutation', deleteUser: { __typename?: 'UserResponse', status?: string | null | undefined, errors?: Array<{ __typename?: 'FieldError', field?: string | null | undefined, message: string }> | null | undefined } };
+export type DeleteUserMutation = {
+    __typename?: "Mutation";
+    deleteUser: {
+        __typename?: "UserResponse";
+        status?: string | null | undefined;
+        errors?:
+            | Array<{
+                  __typename?: "FieldError";
+                  field?: string | null | undefined;
+                  message: string;
+              }>
+            | null
+            | undefined;
+    };
+};
 
 export type LogInMutationVariables = Exact<{
-  input: Scalars['String'];
-  password: Scalars['String'];
+    input: Scalars["String"];
+    password: Scalars["String"];
 }>;
 
+export type LogInMutation = {
+    __typename?: "Mutation";
+    login?:
+        | {
+              __typename?: "UserResponse";
+              accessToken?: string | null | undefined;
+              status?: string | null | undefined;
+              user?:
+                  | {
+                        __typename?: "User";
+                        id: number;
+                        username: string;
+                        firstName: string;
+                        lastName: string;
+                        email: string;
+                        birthDate: string;
+                        gender: string;
+                        verified: boolean;
+                    }
+                  | null
+                  | undefined;
+              errors?:
+                  | Array<{
+                        __typename?: "FieldError";
+                        field?: string | null | undefined;
+                        message: string;
+                    }>
+                  | null
+                  | undefined;
+          }
+        | null
+        | undefined;
+};
 
-export type LogInMutation = { __typename?: 'Mutation', login?: { __typename?: 'UserResponse', accessToken?: string | null | undefined, status?: string | null | undefined, user?: { __typename?: 'User', id: number, username: string, firstName: string, lastName: string, email: string, birthDate: string, gender: string, verified: boolean } | null | undefined, errors?: Array<{ __typename?: 'FieldError', field?: string | null | undefined, message: string }> | null | undefined } | null | undefined };
+export type LogoutMutationVariables = Exact<{ [key: string]: never }>;
 
-export type LogoutMutationVariables = Exact<{ [key: string]: never; }>;
+export type LogoutMutation = { __typename?: "Mutation"; logout: boolean };
 
+export type MeQueryVariables = Exact<{ [key: string]: never }>;
 
-export type LogoutMutation = { __typename?: 'Mutation', logout: boolean };
-
-export type MeQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type MeQuery = { __typename?: 'Query', me?: { __typename?: 'User', id: number, username: string, firstName: string, lastName: string, email: string, birthDate: string, gender: string, verified: boolean } | null | undefined };
+export type MeQuery = {
+    __typename?: "Query";
+    me?:
+        | {
+              __typename?: "User";
+              id: number;
+              username: string;
+              firstName: string;
+              lastName: string;
+              email: string;
+              birthDate: string;
+              gender: string;
+              verified: boolean;
+          }
+        | null
+        | undefined;
+};
 
 export type ModifyPasswordMutationVariables = Exact<{
-  confirmPassword: Scalars['String'];
-  password: Scalars['String'];
+    confirmPassword: Scalars["String"];
+    password: Scalars["String"];
 }>;
 
-
-export type ModifyPasswordMutation = { __typename?: 'Mutation', modifyPassword: { __typename?: 'UserResponse', status?: string | null | undefined, errors?: Array<{ __typename?: 'FieldError', field?: string | null | undefined, message: string }> | null | undefined } };
+export type ModifyPasswordMutation = {
+    __typename?: "Mutation";
+    modifyPassword: {
+        __typename?: "UserResponse";
+        status?: string | null | undefined;
+        errors?:
+            | Array<{
+                  __typename?: "FieldError";
+                  field?: string | null | undefined;
+                  message: string;
+              }>
+            | null
+            | undefined;
+    };
+};
 
 export type NotAuthModifyPasswordMutationVariables = Exact<{
-  token: Scalars['String'];
-  confirmPassword: Scalars['String'];
-  password: Scalars['String'];
+    token: Scalars["String"];
+    confirmPassword: Scalars["String"];
+    password: Scalars["String"];
 }>;
 
-
-export type NotAuthModifyPasswordMutation = { __typename?: 'Mutation', notAuthModifyPassword: { __typename?: 'UserResponse', status?: string | null | undefined, errors?: Array<{ __typename?: 'FieldError', field?: string | null | undefined, message: string }> | null | undefined } };
+export type NotAuthModifyPasswordMutation = {
+    __typename?: "Mutation";
+    notAuthModifyPassword: {
+        __typename?: "UserResponse";
+        status?: string | null | undefined;
+        errors?:
+            | Array<{
+                  __typename?: "FieldError";
+                  field?: string | null | undefined;
+                  message: string;
+              }>
+            | null
+            | undefined;
+    };
+};
 
 export type SendFormSupportMutationVariables = Exact<{
-  fullName: Scalars['String'];
-  email: Scalars['String'];
-  subject: Scalars['String'];
-  message: Scalars['String'];
+    fullName: Scalars["String"];
+    email: Scalars["String"];
+    subject: Scalars["String"];
+    message: Scalars["String"];
 }>;
 
-
-export type SendFormSupportMutation = { __typename?: 'Mutation', sendFormSupport: { __typename?: 'UserResponse', status?: string | null | undefined, errors?: Array<{ __typename?: 'FieldError', field?: string | null | undefined, message: string }> | null | undefined } };
+export type SendFormSupportMutation = {
+    __typename?: "Mutation";
+    sendFormSupport: {
+        __typename?: "UserResponse";
+        status?: string | null | undefined;
+        errors?:
+            | Array<{
+                  __typename?: "FieldError";
+                  field?: string | null | undefined;
+                  message: string;
+              }>
+            | null
+            | undefined;
+    };
+};
 
 export type SendRecoverEmailMutationVariables = Exact<{
-  email: Scalars['String'];
+    email: Scalars["String"];
 }>;
 
-
-export type SendRecoverEmailMutation = { __typename?: 'Mutation', sendRecoverEmail: { __typename?: 'UserResponse', status?: string | null | undefined, errors?: Array<{ __typename?: 'FieldError', field?: string | null | undefined, message: string }> | null | undefined } };
+export type SendRecoverEmailMutation = {
+    __typename?: "Mutation";
+    sendRecoverEmail: {
+        __typename?: "UserResponse";
+        status?: string | null | undefined;
+        errors?:
+            | Array<{
+                  __typename?: "FieldError";
+                  field?: string | null | undefined;
+                  message: string;
+              }>
+            | null
+            | undefined;
+    };
+};
 
 export type SignUpMutationVariables = Exact<{
-  birthDate: Scalars['DateTime'];
-  gender: Scalars['String'];
-  password: Scalars['String'];
-  lastName: Scalars['String'];
-  firstName: Scalars['String'];
-  username: Scalars['String'];
-  email: Scalars['String'];
+    birthDate: Scalars["DateTime"];
+    gender: Scalars["String"];
+    password: Scalars["String"];
+    lastName: Scalars["String"];
+    firstName: Scalars["String"];
+    username: Scalars["String"];
+    email: Scalars["String"];
 }>;
 
-
-export type SignUpMutation = { __typename?: 'Mutation', signup?: { __typename?: 'UserResponse', status?: string | null | undefined, user?: { __typename?: 'User', id: number, username: string, email: string, firstName: string, lastName: string, gender: string, birthDate: string, verified: boolean } | null | undefined, errors?: Array<{ __typename?: 'FieldError', field?: string | null | undefined, message: string }> | null | undefined } | null | undefined };
+export type SignUpMutation = {
+    __typename?: "Mutation";
+    signup?:
+        | {
+              __typename?: "UserResponse";
+              status?: string | null | undefined;
+              user?:
+                  | {
+                        __typename?: "User";
+                        id: number;
+                        username: string;
+                        email: string;
+                        firstName: string;
+                        lastName: string;
+                        gender: string;
+                        birthDate: string;
+                        verified: boolean;
+                    }
+                  | null
+                  | undefined;
+              errors?:
+                  | Array<{
+                        __typename?: "FieldError";
+                        field?: string | null | undefined;
+                        message: string;
+                    }>
+                  | null
+                  | undefined;
+          }
+        | null
+        | undefined;
+};
 
 export type VerifyEmailAddressMutationVariables = Exact<{
-  token: Scalars['String'];
+    token: Scalars["String"];
 }>;
 
-
-export type VerifyEmailAddressMutation = { __typename?: 'Mutation', verifyEmailAddress: { __typename?: 'UserResponse', status?: string | null | undefined } };
-
+export type VerifyEmailAddressMutation = {
+    __typename?: "Mutation";
+    verifyEmailAddress: {
+        __typename?: "UserResponse";
+        status?: string | null | undefined;
+    };
+};
 
 export const DeleteUserDocument = gql`
     mutation deleteUser($password: String!) {
-  deleteUser(password: $password) {
-    status
-    errors {
-      field
-      message
+        deleteUser(password: $password) {
+            status
+            errors {
+                field
+                message
+            }
+        }
     }
-  }
-}
-    `;
-export type DeleteUserMutationFn = Apollo.MutationFunction<DeleteUserMutation, DeleteUserMutationVariables>;
+`;
+export type DeleteUserMutationFn = Apollo.MutationFunction<
+    DeleteUserMutation,
+    DeleteUserMutationVariables
+>;
 
 /**
  * __useDeleteUserMutation__
@@ -230,36 +374,53 @@ export type DeleteUserMutationFn = Apollo.MutationFunction<DeleteUserMutation, D
  *   },
  * });
  */
-export function useDeleteUserMutation(baseOptions?: Apollo.MutationHookOptions<DeleteUserMutation, DeleteUserMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<DeleteUserMutation, DeleteUserMutationVariables>(DeleteUserDocument, options);
-      }
-export type DeleteUserMutationHookResult = ReturnType<typeof useDeleteUserMutation>;
-export type DeleteUserMutationResult = Apollo.MutationResult<DeleteUserMutation>;
-export type DeleteUserMutationOptions = Apollo.BaseMutationOptions<DeleteUserMutation, DeleteUserMutationVariables>;
+export function useDeleteUserMutation(
+    baseOptions?: Apollo.MutationHookOptions<
+        DeleteUserMutation,
+        DeleteUserMutationVariables
+    >
+) {
+    const options = { ...defaultOptions, ...baseOptions };
+    return Apollo.useMutation<DeleteUserMutation, DeleteUserMutationVariables>(
+        DeleteUserDocument,
+        options
+    );
+}
+export type DeleteUserMutationHookResult = ReturnType<
+    typeof useDeleteUserMutation
+>;
+export type DeleteUserMutationResult =
+    Apollo.MutationResult<DeleteUserMutation>;
+export type DeleteUserMutationOptions = Apollo.BaseMutationOptions<
+    DeleteUserMutation,
+    DeleteUserMutationVariables
+>;
 export const LogInDocument = gql`
     mutation logIn($input: String!, $password: String!) {
-  login(input: $input, password: $password) {
-    user {
-      id
-      username
-      firstName
-      lastName
-      email
-      birthDate
-      gender
-      verified
+        login(input: $input, password: $password) {
+            user {
+                id
+                username
+                firstName
+                lastName
+                email
+                birthDate
+                gender
+                verified
+            }
+            errors {
+                field
+                message
+            }
+            accessToken
+            status
+        }
     }
-    errors {
-      field
-      message
-    }
-    accessToken
-    status
-  }
-}
-    `;
-export type LogInMutationFn = Apollo.MutationFunction<LogInMutation, LogInMutationVariables>;
+`;
+export type LogInMutationFn = Apollo.MutationFunction<
+    LogInMutation,
+    LogInMutationVariables
+>;
 
 /**
  * __useLogInMutation__
@@ -279,19 +440,33 @@ export type LogInMutationFn = Apollo.MutationFunction<LogInMutation, LogInMutati
  *   },
  * });
  */
-export function useLogInMutation(baseOptions?: Apollo.MutationHookOptions<LogInMutation, LogInMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<LogInMutation, LogInMutationVariables>(LogInDocument, options);
-      }
+export function useLogInMutation(
+    baseOptions?: Apollo.MutationHookOptions<
+        LogInMutation,
+        LogInMutationVariables
+    >
+) {
+    const options = { ...defaultOptions, ...baseOptions };
+    return Apollo.useMutation<LogInMutation, LogInMutationVariables>(
+        LogInDocument,
+        options
+    );
+}
 export type LogInMutationHookResult = ReturnType<typeof useLogInMutation>;
 export type LogInMutationResult = Apollo.MutationResult<LogInMutation>;
-export type LogInMutationOptions = Apollo.BaseMutationOptions<LogInMutation, LogInMutationVariables>;
+export type LogInMutationOptions = Apollo.BaseMutationOptions<
+    LogInMutation,
+    LogInMutationVariables
+>;
 export const LogoutDocument = gql`
     mutation Logout {
-  logout
-}
-    `;
-export type LogoutMutationFn = Apollo.MutationFunction<LogoutMutation, LogoutMutationVariables>;
+        logout
+    }
+`;
+export type LogoutMutationFn = Apollo.MutationFunction<
+    LogoutMutation,
+    LogoutMutationVariables
+>;
 
 /**
  * __useLogoutMutation__
@@ -309,27 +484,38 @@ export type LogoutMutationFn = Apollo.MutationFunction<LogoutMutation, LogoutMut
  *   },
  * });
  */
-export function useLogoutMutation(baseOptions?: Apollo.MutationHookOptions<LogoutMutation, LogoutMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<LogoutMutation, LogoutMutationVariables>(LogoutDocument, options);
-      }
+export function useLogoutMutation(
+    baseOptions?: Apollo.MutationHookOptions<
+        LogoutMutation,
+        LogoutMutationVariables
+    >
+) {
+    const options = { ...defaultOptions, ...baseOptions };
+    return Apollo.useMutation<LogoutMutation, LogoutMutationVariables>(
+        LogoutDocument,
+        options
+    );
+}
 export type LogoutMutationHookResult = ReturnType<typeof useLogoutMutation>;
 export type LogoutMutationResult = Apollo.MutationResult<LogoutMutation>;
-export type LogoutMutationOptions = Apollo.BaseMutationOptions<LogoutMutation, LogoutMutationVariables>;
+export type LogoutMutationOptions = Apollo.BaseMutationOptions<
+    LogoutMutation,
+    LogoutMutationVariables
+>;
 export const MeDocument = gql`
     query Me {
-  me {
-    id
-    username
-    firstName
-    lastName
-    email
-    birthDate
-    gender
-    verified
-  }
-}
-    `;
+        me {
+            id
+            username
+            firstName
+            lastName
+            email
+            birthDate
+            gender
+            verified
+        }
+    }
+`;
 
 /**
  * __useMeQuery__
@@ -346,29 +532,36 @@ export const MeDocument = gql`
  *   },
  * });
  */
-export function useMeQuery(baseOptions?: Apollo.QueryHookOptions<MeQuery, MeQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<MeQuery, MeQueryVariables>(MeDocument, options);
-      }
-export function useMeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MeQuery, MeQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<MeQuery, MeQueryVariables>(MeDocument, options);
-        }
+export function useMeQuery(
+    baseOptions?: Apollo.QueryHookOptions<MeQuery, MeQueryVariables>
+) {
+    const options = { ...defaultOptions, ...baseOptions };
+    return Apollo.useQuery<MeQuery, MeQueryVariables>(MeDocument, options);
+}
+export function useMeLazyQuery(
+    baseOptions?: Apollo.LazyQueryHookOptions<MeQuery, MeQueryVariables>
+) {
+    const options = { ...defaultOptions, ...baseOptions };
+    return Apollo.useLazyQuery<MeQuery, MeQueryVariables>(MeDocument, options);
+}
 export type MeQueryHookResult = ReturnType<typeof useMeQuery>;
 export type MeLazyQueryHookResult = ReturnType<typeof useMeLazyQuery>;
 export type MeQueryResult = Apollo.QueryResult<MeQuery, MeQueryVariables>;
 export const ModifyPasswordDocument = gql`
     mutation modifyPassword($confirmPassword: String!, $password: String!) {
-  modifyPassword(confirmPassword: $confirmPassword, password: $password) {
-    status
-    errors {
-      field
-      message
+        modifyPassword(confirmPassword: $confirmPassword, password: $password) {
+            status
+            errors {
+                field
+                message
+            }
+        }
     }
-  }
-}
-    `;
-export type ModifyPasswordMutationFn = Apollo.MutationFunction<ModifyPasswordMutation, ModifyPasswordMutationVariables>;
+`;
+export type ModifyPasswordMutationFn = Apollo.MutationFunction<
+    ModifyPasswordMutation,
+    ModifyPasswordMutationVariables
+>;
 
 /**
  * __useModifyPasswordMutation__
@@ -388,29 +581,50 @@ export type ModifyPasswordMutationFn = Apollo.MutationFunction<ModifyPasswordMut
  *   },
  * });
  */
-export function useModifyPasswordMutation(baseOptions?: Apollo.MutationHookOptions<ModifyPasswordMutation, ModifyPasswordMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<ModifyPasswordMutation, ModifyPasswordMutationVariables>(ModifyPasswordDocument, options);
-      }
-export type ModifyPasswordMutationHookResult = ReturnType<typeof useModifyPasswordMutation>;
-export type ModifyPasswordMutationResult = Apollo.MutationResult<ModifyPasswordMutation>;
-export type ModifyPasswordMutationOptions = Apollo.BaseMutationOptions<ModifyPasswordMutation, ModifyPasswordMutationVariables>;
-export const NotAuthModifyPasswordDocument = gql`
-    mutation notAuthModifyPassword($token: String!, $confirmPassword: String!, $password: String!) {
-  notAuthModifyPassword(
-    token: $token
-    confirmPassword: $confirmPassword
-    password: $password
-  ) {
-    status
-    errors {
-      field
-      message
-    }
-  }
+export function useModifyPasswordMutation(
+    baseOptions?: Apollo.MutationHookOptions<
+        ModifyPasswordMutation,
+        ModifyPasswordMutationVariables
+    >
+) {
+    const options = { ...defaultOptions, ...baseOptions };
+    return Apollo.useMutation<
+        ModifyPasswordMutation,
+        ModifyPasswordMutationVariables
+    >(ModifyPasswordDocument, options);
 }
-    `;
-export type NotAuthModifyPasswordMutationFn = Apollo.MutationFunction<NotAuthModifyPasswordMutation, NotAuthModifyPasswordMutationVariables>;
+export type ModifyPasswordMutationHookResult = ReturnType<
+    typeof useModifyPasswordMutation
+>;
+export type ModifyPasswordMutationResult =
+    Apollo.MutationResult<ModifyPasswordMutation>;
+export type ModifyPasswordMutationOptions = Apollo.BaseMutationOptions<
+    ModifyPasswordMutation,
+    ModifyPasswordMutationVariables
+>;
+export const NotAuthModifyPasswordDocument = gql`
+    mutation notAuthModifyPassword(
+        $token: String!
+        $confirmPassword: String!
+        $password: String!
+    ) {
+        notAuthModifyPassword(
+            token: $token
+            confirmPassword: $confirmPassword
+            password: $password
+        ) {
+            status
+            errors {
+                field
+                message
+            }
+        }
+    }
+`;
+export type NotAuthModifyPasswordMutationFn = Apollo.MutationFunction<
+    NotAuthModifyPasswordMutation,
+    NotAuthModifyPasswordMutationVariables
+>;
 
 /**
  * __useNotAuthModifyPasswordMutation__
@@ -431,30 +645,52 @@ export type NotAuthModifyPasswordMutationFn = Apollo.MutationFunction<NotAuthMod
  *   },
  * });
  */
-export function useNotAuthModifyPasswordMutation(baseOptions?: Apollo.MutationHookOptions<NotAuthModifyPasswordMutation, NotAuthModifyPasswordMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<NotAuthModifyPasswordMutation, NotAuthModifyPasswordMutationVariables>(NotAuthModifyPasswordDocument, options);
-      }
-export type NotAuthModifyPasswordMutationHookResult = ReturnType<typeof useNotAuthModifyPasswordMutation>;
-export type NotAuthModifyPasswordMutationResult = Apollo.MutationResult<NotAuthModifyPasswordMutation>;
-export type NotAuthModifyPasswordMutationOptions = Apollo.BaseMutationOptions<NotAuthModifyPasswordMutation, NotAuthModifyPasswordMutationVariables>;
-export const SendFormSupportDocument = gql`
-    mutation sendFormSupport($fullName: String!, $email: String!, $subject: String!, $message: String!) {
-  sendFormSupport(
-    fullName: $fullName
-    email: $email
-    subject: $subject
-    message: $message
-  ) {
-    status
-    errors {
-      field
-      message
-    }
-  }
+export function useNotAuthModifyPasswordMutation(
+    baseOptions?: Apollo.MutationHookOptions<
+        NotAuthModifyPasswordMutation,
+        NotAuthModifyPasswordMutationVariables
+    >
+) {
+    const options = { ...defaultOptions, ...baseOptions };
+    return Apollo.useMutation<
+        NotAuthModifyPasswordMutation,
+        NotAuthModifyPasswordMutationVariables
+    >(NotAuthModifyPasswordDocument, options);
 }
-    `;
-export type SendFormSupportMutationFn = Apollo.MutationFunction<SendFormSupportMutation, SendFormSupportMutationVariables>;
+export type NotAuthModifyPasswordMutationHookResult = ReturnType<
+    typeof useNotAuthModifyPasswordMutation
+>;
+export type NotAuthModifyPasswordMutationResult =
+    Apollo.MutationResult<NotAuthModifyPasswordMutation>;
+export type NotAuthModifyPasswordMutationOptions = Apollo.BaseMutationOptions<
+    NotAuthModifyPasswordMutation,
+    NotAuthModifyPasswordMutationVariables
+>;
+export const SendFormSupportDocument = gql`
+    mutation sendFormSupport(
+        $fullName: String!
+        $email: String!
+        $subject: String!
+        $message: String!
+    ) {
+        sendFormSupport(
+            fullName: $fullName
+            email: $email
+            subject: $subject
+            message: $message
+        ) {
+            status
+            errors {
+                field
+                message
+            }
+        }
+    }
+`;
+export type SendFormSupportMutationFn = Apollo.MutationFunction<
+    SendFormSupportMutation,
+    SendFormSupportMutationVariables
+>;
 
 /**
  * __useSendFormSupportMutation__
@@ -476,25 +712,42 @@ export type SendFormSupportMutationFn = Apollo.MutationFunction<SendFormSupportM
  *   },
  * });
  */
-export function useSendFormSupportMutation(baseOptions?: Apollo.MutationHookOptions<SendFormSupportMutation, SendFormSupportMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<SendFormSupportMutation, SendFormSupportMutationVariables>(SendFormSupportDocument, options);
-      }
-export type SendFormSupportMutationHookResult = ReturnType<typeof useSendFormSupportMutation>;
-export type SendFormSupportMutationResult = Apollo.MutationResult<SendFormSupportMutation>;
-export type SendFormSupportMutationOptions = Apollo.BaseMutationOptions<SendFormSupportMutation, SendFormSupportMutationVariables>;
+export function useSendFormSupportMutation(
+    baseOptions?: Apollo.MutationHookOptions<
+        SendFormSupportMutation,
+        SendFormSupportMutationVariables
+    >
+) {
+    const options = { ...defaultOptions, ...baseOptions };
+    return Apollo.useMutation<
+        SendFormSupportMutation,
+        SendFormSupportMutationVariables
+    >(SendFormSupportDocument, options);
+}
+export type SendFormSupportMutationHookResult = ReturnType<
+    typeof useSendFormSupportMutation
+>;
+export type SendFormSupportMutationResult =
+    Apollo.MutationResult<SendFormSupportMutation>;
+export type SendFormSupportMutationOptions = Apollo.BaseMutationOptions<
+    SendFormSupportMutation,
+    SendFormSupportMutationVariables
+>;
 export const SendRecoverEmailDocument = gql`
     mutation sendRecoverEmail($email: String!) {
-  sendRecoverEmail(email: $email) {
-    status
-    errors {
-      field
-      message
+        sendRecoverEmail(email: $email) {
+            status
+            errors {
+                field
+                message
+            }
+        }
     }
-  }
-}
-    `;
-export type SendRecoverEmailMutationFn = Apollo.MutationFunction<SendRecoverEmailMutation, SendRecoverEmailMutationVariables>;
+`;
+export type SendRecoverEmailMutationFn = Apollo.MutationFunction<
+    SendRecoverEmailMutation,
+    SendRecoverEmailMutationVariables
+>;
 
 /**
  * __useSendRecoverEmailMutation__
@@ -513,43 +766,68 @@ export type SendRecoverEmailMutationFn = Apollo.MutationFunction<SendRecoverEmai
  *   },
  * });
  */
-export function useSendRecoverEmailMutation(baseOptions?: Apollo.MutationHookOptions<SendRecoverEmailMutation, SendRecoverEmailMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<SendRecoverEmailMutation, SendRecoverEmailMutationVariables>(SendRecoverEmailDocument, options);
-      }
-export type SendRecoverEmailMutationHookResult = ReturnType<typeof useSendRecoverEmailMutation>;
-export type SendRecoverEmailMutationResult = Apollo.MutationResult<SendRecoverEmailMutation>;
-export type SendRecoverEmailMutationOptions = Apollo.BaseMutationOptions<SendRecoverEmailMutation, SendRecoverEmailMutationVariables>;
-export const SignUpDocument = gql`
-    mutation signUp($birthDate: DateTime!, $gender: String!, $password: String!, $lastName: String!, $firstName: String!, $username: String!, $email: String!) {
-  signup(
-    birthDate: $birthDate
-    gender: $gender
-    password: $password
-    lastName: $lastName
-    firstName: $firstName
-    username: $username
-    email: $email
-  ) {
-    user {
-      id
-      username
-      email
-      firstName
-      lastName
-      gender
-      birthDate
-      verified
-    }
-    errors {
-      field
-      message
-    }
-    status
-  }
+export function useSendRecoverEmailMutation(
+    baseOptions?: Apollo.MutationHookOptions<
+        SendRecoverEmailMutation,
+        SendRecoverEmailMutationVariables
+    >
+) {
+    const options = { ...defaultOptions, ...baseOptions };
+    return Apollo.useMutation<
+        SendRecoverEmailMutation,
+        SendRecoverEmailMutationVariables
+    >(SendRecoverEmailDocument, options);
 }
-    `;
-export type SignUpMutationFn = Apollo.MutationFunction<SignUpMutation, SignUpMutationVariables>;
+export type SendRecoverEmailMutationHookResult = ReturnType<
+    typeof useSendRecoverEmailMutation
+>;
+export type SendRecoverEmailMutationResult =
+    Apollo.MutationResult<SendRecoverEmailMutation>;
+export type SendRecoverEmailMutationOptions = Apollo.BaseMutationOptions<
+    SendRecoverEmailMutation,
+    SendRecoverEmailMutationVariables
+>;
+export const SignUpDocument = gql`
+    mutation signUp(
+        $birthDate: DateTime!
+        $gender: String!
+        $password: String!
+        $lastName: String!
+        $firstName: String!
+        $username: String!
+        $email: String!
+    ) {
+        signup(
+            birthDate: $birthDate
+            gender: $gender
+            password: $password
+            lastName: $lastName
+            firstName: $firstName
+            username: $username
+            email: $email
+        ) {
+            user {
+                id
+                username
+                email
+                firstName
+                lastName
+                gender
+                birthDate
+                verified
+            }
+            errors {
+                field
+                message
+            }
+            status
+        }
+    }
+`;
+export type SignUpMutationFn = Apollo.MutationFunction<
+    SignUpMutation,
+    SignUpMutationVariables
+>;
 
 /**
  * __useSignUpMutation__
@@ -574,21 +852,35 @@ export type SignUpMutationFn = Apollo.MutationFunction<SignUpMutation, SignUpMut
  *   },
  * });
  */
-export function useSignUpMutation(baseOptions?: Apollo.MutationHookOptions<SignUpMutation, SignUpMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<SignUpMutation, SignUpMutationVariables>(SignUpDocument, options);
-      }
+export function useSignUpMutation(
+    baseOptions?: Apollo.MutationHookOptions<
+        SignUpMutation,
+        SignUpMutationVariables
+    >
+) {
+    const options = { ...defaultOptions, ...baseOptions };
+    return Apollo.useMutation<SignUpMutation, SignUpMutationVariables>(
+        SignUpDocument,
+        options
+    );
+}
 export type SignUpMutationHookResult = ReturnType<typeof useSignUpMutation>;
 export type SignUpMutationResult = Apollo.MutationResult<SignUpMutation>;
-export type SignUpMutationOptions = Apollo.BaseMutationOptions<SignUpMutation, SignUpMutationVariables>;
+export type SignUpMutationOptions = Apollo.BaseMutationOptions<
+    SignUpMutation,
+    SignUpMutationVariables
+>;
 export const VerifyEmailAddressDocument = gql`
     mutation verifyEmailAddress($token: String!) {
-  verifyEmailAddress(token: $token) {
-    status
-  }
-}
-    `;
-export type VerifyEmailAddressMutationFn = Apollo.MutationFunction<VerifyEmailAddressMutation, VerifyEmailAddressMutationVariables>;
+        verifyEmailAddress(token: $token) {
+            status
+        }
+    }
+`;
+export type VerifyEmailAddressMutationFn = Apollo.MutationFunction<
+    VerifyEmailAddressMutation,
+    VerifyEmailAddressMutationVariables
+>;
 
 /**
  * __useVerifyEmailAddressMutation__
@@ -607,10 +899,24 @@ export type VerifyEmailAddressMutationFn = Apollo.MutationFunction<VerifyEmailAd
  *   },
  * });
  */
-export function useVerifyEmailAddressMutation(baseOptions?: Apollo.MutationHookOptions<VerifyEmailAddressMutation, VerifyEmailAddressMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<VerifyEmailAddressMutation, VerifyEmailAddressMutationVariables>(VerifyEmailAddressDocument, options);
-      }
-export type VerifyEmailAddressMutationHookResult = ReturnType<typeof useVerifyEmailAddressMutation>;
-export type VerifyEmailAddressMutationResult = Apollo.MutationResult<VerifyEmailAddressMutation>;
-export type VerifyEmailAddressMutationOptions = Apollo.BaseMutationOptions<VerifyEmailAddressMutation, VerifyEmailAddressMutationVariables>;
+export function useVerifyEmailAddressMutation(
+    baseOptions?: Apollo.MutationHookOptions<
+        VerifyEmailAddressMutation,
+        VerifyEmailAddressMutationVariables
+    >
+) {
+    const options = { ...defaultOptions, ...baseOptions };
+    return Apollo.useMutation<
+        VerifyEmailAddressMutation,
+        VerifyEmailAddressMutationVariables
+    >(VerifyEmailAddressDocument, options);
+}
+export type VerifyEmailAddressMutationHookResult = ReturnType<
+    typeof useVerifyEmailAddressMutation
+>;
+export type VerifyEmailAddressMutationResult =
+    Apollo.MutationResult<VerifyEmailAddressMutation>;
+export type VerifyEmailAddressMutationOptions = Apollo.BaseMutationOptions<
+    VerifyEmailAddressMutation,
+    VerifyEmailAddressMutationVariables
+>;

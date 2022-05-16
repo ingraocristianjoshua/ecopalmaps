@@ -12,7 +12,11 @@ function Menu() {
     return (
         <MenuButton>
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 4H21M3 12H21M3 20H21" strokeWidth="2" strokeLinecap="round" />
+                <path
+                    d="M3 4H21M3 12H21M3 20H21"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                />
             </svg>
         </MenuButton>
     );

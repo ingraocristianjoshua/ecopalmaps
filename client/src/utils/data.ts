@@ -6,8 +6,11 @@ export const places = [
             lat: 37.19268338412127,
             lng: 13.760111974244413,
         },
-        cover_image:
+        images: [
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1650977626/ecopalmaps/chiesa-madre.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723616/ecopalmaps/chiesa-madre-frontale.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723617/ecopalmaps/chiesa-madre-scalinata.jpg",
+        ],
         description:
             "La chiesa madre di Maria Santissima del Rosario di Palma di Montechiaro è l'edificio sacro più importante della cittadina in provincia di Agrigento e una delle opere più significative del barocco siciliano. Fu fatta edificare dalla famiglia dei Tomasi di Lampedusa, fondatori e feudatari della città.",
         content: {
@@ -38,8 +41,20 @@ export const places = [
             lat: 37.19173523035973,
             lng: 13.75913902278016,
         },
-        cover_image:
+        images: [
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1650978592/ecopalmaps/palazzo-ducale.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723619/ecopalmaps/palazzo-ducale-stemma-gattopardo.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723609/ecopalmaps/palazzo-ducale-camera.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723613/ecopalmaps/palazzo-ducale-sala-gattopardo-frontale.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723610/ecopalmaps/palazzo-ducale-sala.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723613/ecopalmaps/palazzo-ducale-sala-gattopardo.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723613/ecopalmaps/palazzo-ducale-sala-croci.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723611/ecopalmaps/palazzo-ducale-sala-croci-ampio.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723613/ecopalmaps/palazzo-ducale-sala-principale.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723613/ecopalmaps/palazzo-ducale-sala-losanghe.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723617/ecopalmaps/palazzo-ducale-soffitto-cassettonato.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723610/ecopalmaps/palazzo-ducale-pavimento-originale.jpg",
+        ],
         description:
             "Il Palazzo Ducale rappresenta una delle costruzioni più emblematiche di Palma di Montechiaro. Fu fatto edificare dal duca Giulio Tomasi, come seconda dimora della famiglia, dopo che la prima fu trasformata in convento dedicato al SS. Rosario.",
         content: {
@@ -70,8 +85,11 @@ export const places = [
             lat: 37.19153516823075,
             lng: 13.761487153531892,
         },
-        cover_image:
+        images: [
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651132341/ecopalmaps/monastero-delle-benedettine.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723610/ecopalmaps/monastero-del-santissimo-rosario-interno.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723613/ecopalmaps/monastero-del-santissimo-rosario-interno-chiesa.jpg",
+        ],
         description:
             "Il Monastero del Santissimo Rosario costituisce il segno più emblematico della vicenda storica dei Tomasi a Palma di Montechiaro.",
         content: {
@@ -92,8 +110,9 @@ export const places = [
             lat: 37.1957178699075,
             lng: 13.75123428877471,
         },
-        cover_image:
+        images: [
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651144633/ecopalmaps/calvario.jpg",
+        ],
         description:
             "Palma viene considerata la seconda Gerusalemme, infatti tutte le Chiese formano le stazioni tra cui l'ultima è la Chiesa del Calvario, che prende il nome dal monte Calvario, nel quale venne crocifisso Gesù.",
         content: {
@@ -110,8 +129,9 @@ export const places = [
             lat: 37.190673894294925,
             lng: 13.763626942167711,
         },
-        cover_image:
+        images: [
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260790/ecopalmaps/chiesa-sant-angelo.jpg",
+        ],
         description:
             "La Chiesa di Sant'Angelo, detta della Batiella, fu costruita nel 1643 per volere di Vito Rizzo da Licata che la dedicò al protettore della sua città. Lì accanto, Giuseppe Maria Tomasi fece costruire un orfanotrofio per 12 orfanelle. Nel 1738 l'orfanotrofio venne trasferito presso il Collegio di Maria.",
         content: {
@@ -128,14 +148,17 @@ export const places = [
             lat: 37.19170879622092,
             lng: 13.75972073143236,
         },
-        cover_image: "",
-        description: "La Villa Comunale si trova ai piedi della scalinata della Chiesa Madre e accanto al Palazzo Ducale: essa è uno dei punti di ritrovo più frequentati dai cittadini palmesi.",
+        images: [
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723619/ecopalmaps/villa-comunale-giardino.jpg",
+        ],
+        description:
+            "La Villa Comunale si trova ai piedi della scalinata della Chiesa Madre e accanto al Palazzo Ducale: essa è uno dei punti di ritrovo più frequentati dai cittadini palmesi.",
         content: {
             __html: `
                 <h3>Posizione e storia</h3>
                 Situata ai piedi della scalinata della Chiesa Madre, e accanto al Palazzo Ducale, la Villa Comunale rappresenta uno dei punti più emblematici della vita cittadina di Palma di Montechiaro. Ai tempi della famiglia Tomasi, era un giardino privato, accessibile solo a quest'ultima, mentre oggigiorno è un luogo pubblico.
             `,
-        }
+        },
     },
     {
         slug: "chiesa-santa-rosalia",
@@ -144,8 +167,10 @@ export const places = [
             lat: 37.19222394722474,
             lng: 13.75959157022896,
         },
-        cover_image:
+        images: [
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260871/ecopalmaps/chiesa-santa-rosalia.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723618/ecopalmaps/chiesa-santa-rosalia-facciata-prospettica.jpg",
+        ],
         description:
             "Edificata nella metà del XVII secolo, secondo la tradizione fu la prima chiesa della città. Oggi priva di altari e degli arredi costituisce un interessante esempio di architettura religiosa. Particolare la cappella attigua alla navata, sede della confraternita della Carità.",
         content: {
@@ -161,8 +186,10 @@ export const places = [
             lat: 37.19165871641864,
             lng: 13.763725240723419,
         },
-        cover_image:
+        images: [
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260924/ecopalmaps/palazzo-degli-scolopi.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723609/ecopalmaps/palazzo-degli-scolopi-corridoio.jpg",
+        ],
         description:
             "L'edificio, oggi sede degli uffici comunali, è certamente uno dei più belli del patrimonio tardo-barocco. Addossata al palazzo è la chiesa della Sacra Famiglia con la quale costituisce un unico complesso architettonico.",
         content: {
@@ -179,8 +206,10 @@ export const places = [
             lat: 37.19307434794813,
             lng: 13.760986190406486,
         },
-        cover_image:
+        images: [
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651260064/ecopalmaps/chiesa-del-collegio-di-maria.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723617/ecopalmaps/chiesa-del-collegio-di-maria-interno.jpg",
+        ],
         description:
             "La Chiesa del Collegio di Maria rappresenta uno dei monumenti più emblematici di Palma di Montechiaro, poichè custodisce una copia della Sacra Sindone.",
         content: {
@@ -199,8 +228,9 @@ export const places = [
             lat: 37.19229814413554,
             lng: 13.76324974088748,
         },
-        cover_image:
+        images: [
             "https://res.cloudinary.com/cristianingrao/image/upload/v1651338663/ecopalmaps/ecce-homo.jpg",
+        ],
         description:
             "L'insegna posta sopra l'edicola , 'Ecce Homo', è la frase che secondo la Vulgata Ponzio Pilato, allora governatore romano della Giudea, pronunciò mostrando alla folla Gesù flagellato.",
         content: {
@@ -218,8 +248,9 @@ export const places = [
             lat: 37.191758677165645,
             lng: 13.760383947043012,
         },
-        cover_image:
+        images: [
             "https://res.cloudinary.com/cristianingrao/image/upload/v1651339218/ecopalmaps/casa-di-giovan-battista-odierna.jpg",
+        ],
         description:
             "L'edificio, oggi sede della Farmacia Miceli, era la casa dell'astronomo, presbitero e architetto Giovan Battista Odierna.",
         content: {
@@ -243,8 +274,10 @@ export const places = [
             lat: 37.16598793153955,
             lng: 13.731524808221971,
         },
-        cover_image:
+        images: [
             "https://res.cloudinary.com/cristianingrao/image/upload/v1651339085/ecopalmaps/torre-san-carlo.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723615/ecopalmaps/torre-san-carlo-cannito.jpg",
+        ],
         description:
             "L'edificazione della Torre San Carlo, appena oltre la foce del fiume Palma, risale al 1639 ad opera di Carlo Tomasi, primo duca di Palma, che ottenne il permesso da Filippo IV di Spagna ed ebbe scopi difensivi stante le continue incursioni dei pirati saraceni sul litorale palmese.",
         content: {
@@ -261,8 +294,10 @@ export const places = [
             lat: 37.18366295812218,
             lng: 13.695856616888637,
         },
-        cover_image:
+        images: [
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651261620/ecopalmaps/castello-di-montechiaro.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723618/ecopalmaps/castello-di-montechiaro-vista-aerea.jpg",
+        ],
         description:
             "Il castello di Montechiaro, l'unico dei manieri chiaramontani in Sicilia edificato su un costone roccioso a picco sul mare, sorge nei dintorni di Palma di Montechiaro, in prossimità di Marina di Palma.",
         content: {
@@ -279,8 +314,10 @@ export const places = [
             lat: 37.15689785601085,
             lng: 13.79484566230079,
         },
-        cover_image:
+        images: [
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651261301/ecopalmaps/torre-del-castellazzo.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723615/ecopalmaps/torre-del-castellazzo-foto-antica.jpg",
+        ],
         description:
             "Il sito interessa la sommità di un'altura nella quale è attestata una frequentazione di epoca preistorica e greca.",
         content: {
@@ -297,8 +334,10 @@ export const places = [
             lat: 37.15371439725808,
             lng: 13.759738986996897,
         },
-        cover_image:
+        images: [
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1651261047/ecopalmaps/fontana-spina.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723619/ecopalmaps/fontana-spina-condotto.jpg",
+        ],
         description:
             "La Fontana Spina è collocata in un punto panoramico pazzesco. Si trova nella zona in cui venne rinvenuta la Triscele, divenuta simbolo di Sicilia.",
         content: {

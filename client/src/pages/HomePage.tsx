@@ -117,7 +117,7 @@ function HomePage() {
                                         >
                                             <PlaceImageContainer>
                                                 <img
-                                                    src={place.cover_image}
+                                                    src={place.images[0]}
                                                     title={place.title}
                                                 />
                                             </PlaceImageContainer>
