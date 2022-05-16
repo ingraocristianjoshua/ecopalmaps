@@ -8,7 +8,6 @@ mutation logIn($input: String!, $password: String!) {
             email
             birthDate
             gender
-            title
             verified
         }
         errors {

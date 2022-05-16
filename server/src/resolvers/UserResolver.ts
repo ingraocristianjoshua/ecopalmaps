@@ -125,7 +125,6 @@ export class UserResolver {
         @Arg("firstName") firstName: string,
         @Arg("lastName") lastName: string,
         @Arg("password") password: string,
-        @Arg("title") title: string,
         @Arg("gender") gender: string,
         @Arg("birthDate") birthDate: Date
     ): Promise<UserResponse> {
@@ -167,12 +166,6 @@ export class UserResolver {
                 message: "Il campo del cognome non può essere vuoto",
             });
         }
-        if (title == "Titolo" || title == "") {
-            errors.push({
-                field: "title",
-                message: "Il campo del titolo non può prendere questo valore",
-            });
-        }
         if (gender == "Gender" || gender == "") {
             errors.push({
                 field: "gender",
@@ -196,7 +189,6 @@ export class UserResolver {
                         password: hashedPassword,
                         firstName: firstName,
                         lastName: lastName,
-                        title: title,
                         gender: gender,
                         birthDate: birthDate,
                         verified: false,

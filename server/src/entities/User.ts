@@ -35,10 +35,6 @@ export class User extends BaseEntity {
 
     @Field()
     @Column()
-    title!: string;
-
-    @Field()
-    @Column()
     gender!: string;
 
     @Field(() => String)

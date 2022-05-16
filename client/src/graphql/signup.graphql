@@ -1,7 +1,6 @@
 mutation signUp(
     $birthDate: DateTime!
     $gender: String!
-    $title: String!
     $password: String!
     $lastName: String!
     $firstName: String!
@@ -11,7 +10,6 @@ mutation signUp(
     signup(
         birthDate: $birthDate
         gender: $gender
-        title: $title
         password: $password
         lastName: $lastName
         firstName: $firstName
@@ -25,7 +23,6 @@ mutation signUp(
             firstName
             lastName
             gender
-            title
             birthDate
             verified
         }

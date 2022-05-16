@@ -7,13 +7,13 @@ export interface LogoProps {
 }
 
 const IndexLogo = styled(SvgIcon)`
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
 `;
 
 const InlineLogo = styled(SvgIcon)`
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
 `;
 
 const Logo: FunctionComponent<LogoProps> = ({ type }) => {

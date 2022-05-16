@@ -24,13 +24,6 @@ import { toErrorMap } from "../utils/toErrorMap";
 function Signup() {
     const [signup] = useSignUpMutation();
 
-    const titleOptions = [
-        { value: "Titolo", label: "Titolo" },
-        { value: "Ms.", label: "Ms." },
-        { value: "Mr.", label: "Mr." },
-        { value: "Dr.", label: "Dr." },
-    ];
-
     const genderOptions = [
         { value: "Genere", label: "Genere" },
         { value: "Donna", label: "Donna" },
@@ -51,7 +44,6 @@ function Signup() {
                         <Formik
                             initialValues={{
                                 birthDate: Date(),
-                                title: "",
                                 gender: "",
                                 firstName: "",
                                 lastName: "",
@@ -94,16 +86,10 @@ function Signup() {
                                 <Form>
                                     {status ? <Status>{status}</Status> : null}
                                     <AuthFormContent>
-                                        <DatePickerField
-                                            field="birthDate"
-                                            placeholder="Data di nascita"
-                                        />
                                         <AuthHalfInput>
-                                            <SelectField
-                                                field="title"
-                                                placeholder="Titolo"
-                                                errors={errors}
-                                                options={titleOptions}
+                                            <DatePickerField
+                                                field="birthDate"
+                                                placeholder="Data di nascita"
                                             />
                                             <SelectField
                                                 field="gender"
