@@ -59,19 +59,19 @@ const FormObjectError = styled.div`
     font-size: 14px;
 `;
 
-function Support() {
+function SupportAndFeedback() {
     const [sendForm] = useSendFormSupportMutation();
 
     return (
         <>
             <Head
-                title="Supporto | EcoPalMaps"
-                description="In questa pagina troverai tutte le istruzioni per ricevere supporto."
+                title="Supporto e feedback | EcoPalMaps"
+                description="In questa pagina troverai tutte le istruzioni per ricevere supporto o per inviare un feedback."
             />
             <PageLayout
                 content={
                     <PageContent>
-                        <PageTitle>Contatta il supporto</PageTitle>
+                        <PageTitle>Supporto e feedback</PageTitle>
                         <PageText>
                             Per qualsiasi problema, puoi compilare il seguente
                             modulo oppure contattarci tramite questa email:{" "}
@@ -80,6 +80,17 @@ function Support() {
                                 title="Email di supporto"
                             >
                                 support@ecopalmaps.com
+                            </a>
+                            . <br />
+                            Se invece vorresti inviare un feedback relativo alla
+                            piattaforma (cosa ben accetta), puoi sempre
+                            compilare il modulo oppure inviarci una email al
+                            seguente indirizzo:{" "}
+                            <a
+                                href="mailto:info@ecopalmaps.com"
+                                title="Email per i feedback"
+                            >
+                                info@ecopalmaps.com
                             </a>
                             .
                         </PageText>
@@ -182,4 +193,4 @@ function Support() {
     );
 }
 
-export default Support;
+export default SupportAndFeedback;

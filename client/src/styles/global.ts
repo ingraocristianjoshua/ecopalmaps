@@ -249,7 +249,8 @@ export const RouteDirections = styled(PageBlock)`
         color: #000000;
     }
 
-    .adp-list, .adp-placemark {
+    .adp-list,
+    .adp-placemark {
         border: none;
         font-size: 16px;
         padding: 18px;
@@ -257,7 +258,8 @@ export const RouteDirections = styled(PageBlock)`
         background-color: #c7c5bc;
     }
 
-    .adp-warnbox, .adp-placemark {
+    .adp-warnbox,
+    .adp-placemark {
         margin-top: 24px;
         margin-bottom: 24px;
     }
@@ -267,9 +269,10 @@ export const RouteDirections = styled(PageBlock)`
         padding: 18px;
         border-radius: 18px;
     }
-    
-    .warnbox-c1, .warnbox-c2 {
-       display: none;
+
+    .warnbox-c1,
+    .warnbox-c2 {
+        display: none;
     }
 
     .adp-text {

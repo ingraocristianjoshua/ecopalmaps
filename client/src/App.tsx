@@ -13,13 +13,13 @@ import PlacePage from "./pages/PlacePage";
 import Profile from "./pages/Profile";
 import RecoverPassword from "./pages/RecoverPassword";
 import Signup from "./pages/Signup";
-import Support from "./pages/Support";
 import VerifyAccount from "./pages/VerifyAccount";
 import { setAccessToken } from "./utils/token";
 import Electric from "./pages/Electric";
 import ElectricPage from "./pages/ElectricPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import About from "./pages/About";
+import SupportAndFeedback from "./pages/SupportAndFeedback";
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -169,11 +169,11 @@ function App() {
                     }
                 />
                 <Route
-                    path="/support"
+                    path="/support-and-feedback"
                     element={
                         <IsAuthenticated
                             isAuth={isAuth}
-                            children={<Support />}
+                            children={<SupportAndFeedback />}
                         />
                     }
                 />

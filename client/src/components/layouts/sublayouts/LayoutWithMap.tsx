@@ -210,8 +210,8 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                         &copy; {new Date().getFullYear()} EcoPalMaps
                     </MainFooterItem>
                     <MainFooterItem>
-                        <Link to="/support" title="Contatta il supporto">
-                            Supporto
+                        <Link to="/support-and-feedback" title="Contatta il supporto oppure invia un feedback">
+                            Supporto e feedback
                         </Link>
                     </MainFooterItem>
                     <MainFooterItem>
@@ -232,7 +232,7 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                             I. I. S. Odierna
                         </a>
                     </MainFooterItem>
-                    <MainFooterItem>Versione 0.1.2-beta</MainFooterItem>
+                    <MainFooterItem>Versione 0.1.3-beta</MainFooterItem>
                 </MainFooter>
             </MainContainer>
         </PageContent>
