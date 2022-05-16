@@ -61,6 +61,7 @@ const MapContainer = styled.div`
     height: 100%;
     position: sticky;
     top: 80px;
+    z-index: 1000;
 
     @media ${devices.tablet} {
         height: calc(100vh - 80px);

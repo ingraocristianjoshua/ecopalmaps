@@ -116,7 +116,34 @@ const RouteInfoBlock = styled.div`
 export const Sidebar = styled(PageBlock)`
     * {
         font-family: "Inter", sans-serif;
-        border-color: black !important;
+        color: #000000;
+    }
+
+    .adp-list, .adp-placemark {
+        border: none;
+        font-size: 16px;
+        padding: 18px;
+        border-radius: 18px;
+        background-color: #c7c5bc;
+    }
+
+    .adp-warnbox, .adp-placemark {
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+
+    .warnbox-content {
+        background: #edd035;
+        padding: 18px;
+        border-radius: 18px;
+    }
+    
+    .warnbox-c1, .warnbox-c2 {
+       display: none;
+    }
+
+    .adp-text {
+        padding-left: 12px;
     }
 `;
 
