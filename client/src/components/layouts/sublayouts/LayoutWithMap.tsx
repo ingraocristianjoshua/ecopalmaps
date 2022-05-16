@@ -337,9 +337,9 @@ const Map: FunctionComponent<MapProps> = ({
                                             geodesic: true,
                                         },
                                     });
-                                    /*directionsRenderer.setPanel(
+                                    directionsRenderer.setPanel(
                                             document.getElementById("sidebar") as HTMLElement
-                                        );*/
+                                    );
                                     directionsRenderer.setDirections(response);
                                 })
                                 .catch((e) =>
@@ -363,8 +363,8 @@ const Map: FunctionComponent<MapProps> = ({
             } else {
                 map.setCenter(latLng);
                 map.setZoom(18);
-                /*directionsRenderer.setPanel(null);
-                document.getElementById("sidebar")!.innerHTML = "";*/
+                directionsRenderer.setPanel(null);
+                document.getElementById("sidebar")!.innerHTML = "";
             }
         }
     }, [map, latLng, giveDirections]);

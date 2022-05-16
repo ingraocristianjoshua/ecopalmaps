@@ -113,6 +113,13 @@ const RouteInfoBlock = styled.div`
     row-gap: 4px;
 `;
 
+const Sidebar = styled(PageBlock)`
+    * {
+        font-family: "Inter", sans-serif;
+        border-color: black!important;
+    }
+`;
+
 function PlacePage() {
     const navigate = useNavigate();
     const params = useParams();
@@ -131,16 +138,23 @@ function PlacePage() {
     });
 
     useEffect(() => {
+        console.log(params.slug);
         try {
             setPlaceItem(places.find((place) => place.slug === params.slug)!);
         } catch (error) {
+            navigate("/home");
+        }
+
+        return () => {
             navigate("/home");
         }
     }, [navigate, params.slug]);
 
     const [placeName, setPlaceName] = useState("");
 
-    useEffect(() => {
+    const google = window.google;
+
+    if (google) {
         const geocoder = new google.maps.Geocoder();
 
         if (navigator.geolocation) {
@@ -167,7 +181,7 @@ function PlacePage() {
                 }
             );
         }
-    }, []);
+    }
 
     return (
         <>
@@ -259,7 +273,7 @@ function PlacePage() {
                                                     )}
                                                 </DirectionButton>
                                             </PageBlock>
-                                            {/*<PageBlock id="sidebar"></PageBlock>*/}
+                                            <Sidebar id="sidebar"></Sidebar>
                                         </DirectionBlockContent>
                                     </DirectionBlock>
                                 </PlacePageContent>

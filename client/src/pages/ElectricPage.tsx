@@ -112,11 +112,17 @@ function ElectricPage() {
         } catch (error) {
             navigate("/home");
         }
+
+        return () => {
+            navigate("/home");
+        }
     }, [navigate, params.slug]);
 
     const [placeName, setPlaceName] = useState("");
 
-    useEffect(() => {
+    const google = window.google;
+
+    if (google) {
         const geocoder = new google.maps.Geocoder();
 
         if (navigator.geolocation) {
@@ -143,7 +149,7 @@ function ElectricPage() {
                 }
             );
         }
-    }, []);
+    }
 
     return (
         <>
