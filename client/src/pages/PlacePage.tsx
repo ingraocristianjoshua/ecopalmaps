@@ -10,6 +10,7 @@ import {
     PageBlock,
     PageContentContainer,
     PageText,
+    RouteDirections,
 } from "../styles/global";
 import Back from "../components/icons/Back";
 
@@ -111,40 +112,6 @@ const RouteInfoBlock = styled.div`
     flex-wrap: wrap;
     column-gap: 12px;
     row-gap: 4px;
-`;
-
-export const Sidebar = styled(PageBlock)`
-    * {
-        font-family: "Inter", sans-serif;
-        color: #000000;
-    }
-
-    .adp-list, .adp-placemark {
-        border: none;
-        font-size: 16px;
-        padding: 18px;
-        border-radius: 18px;
-        background-color: #c7c5bc;
-    }
-
-    .adp-warnbox, .adp-placemark {
-        margin-top: 24px;
-        margin-bottom: 24px;
-    }
-
-    .warnbox-content {
-        background: #edd035;
-        padding: 18px;
-        border-radius: 18px;
-    }
-    
-    .warnbox-c1, .warnbox-c2 {
-       display: none;
-    }
-
-    .adp-text {
-        padding-left: 12px;
-    }
 `;
 
 function PlacePage() {
@@ -300,7 +267,7 @@ function PlacePage() {
                                                     )}
                                                 </DirectionButton>
                                             </PageBlock>
-                                            <Sidebar id="sidebar"></Sidebar>
+                                            <RouteDirections id="directions"></RouteDirections>
                                         </DirectionBlockContent>
                                     </DirectionBlock>
                                 </PlacePageContent>

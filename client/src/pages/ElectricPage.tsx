@@ -10,9 +10,9 @@ import {
     PageBlock,
     PageContentContainer,
     PageText,
+    RouteDirections,
 } from "../styles/global";
 import Back from "../components/icons/Back";
-import { Sidebar } from "./PlacePage";
 
 const ElectricPageHeader = styled.div`
     display: flex;
@@ -235,7 +235,7 @@ function ElectricPage() {
                                                     )}
                                                 </DirectionButton>
                                             </PageBlock>
-                                            <Sidebar id="sidebar"></Sidebar>
+                                            <RouteDirections id="directions"></RouteDirections>
                                         </DirectionBlockContent>
                                     </DirectionBlock>
                                 </ElectricPageContent>

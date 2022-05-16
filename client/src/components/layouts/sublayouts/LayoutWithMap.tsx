@@ -340,7 +340,7 @@ const Map: FunctionComponent<MapProps> = ({
                                     });
                                     directionsRenderer.setPanel(
                                         document.getElementById(
-                                            "sidebar"
+                                            "directions"
                                         ) as HTMLElement
                                     );
                                     directionsRenderer.setDirections(response);
@@ -367,7 +367,7 @@ const Map: FunctionComponent<MapProps> = ({
                 map.setCenter(latLng);
                 map.setZoom(18);
                 directionsRenderer.setPanel(null);
-                document.getElementById("sidebar")!.innerHTML = "";
+                document.getElementById("directions")!.innerHTML = "";
             }
         }
     }, [map, latLng, giveDirections]);
