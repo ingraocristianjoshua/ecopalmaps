@@ -42,7 +42,7 @@ export const places = [
             lng: 13.75913902278016,
         },
         images: [
-            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1650978592/ecopalmaps/palazzo-ducale.jpg",
+            "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652731273/ecopalmaps/palazzo-ducale-esterno.jpg",
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723619/ecopalmaps/palazzo-ducale-stemma-gattopardo.jpg",
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723609/ecopalmaps/palazzo-ducale-camera.jpg",
             "https://res.cloudinary.com/vincenzoingraojr/image/upload/v1652723613/ecopalmaps/palazzo-ducale-sala-gattopardo-frontale.jpg",
