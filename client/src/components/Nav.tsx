@@ -210,6 +210,17 @@ function Nav() {
                             La città
                         </NavLink>
                     </NavExtraOption>
+                    <NavExtraOption>
+                        <NavLink
+                            className={(navData: any) =>
+                                navData.isActive ? "active" : ""
+                            }
+                            to="/about"
+                            title="Informazioni"
+                        >
+                            Informazioni
+                        </NavLink>
+                    </NavExtraOption>
                 </NavExtraOptions>
                 <NavMenuButton
                     role="button"

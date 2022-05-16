@@ -45,7 +45,10 @@ function PrivacyPolicy() {
                                 the collection and use of information in
                                 accordance with this Privacy Policy.
                             </p>
-                            <p>This platform was written and is maintained by Ingrao.</p>
+                            <p>
+                                This platform was written and is maintained by
+                                Ingrao.
+                            </p>
                             <h3>Interpretation and Definitions</h3>
                             <h4>Interpretation</h4>
                             <p>

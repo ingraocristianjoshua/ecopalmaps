@@ -19,6 +19,7 @@ import { setAccessToken } from "./utils/token";
 import Electric from "./pages/Electric";
 import ElectricPage from "./pages/ElectricPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import About from "./pages/About";
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -159,6 +160,12 @@ function App() {
                     path="/palma-di-montechiaro"
                     element={
                         <IsAuthenticated isAuth={isAuth} children={<City />} />
+                    }
+                />
+                <Route
+                    path="/about"
+                    element={
+                        <IsAuthenticated isAuth={isAuth} children={<About />} />
                     }
                 />
                 <Route

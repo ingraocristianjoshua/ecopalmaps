@@ -113,10 +113,10 @@ const RouteInfoBlock = styled.div`
     row-gap: 4px;
 `;
 
-const Sidebar = styled(PageBlock)`
+export const Sidebar = styled(PageBlock)`
     * {
         font-family: "Inter", sans-serif;
-        border-color: black!important;
+        border-color: black !important;
     }
 `;
 
@@ -147,7 +147,7 @@ function PlacePage() {
 
         return () => {
             navigate("/home");
-        }
+        };
     }, [navigate, params.slug]);
 
     const [placeName, setPlaceName] = useState("");

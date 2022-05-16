@@ -12,6 +12,7 @@ import {
     PageText,
 } from "../styles/global";
 import Back from "../components/icons/Back";
+import { Sidebar } from "./PlacePage";
 
 const ElectricPageHeader = styled.div`
     display: flex;
@@ -115,7 +116,7 @@ function ElectricPage() {
 
         return () => {
             navigate("/home");
-        }
+        };
     }, [navigate, params.slug]);
 
     const [placeName, setPlaceName] = useState("");
@@ -234,7 +235,7 @@ function ElectricPage() {
                                                     )}
                                                 </DirectionButton>
                                             </PageBlock>
-                                            {/*<PageBlock id="sidebar"></PageBlock>*/}
+                                            <Sidebar id="sidebar"></Sidebar>
                                         </DirectionBlockContent>
                                     </DirectionBlock>
                                 </ElectricPageContent>

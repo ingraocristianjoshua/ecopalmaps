@@ -231,7 +231,7 @@ const LayoutWithMap: FunctionComponent<LayoutWithMapProps> = ({
                             I. I. S. Odierna
                         </a>
                     </MainFooterItem>
-                    <MainFooterItem>Versione 0.1.0-beta</MainFooterItem>
+                    <MainFooterItem>Versione 0.1.2-beta</MainFooterItem>
                 </MainFooter>
             </MainContainer>
         </PageContent>
@@ -338,7 +338,9 @@ const Map: FunctionComponent<MapProps> = ({
                                         },
                                     });
                                     directionsRenderer.setPanel(
-                                            document.getElementById("sidebar") as HTMLElement
+                                        document.getElementById(
+                                            "sidebar"
+                                        ) as HTMLElement
                                     );
                                     directionsRenderer.setDirections(response);
                                 })
