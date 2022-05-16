@@ -226,6 +226,10 @@ function ElectricPage() {
                                                         setGiveDirections(
                                                             !giveDirections
                                                         );
+
+                                                        if (giveDirections) {
+                                                            navigate(0);
+                                                        }
                                                     }}
                                                 >
                                                     {giveDirections ? (

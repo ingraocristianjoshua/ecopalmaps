@@ -258,6 +258,10 @@ function PlacePage() {
                                                         setGiveDirections(
                                                             !giveDirections
                                                         );
+
+                                                        if (giveDirections) {
+                                                            navigate(0);
+                                                        }
                                                     }}
                                                 >
                                                     {giveDirections ? (
