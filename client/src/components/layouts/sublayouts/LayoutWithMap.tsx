@@ -309,7 +309,7 @@ const Map: FunctionComponent<MapProps> = ({
             if (giveDirections) {
                 directionsRenderer.setMap(map);
                 if (navigator.geolocation) {
-                    navigator.geolocation.watchPosition(
+                    navigator.geolocation.getCurrentPosition(
                         (position: GeolocationPosition) => {
                             const userLocation = {
                                 lat: position.coords.latitude,
