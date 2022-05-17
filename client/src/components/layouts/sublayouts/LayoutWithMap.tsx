@@ -387,6 +387,7 @@ const Map: FunctionComponent<MapProps> = ({
                 map.setZoom(18);
                 directionsRenderer.setPanel(null);
                 document.getElementById("directions")!.innerHTML = "";
+                marker = null;
             }
         }
 
