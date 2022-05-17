@@ -115,7 +115,7 @@ function ElectricPage() {
         }
     }, [navigate, params.slug]);
 
-    const [placeName, setPlaceName] = useState("");
+    const [placeName, setPlaceName] = useState("Caricamento...");
 
     const google = window.google;
 
