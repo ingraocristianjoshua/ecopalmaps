@@ -289,8 +289,6 @@ const Map: FunctionComponent<MapProps> = ({
             map: map,
         });
 
-        let marker: google.maps.Marker | null = null;
-
         const handleLocationError = (
             browserHasGeolocation: boolean,
             infoWindow: google.maps.InfoWindow,
@@ -319,24 +317,6 @@ const Map: FunctionComponent<MapProps> = ({
                             infoWindow.setPosition(userLocation);
                             infoWindow.setContent("La mia posizione");
                             infoWindow.open(map);
-
-                            if (marker) {
-                                marker.setPosition(userLocation);
-                            } else {
-                                marker = new google.maps.Marker({
-                                    map: map,
-                                    position: userLocation,
-                                    icon: {
-                                        path: google.maps.SymbolPath.CIRCLE,
-                                        scale: 8,
-                                        fillOpacity: 1,
-                                        strokeWeight: 2,
-                                        strokeOpacity: 0.6,
-                                        fillColor: "#5384ed",
-                                        strokeColor: "#ffffff",
-                                    }
-                                });
-                            }
 
                             directionsService
                                 .route({
@@ -387,7 +367,6 @@ const Map: FunctionComponent<MapProps> = ({
                 map.setZoom(18);
                 directionsRenderer.setPanel(null);
                 document.getElementById("directions")!.innerHTML = "";
-                marker = null;
             }
         }
     }, [map, latLng, giveDirections]);
