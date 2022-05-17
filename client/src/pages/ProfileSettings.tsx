@@ -17,9 +17,9 @@ import {
     useDeleteUserMutation,
     useModifyPasswordMutation,
 } from "../generated/graphql";
-import InputField from "../components/input/InputField";
 import { toErrorMap } from "../utils/toErrorMap";
 import { useNavigate } from "react-router-dom";
+import SimpleInputField from "../components/input/SimpleInputField";
 
 const OptionBlock = styled.div`
     display: flex;
@@ -123,13 +123,13 @@ function ProfileSettings() {
                                                         </Status>
                                                     ) : null}
                                                     <FormContent>
-                                                        <InputField
+                                                        <SimpleInputField
                                                             field="password"
                                                             type="password"
                                                             placeholder="Password"
                                                             errors={errors}
                                                         />
-                                                        <InputField
+                                                        <SimpleInputField
                                                             field="confirmPassword"
                                                             type="password"
                                                             placeholder="Confirmation password"
@@ -213,7 +213,7 @@ function ProfileSettings() {
                                                         </Status>
                                                     ) : null}
                                                     <FormContent>
-                                                        <InputField
+                                                        <SimpleInputField
                                                             field="password"
                                                             type="password"
                                                             placeholder="Password"

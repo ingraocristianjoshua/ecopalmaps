@@ -300,8 +300,8 @@ const Map: FunctionComponent<MapProps> = ({
             infoWindow.setPosition(pos);
             infoWindow.setContent(
                 browserHasGeolocation
-                    ? "Error: The Geolocation service failed."
-                    : "Error: Your browser doesn't support geolocation."
+                    ? "Errore: il servizio di geolocalizzazione ha smesso di funzionare."
+                    : "Errore: il tuo browser non supporta il servizio di geolocalizzazione."
             );
             infoWindow.open(map);
         };

@@ -113,10 +113,6 @@ function ElectricPage() {
         } catch (error) {
             navigate("/home");
         }
-
-        return () => {
-            navigate("/home");
-        };
     }, [navigate, params.slug]);
 
     const [placeName, setPlaceName] = useState("");
@@ -149,7 +145,15 @@ function ElectricPage() {
                     );
                 }
             );
+        } else {
+            setPlaceName(
+                "Non è possible ottenere la tua posizione attuale"
+            );
         }
+    } else {
+        setPlaceName(
+            "I servizi Google non sono al momento disponibili"
+        );
     }
 
     return (
