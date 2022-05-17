@@ -175,10 +175,6 @@ function PlacePage() {
                 "Non è possible ottenere la tua posizione attuale"
             );
         }
-    } else {
-        setPlaceName(
-            "I servizi Google non sono al momento disponibili"
-        );
     }
 
     let images;
