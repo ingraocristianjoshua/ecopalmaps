@@ -390,10 +390,6 @@ const Map: FunctionComponent<MapProps> = ({
                 marker = null;
             }
         }
-
-        return () => {
-            marker = null;
-        }
     }, [map, latLng, giveDirections]);
 
     return (
