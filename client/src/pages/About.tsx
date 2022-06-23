@@ -66,7 +66,7 @@ function About() {
                             risolti tutti gli eventuali problemi riscontrati
                             dall'utente.
                         </PageText>
-                        <PageText>Versione 0.1.5</PageText>
+                        <PageText>Versione 1.0.0</PageText>
                     </PageContent>
                 }
             />
