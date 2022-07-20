@@ -64,22 +64,23 @@ const PlacePageDescription = styled(PageText)`
     font-size: 16px;
     padding: 18px;
     border-radius: 18px;
-    background-color: #c7c5bc;
+    color: #ffffff;
+    background-color: transparent;
+    background-image: linear-gradient(90deg, #08D608 0%, #039BE5 50%, #EDD035 100%);
 `;
 
 const PlaceContent = styled(PageText)`
     h3:first-child {
         margin-top: 0px;
     }
-
-    border-bottom: 2px solid black;
-    padding-bottom: 24px;
 `;
 
 const DirectionBlock = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid black;
 `;
 
 const DirectionBlockTitle = styled.div`
@@ -272,11 +273,6 @@ function PlacePage() {
                                     <PlacePageDescription>
                                         {placeItem.description}
                                     </PlacePageDescription>
-                                    <PlaceContent
-                                        dangerouslySetInnerHTML={
-                                            placeItem.content
-                                        }
-                                    />
                                     <DirectionBlock>
                                         <DirectionBlockTitle>
                                             Raggiungi questo luogo
@@ -327,6 +323,11 @@ function PlacePage() {
                                             <RouteDirections id="directions"></RouteDirections>
                                         </DirectionBlockContent>
                                     </DirectionBlock>
+                                    <PlaceContent
+                                        dangerouslySetInnerHTML={
+                                            placeItem.content
+                                        }
+                                    />
                                 </PlacePageContent>
                             </PageContentContainer>
                         }

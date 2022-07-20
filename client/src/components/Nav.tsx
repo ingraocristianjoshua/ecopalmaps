@@ -64,9 +64,9 @@ const NavOptionsContainer = styled.div`
 `;
 
 const NavExtraOptions = styled.div.attrs(
-    (props: { isOpened: boolean }) => props
+    (props: { isOpened: boolean, visible: boolean }) => props
 )`
-    display: ${(props) => (props.isOpened ? "flex" : "none")};
+    display: flex;
     align-items: left;
     flex-direction: column;
     gap: 8px;
@@ -74,12 +74,13 @@ const NavExtraOptions = styled.div.attrs(
     top: unset;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: ${(props) => (props.isOpened ? `0` : `-100%`)};
     background-color: #ffffff;
     z-index: 10000;
     padding-top: 24px;
     padding-bottom: 24px;
     border-radius: 18px 18px 0px 0px;
+    animation: ${(props) => (props.visible ? `slideIn` : `slideOut`)} 0.4s;
 
     @media ${devices.tablet} {
         display: flex;
@@ -95,6 +96,27 @@ const NavExtraOptions = styled.div.attrs(
         border-radius: 0px;
         padding: 0;
         background-color: transparent;
+        animation: none;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(100%);
+        }
+
+        to {
+            transform: translateY(0%);
+        }
+    }
+
+    @keyframes slideOut {
+        from {
+            transform: translateY(0%);
+        }
+
+        to {
+            transform: translateY(100%);
+        }
     }
 `;
 
@@ -115,7 +137,9 @@ const NavExtraOptionsOverlay = styled.div.attrs(
     }
 `;
 
-const NavExtraOption = styled.div`
+const NavExtraOption = styled.div.attrs(
+    (props: { color: string }) => props
+)`
     display: flex;
     align-items: center;
 
@@ -123,13 +147,13 @@ const NavExtraOption = styled.div`
         width: 100%;
         text-decoration: none;
         background-color: transparent;
-        color: #edd035;
+        color: ${(props) => (props.color || "#edd035")};
         padding: 16px 24px;
         border-radius: 18px;
     }
 
     a.active {
-        background-color: #edd035;
+        background-color: ${(props) => (props.color || "#edd035")};
         color: #ffffff;
         padding: 16px 24px;
         border-radius: inherit;
@@ -147,14 +171,14 @@ const NavExtraOption = styled.div`
         a {
             text-decoration: none;
             background-color: transparent;
-            color: #edd035;
+            color: ${(props) => (props.color || "#edd035")};
             padding: 0;
             border-radius: 0px;
             width: auto;
         }
 
         a.active {
-            background-color: #edd035;
+            background-color: ${(props) => (props.color || "#edd035")};
             color: #ffffff;
             padding: 2px 6px;
             border-radius: 4px;
@@ -175,7 +199,8 @@ const CloseNavExtraOptionsContainer = styled.div`
 
 const CloseNavExtraOptions = styled(Button)`
     color: #ffffff;
-    background-color: #edd035;
+    background-color: transparent;
+    background-image: linear-gradient(90deg, #08D608 0%, #039BE5 50%, #EDD035 100%);
     width: 100%;
 
     @media ${devices.tablet} {
@@ -197,6 +222,7 @@ const NavMenuButton = styled.div`
 function Nav() {
     const navigate = useNavigate();
     const [isOpened, setIsOpened] = useState(false);
+    const [visible, setVisible] = useState(false);
 
     return (
         <NavContainer>
@@ -229,9 +255,17 @@ function Nav() {
                 </NavBrandLink>
             </NavBrandContainer>
             <NavOptionsContainer>
-                <NavExtraOptionsOverlay role="link" onClick={() => {setIsOpened(false)}} isOpened={isOpened}></NavExtraOptionsOverlay>
-                <NavExtraOptions isOpened={isOpened}>
-                    <NavExtraOption>
+                <NavExtraOptionsOverlay role="link" 
+                    onClick={() => {
+                        setVisible(false);
+                        setTimeout(() => {
+                            setIsOpened(false);
+                        }, 400);
+                    }} 
+                    isOpened={isOpened}
+                ></NavExtraOptionsOverlay>
+                <NavExtraOptions isOpened={isOpened} visible={visible}>
+                    <NavExtraOption color={"#08D608"}>
                         <NavLink
                             className={(navData: any) =>
                                 navData.isActive ? "active" : ""
@@ -242,7 +276,7 @@ function Nav() {
                             E-mobility
                         </NavLink>
                     </NavExtraOption>
-                    <NavExtraOption>
+                    <NavExtraOption color={"#039BE5"}>
                         <NavLink
                             className={(navData: any) =>
                                 navData.isActive ? "active" : ""
@@ -253,7 +287,7 @@ function Nav() {
                             La città
                         </NavLink>
                     </NavExtraOption>
-                    <NavExtraOption>
+                    <NavExtraOption color={"#EDD035"}>
                         <NavLink
                             className={(navData: any) =>
                                 navData.isActive ? "active" : ""
@@ -268,7 +302,10 @@ function Nav() {
                         <CloseNavExtraOptions
                             role="button"
                             onClick={() => {
-                                setIsOpened(false);
+                                setVisible(false);
+                                setTimeout(() => {
+                                    setIsOpened(false);
+                                }, 400);
                             }}
                         >
                             Chiudi
@@ -278,7 +315,8 @@ function Nav() {
                 <NavMenuButton
                     role="button"
                     onClick={() => {
-                        setIsOpened(!isOpened);
+                        setIsOpened(true);
+                        setVisible(true);
                     }}
                 >
                     <Menu />
