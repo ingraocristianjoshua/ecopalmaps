@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { devices } from "../styles/devices";
+import { Button } from "../styles/global";
 import Account from "./icons/Account";
 import Menu from "./icons/Menu";
 
@@ -68,29 +69,49 @@ const NavExtraOptions = styled.div.attrs(
     display: ${(props) => (props.isOpened ? "flex" : "none")};
     align-items: left;
     flex-direction: column;
-    gap: 0px;
+    gap: 8px;
     position: fixed;
-    top: 100px;
-    right: 12px;
+    top: unset;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: #ffffff;
     z-index: 10000;
-    border-radius: 18px;
-    box-shadow: 0px 0px 2px #0b0f10;
-
-    @media ${devices.mobileM} {
-        right: 24px;
-    }
+    padding-top: 24px;
+    padding-bottom: 24px;
+    border-radius: 18px 18px 0px 0px;
 
     @media ${devices.tablet} {
         display: flex;
         position: relative;
         top: unset;
+        left: unset;
         right: unset;
+        bottom: unset;
         flex-direction: row;
         gap: 24px;
         align-items: center;
         box-shadow: none;
         border-radius: 0px;
+        padding: 0;
+        background-color: transparent;
+    }
+`;
+
+const NavExtraOptionsOverlay = styled.div.attrs(
+    (props: { isOpened: boolean }) => props
+)`
+    display: ${(props) => (props.isOpened ? "block" : "none")};
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+
+    @media ${devices.tablet} {
+        display: none;
     }
 `;
 
@@ -103,22 +124,15 @@ const NavExtraOption = styled.div`
         text-decoration: none;
         background-color: transparent;
         color: #edd035;
-        padding: 8px 20px;
-        border-radius: inherit;
+        padding: 16px 24px;
+        border-radius: 18px;
     }
 
     a.active {
         background-color: #edd035;
         color: #ffffff;
+        padding: 16px 24px;
         border-radius: inherit;
-    }
-
-    :first-child {
-        border-radius: 18px 18px 0px 0px;
-    }
-
-    :last-child {
-        border-radius: 0px 0px 18px 18px;
     }
 
     @media ${devices.tablet} {
@@ -145,6 +159,27 @@ const NavExtraOption = styled.div`
             padding: 2px 6px;
             border-radius: 4px;
         }
+    }
+`;
+
+const CloseNavExtraOptionsContainer = styled.div`
+    display: block;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    @media ${devices.tablet} {
+        display: none;
+    }
+`;
+
+const CloseNavExtraOptions = styled(Button)`
+    color: #ffffff;
+    background-color: #edd035;
+    width: 100%;
+
+    @media ${devices.tablet} {
+        display: none;
     }
 `;
 
@@ -194,6 +229,7 @@ function Nav() {
                 </NavBrandLink>
             </NavBrandContainer>
             <NavOptionsContainer>
+                <NavExtraOptionsOverlay role="link" onClick={() => {setIsOpened(false)}} isOpened={isOpened}></NavExtraOptionsOverlay>
                 <NavExtraOptions isOpened={isOpened}>
                     <NavExtraOption>
                         <NavLink
@@ -228,6 +264,16 @@ function Nav() {
                             Informazioni
                         </NavLink>
                     </NavExtraOption>
+                    <CloseNavExtraOptionsContainer>
+                        <CloseNavExtraOptions
+                            role="button"
+                            onClick={() => {
+                                setIsOpened(false);
+                            }}
+                        >
+                            Chiudi
+                        </CloseNavExtraOptions>
+                    </CloseNavExtraOptionsContainer>
                 </NavExtraOptions>
                 <NavMenuButton
                     role="button"
